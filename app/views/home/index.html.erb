@@ -1,0 +1,35 @@
+<div id="content">
+
+  <% @articles.each do |article| %>
+    <div class="post">
+      <h1 class="title"><%= article.title %></h1>
+      <div class="entry">
+        <%= article.description %>
+
+      </div>
+      <div class="meta">
+        <p class="byline"><%= l(article.created_at, :format => :my) %></p>
+        <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => article)%></p>
+      </div>
+    </div>
+  <%end%>
+  <div style="clear:both;"></div>
+  <div align="center"> <%= will_paginate @articles %></div>
+</div>
+<div id="sidebar">
+
+  <%= render :partial => "shared/tree_for_users" %>
+
+  <div id="product_data" style="float:left;width:75%">
+  </div>
+  <div style="clear:both;"></div>
+
+  <div id="edit_product">
+
+  </div>
+</div>
+<!-- end sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+
+

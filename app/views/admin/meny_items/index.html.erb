@@ -1,0 +1,11 @@
+<% title "Menu" %>
+
+
+<% for meny_item in @meny_items %>
+
+  <span><%= meny_item.name %> <%= link_to "Edit", edit_admin_meny_item_path(meny_item) %></span>
+
+
+<% end %>
+
+

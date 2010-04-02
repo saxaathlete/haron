@@ -1,0 +1,14 @@
+<% title "Contacts" %>
+
+
+  <% for contact in @contacts %>
+
+      <%= contact.contact %>
+
+      <%= link_to "Edit", edit_admin_contact_path(contact) %>
+      <%= link_to "Destroy", admin_contact_path(contact), :confirm => 'Are you sure?', :method => :delete %>
+
+  <% end %>
+
+
+<p><%= link_to "New informations", new_admin_contact_path %></p>

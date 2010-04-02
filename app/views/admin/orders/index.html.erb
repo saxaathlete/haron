@@ -1,0 +1,25 @@
+
+<% unless @orders.blank? %>
+  <table>
+    <tr>
+      <th style="width: 15%">Дата заказа</th>
+      <th style="width: 10%">Клиент</th>
+    </tr>
+    <% for order in @orders %>
+      <tr>
+        <td><%=h order.created_at %></td>
+        <td><%=h order.email %></td>
+        <td><%=h order.status %></td>
+
+        <% if logged_in? %>
+          <td><%= link_to "Show", admin_order_path(order) %></td>
+          <td><%= link_to "Edit", edit_admin_order_path(order) %></td>
+          <td><%= link_to "Destroy", admin_order_path(order), :confirm => 'Are you sure?', :method => :delete %></td>
+
+        <%end%>
+      </tr>
+    <% end %>
+  </table>
+<%else%>
+  <div id="flash_notice"> There is no product </div>
+<%end%>

@@ -1,0 +1,57 @@
+/* BACKGROUND */
+
+.tree-apple .ltr > li.leaf, .tree-apple .rtl > li.leaf { background-image:none; }
+
+/* LOCKED */
+.tree-apple .locked li a { color:gray; }
+/* DOTS */
+.tree-apple ul { background-position:6px 1px; background-repeat:repeat-y; background-image:url(data:image/gif;base64,R0lGODlhAgACAIAAAB4dGf///yH5BAEAAAEALAAAAAACAAIAAAICRF4AOw==); _background-image:url("dot_for_ie.gif"); *background-image:url("dot_for_ie.gif"); }
+
+/* NO DOTS */
+.tree-apple .no_dots, .tree-apple .no_dots ul { background:transparent; }
+.tree-apple .no_dots li.leaf { background-image:none; background-color:transparent; }
+/* OPEN or CLOSED */
+.tree-apple li.open { background:url("icons.png") -32px -48px no-repeat; }
+.tree-apple li.closed, #jstree-dragged.tree-apple li li.open { background:url("icons.png") -48px -32px no-repeat; }
+#jstree-marker { background-image:url("icons.png"); }
+/* DEFAULT, HOVER, CLICKED, LOADING STATES */
+.tree-apple li a, .tree-apple li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { text-decoration: underline; }
+/* DEFAULT, HOVER, CLICKED, LOADING STATES */
+
+.tree-apple li a.clicked, .tree-apple li a.clicked:hover, .tree-apple li span.clicked {
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#FFFFFF  none repeat scroll 0 0;
+    border:1px solid #FFFFFF ;
+    padding:0 3px;
+}
+/* ICONS */
+
+.tree-apple ul li a.loading ins { background-image:url("throbber.gif") !important; background-position:0 0 !important; } /* UL is added to make selector stronger */
+.tree-apple li a ins.forbidden { background-position:-16px -16px; }
+.tree-apple .locked li a ins { background-position:0 -48px; }
+.tree-apple li span ins { background-position:-16px 0; }
+#jstree-dragged.tree-apple ins { background:url("icons.png") -16px -32px no-repeat; }
+#jstree-dragged.tree-apple ins.forbidden { background:url("icons.png") -16px -16px no-repeat; }
+
+/* CONTEXT MENU */
+.tree ul ins { display:inline-block; text-decoration:none; width:0px; height:0px; }
+.tree .ltr ins { margin:0 0px 0 0px; }
+.top_node {
+    color:#DADADA;
+    font-size:18px;
+    height:32px;
+    margin-bottom:10px;
+    text-transform:lowercase;
+    margin-left: -17px;
+    margin-bottom: 20px !important;
+}
+.bottom_node {
+    font-size:16px;
+    height:32px;
+    margin-bottom:10px;
+    text-transform:lowercase;
+
+
+}

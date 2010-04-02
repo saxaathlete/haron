@@ -1,0 +1,68 @@
+<% if logged_in? %>
+  <div style="float: left">
+    <%= link_to 'Add category', new_admin_product_category_path(:parent_id => @category.id) %>
+    <%= link_to 'Edit category', edit_admin_product_category_path(@category.id) %>
+    <%= link_to 'Destroy category', admin_product_category_path(@category.id), :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Add product', new_admin_cataloge_path(:parent_id => @category.id) %>
+  </div>
+<%end%>
+<% unless @products.blank? %>
+  <table >
+    <% @products.each_with_index do |product, index| %>
+      <% if index % 3 == 0 or index == 0 %>
+        <tr>
+        <%  end -%>
+        <td valign="top" style="width: 220px">
+          <table width="220px" >
+            <tr>
+              <td valign="top">
+                <%=h product.title %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><% if product.product_photo_file_name.blank? %>
+                  <%= image_tag "/images/no_photo.jpg",  :size => "100x100", :style => 'border: 1px solid grey;'    %>
+                <% else %>
+                  <%= image_tag product.product_photo.url(:thumb) %>
+                <%end%>
+              </td>
+              <td  >
+                <div><%= product.description %></div>
+              </td>
+            </tr>
+          </table>
+          <% if logged_in? %>
+          <%= link_to "Edit", edit_admin_cataloge_path(product) %>
+          <%= link_to "Destroy", admin_cataloge_path(product), :confirm => 'Are you sure?', :method => :delete %>
+        <%end%>
+
+        </td>
+        <% if index+1 % 2 == 0 and index != 0 %>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <div style="clear:both;"></div>
+  <div align="center"><%= will_paginate @products %></div>
+<%else%>
+  <div id="flash_notice"> There is no product </div>
+<%end%>
+<script type="text/javascript">
+  $j(document).ready(function($) {
+
+    $j('div.pagination a').click( function() {
+      var page_pattern = new RegExp(  /.*page\=(\d+).*/);
+      var page_number = page_pattern.exec( this );
+      if( page_number != null )
+      {
+        page_number = page_number[1];
+      }
+      else
+      {
+        page_number = 1;
+      }
+      $j.getScript("/home/show_product_table?parent_id=<%=@category.id%>&page=" + page_number );
+      return false
+    });
+  });
+</script>

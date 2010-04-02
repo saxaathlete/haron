@@ -1,0 +1,19 @@
+<% title "Edit Article" %>
+
+<% form_for @article, :url => {:action => 'update'} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :article %><br />
+    <%= f.text_area :article, :cols => '120', :class => "mceEditor" %>
+  </p>
+  <p>
+    <%= f.label :Рездел %><br />
+    <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}) %>
+  </p>
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

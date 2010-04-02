@@ -1,0 +1,33 @@
+<div id="content">
+
+
+  <div class="post">
+    <h1 class="title"><%= @article.title %></h1>
+    <div class="entry">
+      <%= @article.article %>
+
+    </div>
+    <div class="meta">
+      <p class="byline"><%= @article.created_at.strftime("%d %B %Y") %></p>
+
+    </div>
+  </div>
+
+</div>
+<div id="sidebar">
+
+  <%= render :partial => "shared/tree_for_users" %>
+
+  <div id="product_data" style="float:left;width:75%">
+  </div>
+  <div style="clear:both;"></div>
+
+  <div id="edit_product">
+
+  </div>
+</div>
+<!-- end sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+
+

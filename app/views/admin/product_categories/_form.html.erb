@@ -1,0 +1,20 @@
+<% form_for @product_category, :html => { :multipart => true} do |f| %>
+  <%= f.error_messages %>
+  <%= hidden_field_tag :parent_id, @category.id %>
+
+  <p>
+    <%= f.label :parent_category_name %>&nbsp;&nbsp;
+    <%= h @category.category_name%>
+  </p>
+  <p>
+    <%= f.label :category_name %><br />
+    <%= f.text_field :category_name%>
+  </p>
+  <p>
+    <%= f.label :category_photo %><br />
+    <%= f.file_field :category_photo %>
+  </p>
+  
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

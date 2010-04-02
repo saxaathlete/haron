@@ -1,0 +1,14 @@
+<% title "Company informations" %>
+
+
+  <% for company_information in @company_informations %>
+
+      <%= company_information.information %>
+
+      <%= link_to "Edit", edit_admin_company_information_path(company_information) %>
+      <%= link_to "Destroy", admin_company_information_path(company_information), :confirm => 'Are you sure?', :method => :delete %>
+
+  <% end %>
+
+
+<p><%= link_to "New informations", new_admin_company_information_path %></p>

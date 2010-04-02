@@ -1,0 +1,8 @@
+<% form_for @contact, :url => { :action => 'update'} do |f|%>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :contact %><br />
+    <%= f.text_area :contact, :cols => '70', :class => "mceEditor" %>
+  </p>
+  <%= f.submit "Submit" %>
+<%end%>

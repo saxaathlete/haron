@@ -1,0 +1,25 @@
+<% title "Редактирование категории" %>
+
+<% form_for @product_category, :url => {:action => 'update'}, :html => { :multipart => true} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :category_name %><br />
+    <%= f.text_field :category_name%>
+  </p>
+  <p>
+    <%= f.label :Описание %><br />
+    <%= f.text_area :description, :cols => '120', :class => "mceEditor" %>
+  </p>
+  <p>
+    <%= f.label :Изображение%><br />
+    <%= f.file_field :category_photo %>
+  </p>
+  <p>
+    <%= f.check_box :show_slide %>
+    <%= f.label "Показывать в слайдах" %><br />
+  </p>
+
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

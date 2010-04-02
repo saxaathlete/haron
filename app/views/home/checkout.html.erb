@@ -1,0 +1,68 @@
+<div id="sidebar">
+
+  <%= render :partial => "shared/tree_for_users" %>
+
+  <div id="product_data" style="float:left;width:75%">
+  </div>
+  <div style="clear:both;"></div>
+
+  <div id="edit_product">
+
+  </div>
+</div>
+<div id="content">
+
+  <h2>Введите контактную информацию и сообщение</h2>
+  <% form_for @order, :url => {:action => 'save_order'}  do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :Имя %><br/>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :Фамилия %><br/>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :Email %><br/>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :Телефон %><br/>
+      <%= f.text_field :telephone %>
+    </p>
+
+    <p>
+      <%= f.label :Город %><br/>
+      <%= f.text_field :city %>
+    </p>
+    <p>
+      <%= f.label :Регион %><br/>
+      <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true})%>
+    </p>
+    <p>
+      <%= f.label "Почтовый индес" %><br/>
+      <%= f.text_field :post_index %>
+    </p>
+    <p>
+      <%= f.label :Адрес %><br/>
+      <%= f.text_area :address, :rows => 3, :cols => 40 %>
+    </p>
+    <p>
+      <%= f.label :Сообщение %><br/>
+      <%= f.text_area :message, :rows => 3, :cols => 40 %>
+    </p>
+    <p>
+      <%= f.label "Введи символы на картинке" %><br/>
+      <img src="/images/captchas/<%= session[:captcha] %>.jpg" />
+      <%= text_field_tag(:captcha) %>
+    </p>
+
+
+
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
+<!-- end sidebar -->
+<div style="clear: both;">&nbsp;</div>

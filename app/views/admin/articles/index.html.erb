@@ -1,0 +1,18 @@
+<% title "Articles" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Article</th>
+  </tr>
+  <% for article in @articles %>
+    <tr>
+      <td><%=h article.title %></td>
+      <td><%= article.article %></td>
+      <td><%= link_to "Edit", edit_admin_article_path(article) %></td>
+      <td><%= link_to "Destroy", admin_article_path(article), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Article", new_admin_article_path %></p>

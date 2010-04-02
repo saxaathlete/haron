@@ -1,0 +1,27 @@
+<div id="sidebar">
+  <%= render :partial => "shared/monuments_tree" %>
+</div>
+<div id="content">
+  <div id="product_data" style="float:left;width:75%">
+    <%  unless @category.blank? %>
+      <%= render :partial => 'shared/products' %>
+    <% else %>
+      <% @monuments_news.each do |monuments_news| %>
+        <div class="post">
+          <h1 class="title"><%= monuments_news.title %></h1>
+          <div class="entry">
+            <%= monuments_news.description %>
+
+          </div>
+          <div class="meta">
+            <p class="byline"><%= l(monuments_news.created_at, :format => :my) %></p>
+            <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => monuments_news)%></p>
+          </div>
+        </div>
+      <%end%>
+    <div align="center"><%= will_paginate @monuments_news %></div>
+    <%end%>
+    
+  </div>
+</div>
+<div style="clear:both;"></div>

@@ -1,0 +1,16 @@
+<% title "Добавление нового изображения" %>
+
+<% form_for @gallery, :url => {:action => 'create'}, :html => { :multipart => true} do |f| %>
+  <%= f.error_messages %>
+ 
+  <p>
+    <%= f.label :Название %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :Изображение%><br />
+    <%= f.file_field :gallery_photo %>
+  </p>
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

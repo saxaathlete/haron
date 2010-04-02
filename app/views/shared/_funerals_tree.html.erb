@@ -1,0 +1,64 @@
+<%= javascript_include_tag 'jquery.tree.js' %>
+<%= stylesheet_link_tag '/javascripts/themes/apple/style.css' %>
+<style type="text/css">
+
+</style>
+<div id="cataloge" style="float:left;width:20%">
+  <div id="funerals_tree" class="demo source tree tree-apple" style="direction: ltr;">
+  </div>
+  <div style="clear:both;"></div>
+  <div id="monuments_tree" class="demo source tree tree-apple" style="direction: ltr;">
+  </div>
+
+</div>
+
+<script type="text/javascript">
+
+  $j(function () {
+        $j("#funerals_tree").tree({
+      ui : {
+        dots: false
+      },
+      callback: {
+        onselect: function(NODE){
+          $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+       
+        },
+        onload: function(){
+
+        }
+
+      },
+      data :{
+        type: "json",
+        opts : {
+          url: "/admin/cataloge/tree_funeral",
+          async: true
+        }        
+      }
+    });
+  });
+
+  $j("#monuments_tree").tree({
+    ui : {
+      dots: false
+    },
+    callback: {
+      onselect: function(NODE){
+        $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+      },
+      onload: function(){
+
+      }
+
+    },
+    data :{
+      type: "json",
+      opts : {
+        url: "/admin/cataloge/tree_monument",
+        async: true
+      }
+    }
+  });
+</script>
+

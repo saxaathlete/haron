@@ -1,0 +1,19 @@
+<div id="sidebar">
+
+  <%= render :partial => "shared/tree_for_users" %>
+
+  <div id="product_data" style="float:left;width:75%">
+  </div>
+  <div style="clear:both;"></div>
+
+  <div id="edit_product">
+
+  </div>
+</div>
+<div id="content">
+  <% @contacts.each do |contact| %>
+    <%= contact.contact %>
+  <%end%>
+
+</div>
+<div style="clear:both;"></div>
