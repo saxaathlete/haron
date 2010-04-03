@@ -1,5 +1,7 @@
-<div id="sidebar">
-
+<% content_for :title do %>
+  О нас
+<% end %>
+<% content_for :sidebar do %>
   <%= render :partial => "shared/tree_for_users" %>
 
   <div id="product_data" style="float:left;width:75%">
@@ -9,10 +11,9 @@
   <div id="edit_product">
 
   </div>
-</div>
-<div id="content">
+<% end %>
+<% content_for :content do %>
   <% @company_informations.each do |company_information| %>
     <%= company_information.information %>
   <%end%>
-</div>
-<div style="clear:both;"></div>
+<% end %>

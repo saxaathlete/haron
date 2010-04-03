@@ -1,5 +1,7 @@
-<div id="content">
-
+<% content_for :title do %>
+  Новости
+<% end %>
+<% content_for :content do %>
   <% @articles.each do |article| %>
     <div class="post">
       <h1 class="title"><%= article.title %></h1>
@@ -15,9 +17,8 @@
   <%end%>
   <div style="clear:both;"></div>
   <div align="center"> <%= will_paginate @articles %></div>
-</div>
-<div id="sidebar">
-
+<% end %>
+<% content_for :sidebar do %>
   <%= render :partial => "shared/tree_for_users" %>
 
   <div id="product_data" style="float:left;width:75%">
@@ -27,9 +28,7 @@
   <div id="edit_product">
 
   </div>
-</div>
-<!-- end sidebar -->
-<div style="clear: both;">&nbsp;</div>
+<% end %>
 
 
 

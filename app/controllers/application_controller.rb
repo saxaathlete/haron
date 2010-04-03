@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :find_categories_for_slide
   before_filter :load_meny
-  WillPaginate::ViewHelpers.pagination_options[:previous_label] = "Предыдущий"
-  WillPaginate::ViewHelpers.pagination_options[:next_label] = "Сдедующий"
+  WillPaginate::ViewHelpers.pagination_options[:previous_label] = "Предыдущая"
+  WillPaginate::ViewHelpers.pagination_options[:next_label] = "Следующая"
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password

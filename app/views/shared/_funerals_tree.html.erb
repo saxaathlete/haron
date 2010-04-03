@@ -15,14 +15,20 @@
 <script type="text/javascript">
 
   $j(function () {
-        $j("#funerals_tree").tree({
+    $j("#funerals_tree").tree({
       ui : {
         dots: false
       },
       callback: {
         onselect: function(NODE){
-          $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
-       
+          if ($j(NODE).attr('rel') == "root")
+          {
+            $j.getScript("/home/funerals?funerals_article=" + 1)
+          }
+          else
+          {
+            $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+          }
         },
         onload: function(){
 
@@ -34,7 +40,7 @@
         opts : {
           url: "/admin/cataloge/tree_funeral",
           async: true
-        }        
+        }
       }
     });
   });
@@ -45,7 +51,15 @@
     },
     callback: {
       onselect: function(NODE){
-        $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+        if ($j(NODE).attr('rel') == "root")
+        {
+          $j.getScript("/home/monuments?monuments_article=" + 1)
+        }
+        else
+        {
+         $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+        }
+        
       },
       onload: function(){
 

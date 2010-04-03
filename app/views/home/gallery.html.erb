@@ -40,7 +40,7 @@
     // Initialize Advanced Galleriffic Gallery
     var gallery = $j('#thumbs').galleriffic({
       delay:                     2500,
-      numThumbs:                 20,
+      numThumbs:                 10,
       preloadAhead:              10,
       enableTopPager:            false,
       enableBottomPager:         false,
@@ -163,18 +163,19 @@
   });
 
 </script>
-
+<% content_for :title do %>
+  Галлерея
+<% end %>
 
 <div id="thumbs" class="navigation">
   <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-
-
   <ul class="thumbs noscript">
     <%  @galleries.each do |photo| %>
       <li>
         <%= link_to(image_tag(photo.gallery_photo.url(:thumb)), photo.gallery_photo.url(:small), :class => "thumb") %>
         <div class="caption">
           <div class="image-title"><%= photo.title %></div>
+          <div class="image-desc"><%= photo.description %></div>
         </div>
       </li>
     <%end%>

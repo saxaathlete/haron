@@ -9,10 +9,16 @@ class HomeController < ApplicationController
   end
 
   def funerals
+    if params[:funerals_article]
+      render :update do |page|
+        page.redirect_to funerals_home_path
+      end
+    end
     unless @category.blank?
       @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
+    else
+      @funerals_news = Article.by_funerals.paginate :page => params[:page], :order => 'created_at DESC'
     end
-    @funerals_news = Article.by_funerals.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
 
@@ -24,10 +30,16 @@ class HomeController < ApplicationController
   end
 
   def monuments
+    if params[:monuments_article]
+      render :update do |page|
+        page.redirect_to monuments_home_path
+      end
+    end
     unless @category.blank?
       @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
+    else
+      @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'
     end
-    @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def show_monuments
@@ -68,7 +80,7 @@ class HomeController < ApplicationController
     @order.captcha = params[:captcha]
     if @order.save
       Notifier.deliver_order_information(@order)
-      flash[:notice] = "Thanks for your order!"
+      flash[:notice] = "Спасибо за сообщение"
       redirect_to root_url
     else
       reset_captcha

@@ -1,5 +1,7 @@
-<div id="sidebar">
-
+<% content_for :title do %>
+  Обратная связь
+<% end %>
+<% content_for :sidebar do %>
   <%= render :partial => "shared/tree_for_users" %>
 
   <div id="product_data" style="float:left;width:75%">
@@ -9,9 +11,8 @@
   <div id="edit_product">
 
   </div>
-</div>
-<div id="content">
-
+<% end %>
+<% content_for :content do %>
   <h2>Введите контактную информацию и сообщение</h2>
   <% form_for @order, :url => {:action => 'save_order'}  do |f| %>
     <%= f.error_messages %>
@@ -63,6 +64,4 @@
 
     <p><%= f.submit "Submit" %></p>
   <% end %>
-</div>
-<!-- end sidebar -->
-<div style="clear: both;">&nbsp;</div>
+<% end %>

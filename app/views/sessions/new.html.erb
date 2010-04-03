@@ -1,14 +1,33 @@
-<% form_tag session_path,  :class => "niceform" do -%>
-<p><label for="login">Login</label><br/>
-<%= text_field_tag 'login' %></p>
+<div id="box">
+  <div class="block" id="block-login">
+    <h2>Авторизация</h2>
+    <div class="content login">
+      <% form_tag session_path,  :class => "form login" do -%>
+        <div class="group wat-cf">
+          <div class="left">
+            <label class="label right">Логин</label>
+          </div>
+          <div class="right">
+            <%= text_field_tag 'login', nil, :class => "text_field" %>
+          </div>
+        </div>
+        <div class="group wat-cf">
+          <div class="left">
+            <label class="label right">Пароль</label>
+          </div>
+          <div class="right">
+            <%= password_field_tag 'password', nil, :class => "text_field" %>
+          </div>
+        </div>
+        <div class="group navform wat-cf">
+          <div class="right">
+            <button class="button" type="submit">
+              <img src="/images/key.png" alt="Save" /> Войти
+            </button>
+          </div>
 
-<p><label for="password">Password</label><br/>
-<%= password_field_tag 'password' %></p>
-
-<!-- Uncomment this if you want this functionality
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
--->
-
-<p><%= submit_tag 'Log in' %></p>
-<% end -%>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>
