@@ -14,7 +14,7 @@ set :password, "62608451"
 server "193.169.188.252", :web, :app, :db, :primary => true
 
 set :use_sudo, false
-set :deploy_to, "/home/haroncom"
+set :deploy_to, "/home/haroncom/haron"
 set :deploy_via, :checkout
 
 role :web, "193.169.188.252"                          # Your HTTP server, Apache/etc

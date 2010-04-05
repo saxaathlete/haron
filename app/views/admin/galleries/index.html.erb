@@ -28,7 +28,7 @@
       var isOff = link.hasClass('off');
       var removeClass = isOff ? 'off' : 'on';
       var addClass = isOff ? 'on' : 'off';
-      var linkText = isOff ? 'Hide Caption' : 'Show Caption';
+      var linkText = isOff ? 'Скрыть кнопки управления' : 'Показать кнопки управления';
       captionOpacity = isOff ? 0.7 : 0.0;
 
       link.removeClass(removeClass).addClass(addClass).text(linkText).attr('title', linkText);
@@ -51,7 +51,7 @@
       renderNavControls:         true,
       playLinkText:              'Слайдшоу',
       pauseLinkText:             'Остановить слайдшоу',
-      prevLinkText:              '&lsaquo; Предидущая фотография',
+      prevLinkText:              '&lsaquo; Предыдущая фотография',
       nextLinkText:              'Следующая фотография &rsaquo;',
       nextPageLinkText:          'Вперед &rsaquo;',
       prevPageLinkText:          '&lsaquo; Назад',
@@ -165,7 +165,7 @@
 <% content_for :title do %>
   Галлерея
 <% end %>
-<p><%= link_to "Добавить  новое изображение", new_admin_gallery_path %></p>
+  <p style="float: right;"><%= link_to "Добавить  новое изображение", new_admin_gallery_path %></p>
 <div id="thumbs" class="navigation">
   <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
   <ul class="thumbs noscript">
@@ -200,7 +200,7 @@
   </div>
 
   <div id="captionToggle">
-    <a href="#toggleCaption" class="off" title="Show Caption">Показать кнопки управления</a>
+    <a href="#toggleCaption" class="off" title="Показать кнопки управления">Показать кнопки управления</a>
   </div>
 
 </div>

@@ -8,7 +8,7 @@ set :user, "saxaathlete "
 
 set :server, "193.169.188.252"
 
-set :user, haroncom
+set :user, "haroncom"
 set :password, "62608451"
 
 server "193.169.188.252", :web, :app, :db, :primary => true

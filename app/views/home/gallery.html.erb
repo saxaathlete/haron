@@ -28,7 +28,7 @@
       var isOff = link.hasClass('off');
       var removeClass = isOff ? 'off' : 'on';
       var addClass = isOff ? 'on' : 'off';
-      var linkText = isOff ? 'Hide Caption' : 'Show Caption';
+      var linkText = isOff ? 'Скрыть описание' : 'Показать описание';
       captionOpacity = isOff ? 0.7 : 0.0;
 
       link.removeClass(removeClass).addClass(addClass).text(linkText).attr('title', linkText);
@@ -52,7 +52,7 @@
       renderNavControls:         true,
       playLinkText:              'Слайдшоу',
       pauseLinkText:             'Остановить слайдшоу',
-      prevLinkText:              '&lsaquo; Предидущая фотография',
+      prevLinkText:              '&lsaquo; Предыдущая фотография',
       nextLinkText:              'Следующая фотография &rsaquo;',
       nextPageLinkText:          'Вперед &rsaquo;',
       prevPageLinkText:          '&lsaquo; Назад',
@@ -195,7 +195,7 @@
   </div>
 
   <div id="captionToggle">
-    <a href="#toggleCaption" class="off" title="Show Caption">Показать описание</a>
+    <a href="#toggleCaption" class="off" title="Показать описание">Показать описание</a>
   </div>
 
 </div>

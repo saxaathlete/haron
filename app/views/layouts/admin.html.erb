@@ -59,13 +59,13 @@
         <div id="admin_menu-f">
 
           <ul>
-            <li><%= link_to  "Новости", admin_articles_path %> </li>
-            <li><%= link_to  "Заказы", admin_orders_path %></li>
-            <li><%= link_to  "Каталог товаров", admin_products_path %></li>
-            <li><%= link_to  "Галерея", admin_galleries_path %></li>
-            <li><%= link_to  "Контакты", admin_contacts_path %></li>
-            <li><%= link_to  "О нас", admin_company_informations_path %></li>
-            <li><%= link_to  "Меню", admin_meny_items_path %></li>
+            <% app_menu.each do |item|%>
+              <%if item[:controller].to_s == controller.controller_path.to_s%>
+                <li class="current_page_item"><%= link_to  item[:name], eval(item[:path]) %></li>
+              <%else%>
+                <li><%= link_to  item[:name], eval(item[:path]) %></li>
+              <%end%>
+            <%end%>
           </ul>
 
         </div>
