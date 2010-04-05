@@ -1,12 +1,21 @@
 set :application, "haron"
 set :repository,  "git://github.com/saxaathlete/haron.git"
 
-
-
 set :scm, :git
 set :scm_passphrase, "saxaathleteirjlf" #This is your custom users password
 set :user, "saxaathlete "
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+
+set :server, "193.169.188.252"
+
+set :user, haroncom
+set :password, "62608451"
+
+server "193.169.188.252", :web, :app, :db, :primary => true
+
+set :use_sudo, false
+set :deploy_to, "/home/haroncom/haron"
+set :deploy_via, :checkout
 
 role :web, "193.169.188.252"                          # Your HTTP server, Apache/etc
 role :app, "193.169.188.252"                          # This may be the same as your `Web` server
