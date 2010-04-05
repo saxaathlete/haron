@@ -1,4 +1,6 @@
 class Admin::CompanyInformationsController < ApplicationController
+  layout "admin"
+  before_filter :login_required
   uses_tiny_mce :only => [:new, :create, :edit, :update],
     :options => {
     :theme => 'advanced',
@@ -28,7 +30,7 @@ class Admin::CompanyInformationsController < ApplicationController
     @company_information = CompanyInformation.new(params[:company_information])
 
     if @company_information.save
-      flash[:notice] = "Successfully create company information"
+      flash[:notice] = "Информация о компании успешно добавлена"
       redirect_to admin_company_informations_path
     else
       render :action => 'new'
@@ -42,7 +44,7 @@ class Admin::CompanyInformationsController < ApplicationController
   def update
     @company_information = CompanyInformation.find(params[:id])
     if @company_information.update_attributes(params[:company_information])
-      flash[:notice] = "Successfully updated company information."
+      flash[:notice] = "Информация о компании успешно обновлена"
       redirect_to admin_company_informations_path
     else
       render :action => 'edit'
@@ -52,7 +54,7 @@ class Admin::CompanyInformationsController < ApplicationController
   def destroy
     @company_information = CompanyInformation.find(params[:id])
     @company_information.destroy
-    flash[:notice] = "Successfully destroyed company information."
+    flash[:notice] = "Информация о компании успешно удалена"
     redirect_to admin_company_informations_path
   end
 

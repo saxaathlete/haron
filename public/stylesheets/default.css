@@ -89,7 +89,11 @@ input, textarea, select {
     margin: 0 auto;
 
 }
+#admin_header {
+    clear: both;
+    margin: 0 auto;
 
+}
 /* Menu */
 
 #menu {
@@ -101,7 +105,7 @@ input, textarea, select {
     background: url(/images/menu_img.jpg) no-repeat left top;
 }
 
-#menu ul {
+#menu  ul {
     margin: 0;
     padding: 0px 0 0 0px;
     list-style: none;
@@ -531,7 +535,7 @@ html>body #footer {
     margin: 10px 0;
     color: #242424;
     width: 650px;
-    
+
 }
 
 #flash_notice {
@@ -587,10 +591,114 @@ html>body #footer {
     line-height: 26px;
 }
 .pagination {
-  padding-bottom: 20px;
-  padding-top: 20px;
-    
+    padding-bottom: 20px;
+    padding-top: 20px;
+
 }
 .slide_title {
     text-decoration: none;
+}
+/*Admin meny*/
+#admin_menu {
+    float: right;
+    width: 941px;
+    height: 60px;
+    padding-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    background: url(/images/menu_for_admin_img.jpg) no-repeat left top;
+}
+#admin_menu  ul {
+    margin: 0;
+    margin-left: 130px;
+    padding: 0px 0 0 0px;
+    list-style: none;
+    line-height: normal;
+}
+
+#admin_menu li {
+    display: block;
+    float: left;
+}
+
+#admin_menu a {
+    display: block;
+    float: left;
+    margin-right: 3px;
+    padding: 20px 20px;
+    text-decoration: none;
+    font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+#admin_menu-f {
+    margin: 0 auto;
+    width: 770px;
+    height: 54px;
+    padding-left: 10px;
+    margin-top: 15px;
+}
+
+#admin_menu-f ul {
+    margin: 0;
+    padding: 0px 0 0 0px;
+    list-style: none;
+    line-height: normal;
+}
+
+#admin_menu-f li {
+    display: block;
+    float: left;
+}
+
+#admin_menu-f a {
+    display: block;
+    float: left;
+    margin-right: 3px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+#admin_menu-f a:hover {
+    text-decoration: none;
+    color: #48ACDE;
+}
+
+#admin_menu-f .current_page_item a {
+    color: #48ACDE;
+}
+
+
+#admin_menu a:hover {
+    text-decoration: none;
+    color: #48ACDE;
+}
+
+#admin_menu .current_page_item a {
+    color: #48ACDE;
+}
+
+#admin_content {
+    margin: 0 20px 0 20px;
+}
+#small_admin_content {
+    margin: 0 -20px 0 -20px;
+    float: right;
+    width: 690px;
+}
+#order_table {
+    padding-bottom: 20px;
+}
+#order_table td {
+    padding-right: 20px;
+}
+#admin_sidebar {
+    float: left;
+    width: 210px;
+    padding-left: 30px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    border-right: 1px dashed #333333;
 }

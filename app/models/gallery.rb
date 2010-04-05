@@ -1,5 +1,6 @@
 class Gallery < ActiveRecord::Base
   has_attached_file :gallery_photo, :styles => {:small => '730x490', :thumb => "100x100#"}
 
-  validates_presence_of :title
+
+  validates_presence_of :title, :gallery_photo_file_name
 end

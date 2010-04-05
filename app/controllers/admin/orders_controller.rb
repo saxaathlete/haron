@@ -1,7 +1,9 @@
 class Admin::OrdersController < ApplicationController
+  layout "admin"
+  before_filter :login_required
   include ApplicationHelper
   def index
-    @orders = Order.all
+    @orders = Order.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -20,11 +22,9 @@ class Admin::OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
-    @order_status = ["Новый","В обработке","Доставлен и оплачен","Деньги возвращены","Отправлен","Отложен","Отменен"]
   end
 
   def update
-    @order_status = ["ВЫА","ЫВА","ыва"]
     @order = Order.find(params[:id])
     if @order.update_attributes(params[:order])
       flash[:notice] = "Заказ успешно обновлен"
@@ -36,7 +36,6 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @line_items = LineItem.find_all_by_order_id @order.id
   end
 
   def destroy

@@ -64,7 +64,7 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
-          flash[:error] = "You should logged in, for access to this page."
+          flash[:error] = "Отказано в доступе"
           redirect_to new_session_path
         end
         format.any do

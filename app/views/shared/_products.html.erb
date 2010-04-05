@@ -1,9 +1,13 @@
 <% if logged_in? %>
-  <div style="float: left">
-    <%= link_to 'Add category', new_admin_product_category_path(:parent_id => @category.id) %>
-    <%= link_to 'Edit category', edit_admin_product_category_path(@category.id) %>
-    <%= link_to 'Destroy category', admin_product_category_path(@category.id), :confirm => 'Are you sure?', :method => :delete %>
-    <%= link_to 'Add product', new_admin_cataloge_path(:parent_id => @category.id) %>
+  <div style="padding-bottom: 10px">
+    <div style="float: left;">
+      <%= link_to 'Добавить категорию', new_admin_product_category_path(:parent_id => @category.id) %>
+      <%= link_to 'Редактировать категорию', edit_admin_product_category_path(@category.id) %>
+      <%= link_to 'Удалить категорию', admin_product_category_path(@category.id), :confirm => 'Вы уверены?', :method => :delete %>
+    </div>
+    <span style="float: right">
+      <%= link_to 'Добавить товар', new_admin_product_path(:parent_id => @category.id) %>
+    </span>
   </div>
 <%end%>
 <% unless @products.blank? %>
@@ -32,9 +36,9 @@
             </tr>
           </table>
           <% if logged_in? %>
-          <%= link_to "Edit", edit_admin_cataloge_path(product) %>
-          <%= link_to "Destroy", admin_cataloge_path(product), :confirm => 'Are you sure?', :method => :delete %>
-        <%end%>
+            <%= link_to "Edit", edit_admin_product_path(product) %>
+            <%= link_to "Destroy", admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %>
+          <%end%>
 
         </td>
         <% if index+1 % 2 == 0 and index != 0 %>

@@ -1,4 +1,6 @@
 class Admin::ContactsController < ApplicationController
+  layout "admin"
+  before_filter :login_required
   uses_tiny_mce :only => [:new, :create, :edit, :update],
     :options => {
     :theme => 'advanced',
@@ -28,7 +30,7 @@ class Admin::ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
 
     if @contact.save
-      flash[:notice] = "Successfully create contacts"
+      flash[:notice] = "Контакт успешно добавлен"
       redirect_to admin_contacts_path
     else
       render :action => 'new'
@@ -42,7 +44,7 @@ class Admin::ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
-      flash[:notice] = "Successfully updated contacts."
+      flash[:notice] = "Контакт успешно обновлен"
       redirect_to admin_contacts_path
     else
       render :action => 'edit'
@@ -52,7 +54,7 @@ class Admin::ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    flash[:notice] = "Successfully destroyed contacts."
+    flash[:notice] = "Контакт успешно удален"
     redirect_to admin_contacts_url
   end
 

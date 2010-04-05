@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100403083143) do
+ActiveRecord::Schema.define(:version => 20100403172513) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -31,20 +31,6 @@ ActiveRecord::Schema.define(:version => 20100403083143) do
     t.datetime "updated_at"
   end
 
-  create_table "funerals", :force => true do |t|
-    t.integer  "artno"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price",               :limit => 10, :precision => 10, :scale => 0, :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.integer  "product_category_id"
-  end
-
   create_table "galleries", :force => true do |t|
     t.string   "title"
     t.string   "gallery_photo_file_name"
@@ -56,31 +42,12 @@ ActiveRecord::Schema.define(:version => 20100403083143) do
     t.text     "description"
   end
 
-  create_table "line_items", :force => true do |t|
-    t.integer  "product_id",                                                             :null => false
-    t.integer  "order_id",                                                               :null => false
-    t.integer  "quantity",                                                               :null => false
-    t.integer  "price",      :limit => 10, :precision => 10, :scale => 0, :default => 0, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "meny_items", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "controller"
     t.string   "action"
-  end
-
-  create_table "monuments", :force => true do |t|
-    t.integer  "artno"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price",               :limit => 10, :precision => 10, :scale => 0, :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "product_category_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -113,15 +80,13 @@ ActiveRecord::Schema.define(:version => 20100403083143) do
   end
 
   create_table "products", :force => true do |t|
-    t.integer  "artno"
     t.string   "title"
     t.text     "description"
-    t.integer  "price",                      :limit => 10, :precision => 10, :scale => 0, :default => 0
     t.string   "product_photo_file_name"
     t.string   "product_photo_content_type"
     t.integer  "product_photo_file_size"
     t.datetime "product_photo_updated_at"
-    t.string   "category_type",                                                           :default => "Funerals", :null => false
+    t.string   "category_type",              :default => "Funerals", :null => false
     t.integer  "product_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"

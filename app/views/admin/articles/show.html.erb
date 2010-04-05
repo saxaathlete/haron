@@ -1,6 +1,18 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<% content_for :content do %>
 
-<%= "show.html" %>
+  <div class="post">
+    <h1 class="title"><%= @article.title %></h1>
+    <div class="entry">
+      <%= @article.article %>
+
+    </div>
+    <div class="meta">
+      <p class="byline"><%= @article.created_at.strftime("%d %B %Y") %></p>
+
+    </div>
+  </div>
+
+<% end %>
+
+
+

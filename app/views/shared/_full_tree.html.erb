@@ -20,7 +20,7 @@
       },
       callback: {
         onselect: function(NODE){
-          $j.getScript("/admin/cataloge/show_product_table?parent_id=" + NODE.id)
+          $j.getScript("/admin/products/show_product_table?parent_id=" + NODE.id)
         },
         onload: function(){
         
@@ -30,7 +30,7 @@
       data :{
         type: "json",
         opts : {
-          url: "/admin/cataloge/tree_funeral",
+          url: "/admin/products/tree_funeral",
           async: true
         }
       }
@@ -43,7 +43,7 @@
       },
       callback: {
         onselect: function(NODE){
-          $j.getScript("/admin/cataloge/show_product_table?parent_id=" + NODE.id)
+          $j.getScript("/admin/products/show_product_table?parent_id=" + NODE.id)
         },
         onload: function(){
 
@@ -53,7 +53,7 @@
       data :{
         type: "json",
         opts : {
-          url: "/admin/cataloge/tree_monument",
+          url: "/admin/products/tree_monument",
           async: true
         }
       }

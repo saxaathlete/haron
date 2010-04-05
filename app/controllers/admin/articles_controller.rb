@@ -1,4 +1,6 @@
 class Admin::ArticlesController < ApplicationController
+  layout "admin"
+
   before_filter :login_required
   uses_tiny_mce :only => [:new, :create, :edit, :update],
     :options => {
@@ -18,7 +20,7 @@ class Admin::ArticlesController < ApplicationController
   }
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -28,7 +30,7 @@ class Admin::ArticlesController < ApplicationController
   def create
     @article = Article.new(params[:article])
     if @article.save
-      flash[:notice] = "Successfully created article."
+      flash[:notice] = "Статья успешно создана"
       redirect_to admin_articles_url
     else
       render :action => 'new'
@@ -42,7 +44,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(params[:article])
-      flash[:notice] = "Successfully updated article."
+      flash[:notice] = "Статья успешно обновлена"
       redirect_to admin_articles_url
     else
       render :action => 'edit'
@@ -52,7 +54,7 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    flash[:notice] = "Successfully destroyed article."
+    flash[:notice] = "Статья успешно удалена"
     redirect_to admin_articles_url
   end
 end

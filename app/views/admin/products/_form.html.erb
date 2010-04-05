@@ -1,0 +1,19 @@
+<% form_for([:admin, @product], :html => { :multipart => true}  )do |f| %>
+  <%= f.error_messages %>
+  <%= hidden_field_tag  :parent_id, params[:parent_id] %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => '80', :class => "mceEditor" %>
+  </p>
+  <p>
+    <%= f.label :product_photo %><br />
+    <%= f.file_field :product_photo %>
+  </p>
+
+  <p><%= f.submit "Создать" %></p>
+<% end %>
+<p><%= link_to "Назад", admin_products_path %></p>

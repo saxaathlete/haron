@@ -1,46 +1,42 @@
 <% form_for ([:admin, @order]) do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :Статус%><br />
-    <%= f.select(:status, @order_status.map{|item| [item, item]}, {:selected => @order.status})%>
-  </p>
-  <p>
-    <%= f.label :first_name %><br />
+    <%= f.label :Имя %><br/>
     <%= f.text_field :first_name %>
   </p>
   <p>
-    <%= f.label :last_name %><br />
+    <%= f.label :Фамилия %><br/>
     <%= f.text_field :last_name %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :Email %><br/>
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :telephone %><br />
+    <%= f.label :Телефон %><br/>
     <%= f.text_field :telephone %>
-  </p>
-  <p>
-    <%= f.label :first_name_for_receive %><br />
-    <%= f.text_field :first_name_for_receive %>
-  </p>
-  <p>
-    <%= f.label :last_name_for_receive %><br />
-    <%= f.text_field :last_name_for_receive %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
   </p>
 
   <p>
-    <%= f.label :post_index %><br />
+    <%= f.label :Город %><br/>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :Регион %><br/>
+    <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true})%>
+  </p>
+  <p>
+    <%= f.label "Почтовый индес" %><br/>
     <%= f.text_field :post_index %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label :Адрес %><br/>
     <%= f.text_area :address, :rows => 3, :cols => 40 %>
   </p>
+  <p>
+    <%= f.label :Сообщение %><br/>
+    <%= f.text_area :message, :rows => 3, :cols => 40 %>
+  </p>
 
-  <p><%= f.submit "Обновить" %></p>
+  <p><%= f.submit "Создать" %></p>
 <% end %>

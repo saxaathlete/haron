@@ -1,0 +1,5 @@
+<% if @product.category_photo_file_name.blank? %>
+  <%= image_tag "/images/no_photo.jpg",  :size => "130x130", :style => 'border: 1px solid grey;'    %>
+<% else %>
+  <%= image_tag @product.category_photo.url(:small) %>
+<%end%>

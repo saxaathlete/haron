@@ -1,8 +1,3 @@
-<% form_for @company_information, :url => { :action => 'update'} do |f|%>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :information %><br />
-    <%= f.text_area :information, :cols => '70', :class => "mceEditor" %>
-  </p>
-  <%= f.submit "Submit" %>
-<%end%>
+<% title "Редактирование информации о компании" %>
+
+<%= render :partial => "form" %>

@@ -1,4 +1,6 @@
 class Admin::MenyItemsController < ApplicationController
+  layout "admin"
+  before_filter :login_required
   def index
     @meny_items = MenyItem.all
   end

@@ -1,7 +1,11 @@
-set :application, "set your application name here"
+set :application, "haron"
 set :repository,  "git://github.com/saxaathlete/haron.git"
 
+
+
 set :scm, :git
+set :scm_passphrase, "saxaathleteirjlf" #This is your custom users password
+set :user, "saxaathlete "
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 role :web, "193.169.188.252"                          # Your HTTP server, Apache/etc

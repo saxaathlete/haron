@@ -1,12 +1,15 @@
 <% if logged_in? %>
-  <%= link_to  "Новости", admin_articles_path %> |
-  <%= link_to  "Заказы", admin_orders_path %> |
-  <%= link_to  "Каталог товаров", admin_cataloge_index_path %> |
-  <%= link_to  "Галерея", admin_galleries_path %> |
-  <%= link_to  "Контакты", admin_contacts_path %> |
-  <%= link_to  "О нас", admin_company_informations_path %> |
-  <%= link_to  "Меню", admin_meny_items_path %> |
-  <%= link_to  "Слайдшоу", admin_section_descriptions_path %>
+  <div id="admin_menu">
+    <ul>
+      <li><%= link_to  "Новости", admin_articles_path %> </li>
+      <li><%= link_to  "Заказы", admin_orders_path %></li>
+      <li><%= link_to  "Каталог товаров", admin_products_path %></li>
+      <li><%= link_to  "Галерея", admin_galleries_path %></li>
+      <li><%= link_to  "Контакты", admin_contacts_path %></li>
+      <li><%= link_to  "О нас", admin_company_informations_path %></li>
+      <li><%= link_to  "Меню", admin_meny_items_path %></li>
+    </ul>
+  </div>
 <%else%>
   <div id="menu">
     <ul>
@@ -17,7 +20,7 @@
           <li><%= link_to  meny_item.name, :controller => meny_item.controller, :action => meny_item.action %> </li>
         <%end%>
       <%end%>
-          <li style="float: right;"> <%= link_to  "Обратная связь", checkout_home_path %> </li>
+      <li style="float: right;"> <%= link_to  "Обратная связь", checkout_home_path %> </li>
 
     </ul>
   </div>

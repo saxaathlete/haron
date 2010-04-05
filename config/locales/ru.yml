@@ -108,6 +108,7 @@ ru:
 
     models:
       order: "Заявка"
+      gallery: "Галлерея"
 
     attributes:
       order:
@@ -119,6 +120,10 @@ ru:
         region: "Регион"
         post_index: "Почтовый индекс"
         message: "Сообщение"
+      gallery:
+        title: "Название"
+        description: "Описание"
+        gallery_photo_file_name: "Поле фотографии"
 
     # Перевод названий моделей. Используется в Model.human_name().
     #

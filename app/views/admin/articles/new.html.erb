@@ -1,19 +1,5 @@
-<% title "New Article" %>
-<% form_for @article, :url => {:action => 'create'} do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :article %><br />
-    <%= f.text_area :article, :cols => '120', :class => "mceEditor" %>
-  </p>
-  <p>
-    <%= f.label :Рездел %><br />
-    <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}) %>
-  </p>
+<% title "Новая статья" %>
 
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-<p><%= link_to "Back to List", admin_articles_path %></p>
+<%= render :partial => "form" %>
+
+

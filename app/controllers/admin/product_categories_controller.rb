@@ -1,4 +1,5 @@
 class Admin::ProductCategoriesController < ApplicationController
+  layout "admin"
   before_filter :find_category, :only => [:new, :create]
   before_filter :login_required
   uses_tiny_mce :only => [:new, :create, :edit, :update],
@@ -32,8 +33,8 @@ class Admin::ProductCategoriesController < ApplicationController
     @product_category.category_type = @category.category_type
 
     if @product_category.save
-      flash[:notice] = "Successfully created category."
-      redirect_to admin_cataloge_index_url
+      flash[:notice] = "Категория успешно создана"
+      redirect_to admin_products_url
     else
       render :action => 'new'
     end
@@ -47,8 +48,8 @@ class Admin::ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.find(params[:id])
 
     if @product_category.update_attributes(params[:product_category])
-      flash[:notice] = "Successfully updated product" + @product_category.category_name
-      redirect_to admin_cataloge_index_url
+      flash[:notice] = "Категория успешно обновлена"
+      redirect_to admin_products_url
     else
       render :action => 'edit'
     end
@@ -61,11 +62,11 @@ class Admin::ProductCategoriesController < ApplicationController
     @product_category = ProductCategory.find(params[:id])
     @products = @product_category.find_all_products_by_sub_categories_ids
     if @product_category.destroy
-      flash[:notice] = "Successfully destroyed product category."
-      redirect_to admin_cataloge_index_url
+      flash[:notice] = "Категория успешно удалена"
+      redirect_to admin_products_url
     else
-      flash[:error] = "There is some errors."
-      redirect_to admin_cataloge_index_url
+      flash[:error] = "При удалении категории возникли ошибки"
+      redirect_to admin_products_url
     end
 
   end
@@ -73,9 +74,5 @@ class Admin::ProductCategoriesController < ApplicationController
   protected
   def find_category
     @category = ProductCategory.find_by_id params[:parent_id].to_i
-
-    if @category.blank?
-      redirect_to root_path
-    end
   end
 end

@@ -1,9 +1,9 @@
-<% title "Menu" %>
+<% title "Главное меню" %>
 
 
 <% for meny_item in @meny_items %>
 
-  <span><%= meny_item.name %> <%= link_to "Edit", edit_admin_meny_item_path(meny_item) %></span>
+  <span><%= meny_item.name %> <%= link_to "Edit", edit_admin_meny_item_path(meny_item) %></span><br/>
 
 
 <% end %>

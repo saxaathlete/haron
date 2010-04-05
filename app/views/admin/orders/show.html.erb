@@ -1,10 +1,13 @@
+<% title "Заказ от " + @order.first_name + " " + @order.last_name   %>
 <% unless @order.blank? %>
   <%=  @order.address %>
   <%=  @order.email %>
   <%=  @order.telephone %>
-  <%=  @order.first_name_for_receive %>
-  <%=  @order.last_name_for_receive %>
+  <%=  @order.first_name %>
+  <%=  @order.last_name %>
   <%=  @order.city %>
   <%=  @order.region %>
   <%=  @order.post_index %>
+  <%=  @order.message %>
 <%end%>
+<div style="float: right;"><%= link_to "Назад", admin_orders_path %></div>

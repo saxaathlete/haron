@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :meny_items
     admin.resources :orders
     admin.resources :galleries
-    admin.resources :cataloge, :collection => {:tree_funeral => :get, :tree_monument => :get, :show_product_table => :get}
+    admin.resources :products, :collection => {:tree_funeral => :get, :tree_monument => :get, :show_product_table => :get}
     admin.resources :section_descriptions
   end
 
