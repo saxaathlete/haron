@@ -1,6 +1,6 @@
 class DeleteTableSectionDescriptions < ActiveRecord::Migration
   def self.up
-    drop_table :section_descriptions
+    #drop_table :section_descriptions
   end
 
   def self.down

@@ -22,15 +22,9 @@ role :app, "80.91.189.60"                          # This may be the same as you
 role :db,  "80.91.189.60", :primary => true # This is where Rails migrations will run
 role :db,  "80.91.189.60"
 
-#If you are using Passenger mod_rails uncomment this:
- #if you're still using the script/reapear helper you will need
- #these http://github.com/rails/irs_process_scripts'
+after "deploy:update", :get_confs
 
- namespace :deploy do
-   task :start do ; end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
-
+task :get_confs, :roles => :web do
+  run "cp #{current_path}/config/deploy/demo/database.yml #{current_path}/config/database.yml"
+  run "cp #{current_path}/config/deploy/demo/app_config.yml #{current_path}/config/app_config.yml"
+end
