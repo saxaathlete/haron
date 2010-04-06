@@ -18,7 +18,6 @@ class Article < ActiveRecord::Base
 
   def description
     description = self.article.split("</p>").first + "</p>"
-    p description
     unless description.size < 500
       description
     else

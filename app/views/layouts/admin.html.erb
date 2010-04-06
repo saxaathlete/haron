@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag 'default.css' %>
 
     <%= javascript_include_tag 'jquery.js' %>
-    `
+   
     <script language="JavaScript">
       var $j = jQuery.noConflict();
     </script>
@@ -24,9 +24,7 @@
   </head>
   <body>
     <div id="logo-wrap">
-      <div id="logo">
-        <%= link_to((image_tag "/images/logo_haron.jpg", :alt => "Харон - специализированная похоронная служба"), home_index_path) %>
-      </div>
+ 
       <%= render :partial => 'shared/main_many' %>
     </div>
 
@@ -55,7 +53,7 @@
     </div>
     <!-- start footer -->
     <div id="footer">
-      <div id="footer-wrap">
+      <div id="footer-wrap" style="width: 680px;">
         <div id="admin_menu-f">
 
           <ul>

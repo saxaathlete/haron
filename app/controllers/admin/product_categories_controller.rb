@@ -41,6 +41,7 @@ class Admin::ProductCategoriesController < ApplicationController
   end
 
   def edit
+    @category = ProductCategory.find_by_id params[:id].to_i
     @product_category = ProductCategory.find(params[:id])
   end
 

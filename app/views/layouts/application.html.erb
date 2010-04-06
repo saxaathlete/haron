@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag 'default.css' %>
 
     <%= javascript_include_tag 'jquery.js' %>
-    `
     <script language="JavaScript">
       var $j = jQuery.noConflict();
     </script>
@@ -72,8 +71,9 @@
             <%= yield(:content) %>
 
           </div>
-          <div style="clear:both;"></div>
+         
           <%= yield  %>
+          <div style="clear:both;"></div>
         </div>
       </div>
     </div>
