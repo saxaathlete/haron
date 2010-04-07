@@ -1,395 +1,748 @@
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing HomeController#index (for 127.0.0.1 at 2010-04-03 23:03:34) [GET]
-  [4;36;1mMenyItem Load (0.0ms)[0m   [0;1mMysql::Error: Table 'funerals_development.meny_items' doesn't exist: SELECT * FROM `meny_items` [0m
-
-ActiveRecord::StatementInvalid (Mysql::Error: Table 'funerals_development.meny_items' doesn't exist: SELECT * FROM `meny_items` ):
-  app/controllers/application_controller.rb:19:in `load_meny'
-
-Rendered rescues/_trace (126.1ms)
-Rendered rescues/_request_and_response (1.4ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (24.3ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (41.7ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
-Migrating to CreateUsers (20100225100057)
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (9.4ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(255), `remember_token_expires_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100225100057')[0m
-Migrating to CreateArticles (20100225130704)
-  [4;36;1mSQL (8.0ms)[0m   [0;1mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `article` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100225130704')[0m
-Migrating to CreateMenyItems (20100225183950)
-  [4;36;1mSQL (14.0ms)[0m   [0;1mCREATE TABLE `meny_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100225183950')[0m
-Migrating to AddActionAndControllerToMenyItems (20100225201451)
-  [4;36;1mSQL (13.8ms)[0m   [0;1mALTER TABLE `meny_items` ADD `controller` varchar(255)[0m
-  [4;35;1mSQL (105.5ms)[0m   [0mALTER TABLE `meny_items` ADD `action` varchar(255)[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100225201451')[0m
-Migrating to CreateProductCategories (20100226194900)
-  [4;35;1mSQL (6.6ms)[0m   [0mCREATE TABLE `product_categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT 0, `category_name` varchar(255), `product_id` int(11), `product_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100226194900')[0m
-Migrating to CreateFunerals (20100226201518)
-  [4;35;1mSQL (10.4ms)[0m   [0mCREATE TABLE `funerals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `artno` int(11), `title` varchar(255), `description` text, `price` decimal DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100226201518')[0m
-Migrating to CreateMonuments (20100226201542)
-  [4;35;1mSQL (10.2ms)[0m   [0mCREATE TABLE `monuments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `artno` int(11), `title` varchar(255), `description` text, `price` decimal DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100226201542')[0m
-Migrating to AddAttachmentsPhotoToFuneral (20100304083311)
-  [4;35;1mSQL (13.5ms)[0m   [0mALTER TABLE `funerals` ADD `photo_file_name` varchar(255)[0m
-  [4;36;1mSQL (16.2ms)[0m   [0;1mALTER TABLE `funerals` ADD `photo_content_type` varchar(255)[0m
-  [4;35;1mSQL (36.8ms)[0m   [0mALTER TABLE `funerals` ADD `photo_file_size` int(11)[0m
-  [4;36;1mSQL (14.3ms)[0m   [0;1mALTER TABLE `funerals` ADD `photo_updated_at` datetime[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100304083311')[0m
-Migrating to RemovePolimorphism (20100304171026)
-  [4;36;1mSQL (14.6ms)[0m   [0;1mALTER TABLE `product_categories` DROP `product_id`[0m
-  [4;35;1mSQL (15.2ms)[0m   [0mALTER TABLE `product_categories` DROP `product_type`[0m
-  [4;36;1mSQL (12.0ms)[0m   [0;1mALTER TABLE `product_categories` ADD `category_type` varchar(255) DEFAULT 'Monuments' NOT NULL[0m
-  [4;35;1mSQL (13.6ms)[0m   [0mALTER TABLE `monuments` ADD `product_category_id` int(11)[0m
-  [4;36;1mSQL (13.8ms)[0m   [0;1mALTER TABLE `funerals` ADD `product_category_id` int(11)[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100304171026')[0m
-Migrating to AddAttachmentsPhotoToProductCategory (20100305192101)
-  [4;36;1mSQL (14.7ms)[0m   [0;1mALTER TABLE `product_categories` ADD `category_photo_file_name` varchar(255)[0m
-  [4;35;1mSQL (16.1ms)[0m   [0mALTER TABLE `product_categories` ADD `category_photo_content_type` varchar(255)[0m
-  [4;36;1mSQL (15.8ms)[0m   [0;1mALTER TABLE `product_categories` ADD `category_photo_file_size` int(11)[0m
-  [4;35;1mSQL (14.4ms)[0m   [0mALTER TABLE `product_categories` ADD `category_photo_updated_at` datetime[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100305192101')[0m
-Migrating to CreateProducts (20100306121753)
-  [4;35;1mSQL (31.9ms)[0m   [0mCREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `artno` int(11), `title` varchar(255), `description` text, `price` decimal DEFAULT 0, `product_photo_file_name` varchar(255), `product_photo_content_type` varchar(255), `product_photo_file_size` int(11), `product_photo_updated_at` datetime, `category_type` varchar(255) DEFAULT 'Funerals' NOT NULL, `product_category_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100306121753')[0m
-Migrating to CreateCompanyInformations (20100306153452)
-  [4;35;1mSQL (10.8ms)[0m   [0mCREATE TABLE `company_informations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `information` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100306153452')[0m
-Migrating to CreateContacts (20100306153832)
-  [4;35;1mSQL (17.6ms)[0m   [0mCREATE TABLE `contacts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `contact` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100306153832')[0m
-Migrating to CreateSessions (20100311111856)
-  [4;35;1mSQL (28.3ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (24.3ms)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
-  [4;35;1mSQL (19.1ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100311111856')[0m
-Migrating to CreateOrders (20100322113351)
-  [4;35;1mSQL (11.2ms)[0m   [0mCREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` text, `email` varchar(255), `telephone` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322113351')[0m
-Migrating to CreateLineItems (20100322113531)
-  [4;35;1mSQL (18.4ms)[0m   [0mCREATE TABLE `line_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) NOT NULL, `order_id` int(11) NOT NULL, `quantity` int(11) NOT NULL, `price` decimal DEFAULT 0 NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100322113531')[0m
-Migrating to ChangeOrderColumnTypeAddNewColumn (20100323045634)
-  [4;35;1mSQL (22.1ms)[0m   [0mALTER TABLE `orders` DROP `name`[0m
-  [4;36;1mSQL (26.7ms)[0m   [0;1mALTER TABLE `orders` ADD `first_name` varchar(255)[0m
-  [4;35;1mSQL (14.6ms)[0m   [0mALTER TABLE `orders` ADD `last_name` varchar(255)[0m
-  [4;36;1mSQL (12.4ms)[0m   [0;1mALTER TABLE `orders` ADD `first_name_for_receive` varchar(255)[0m
-  [4;35;1mSQL (17.0ms)[0m   [0mALTER TABLE `orders` ADD `last_name_for_receive` varchar(255)[0m
-  [4;36;1mSQL (18.0ms)[0m   [0;1mALTER TABLE `orders` ADD `city` varchar(255)[0m
-  [4;35;1mSQL (15.6ms)[0m   [0mALTER TABLE `orders` ADD `region` varchar(255)[0m
-  [4;36;1mSQL (15.1ms)[0m   [0;1mALTER TABLE `orders` ADD `post_index` varchar(255)[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323045634')[0m
-Migrating to AddTotalToOrders (20100323085956)
-  [4;36;1mSQL (19.7ms)[0m   [0;1mALTER TABLE `orders` ADD `total_price` decimal(8,2) DEFAULT 0[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323085956')[0m
-Migrating to AddStatusToOrder (20100323093807)
-  [4;36;1mSQL (26.0ms)[0m   [0;1mALTER TABLE `orders` ADD `status` varchar(255) DEFAULT 'Новый заказ'[0m
-  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323093807')[0m
-Migrating to CreateGalleries (20100323150135)
-  [4;36;1mSQL (10.7ms)[0m   [0;1mCREATE TABLE `galleries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `gallery_photo_file_name` varchar(255), `gallery_photo_content_type` varchar(255), `gallery_photo_file_size` int(11), `gallery_photo_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323150135')[0m
-Migrating to CreateSectionDescriptions (20100331132341)
-  [4;36;1mSQL (10.1ms)[0m   [0;1mCREATE TABLE `section_descriptions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `section_photo_file_name` varchar(255), `section_photo_content_type` varchar(255), `section_photo_file_size` int(11), `section_photo_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100331132341')[0m
-Migrating to AddCategoryToSectionDescription (20100402073655)
-  [4;36;1mSQL (18.2ms)[0m   [0;1mALTER TABLE `section_descriptions` ADD `category` varchar(255) NOT NULL[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100402073655')[0m
-Migrating to DeleteTableSectionDescriptions (20100402100945)
-  [4;36;1mSQL (2.6ms)[0m   [0;1mDROP TABLE `section_descriptions`[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100402100945')[0m
-Migrating to AddDescriptionToProductCategories (20100402101245)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mMysql::Error: Can't DROP 'description'; check that column/key exists: ALTER TABLE `product_categories` DROP `description`[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateUsers (20100225100057)
-Migrating to CreateArticles (20100225130704)
-Migrating to CreateMenyItems (20100225183950)
-Migrating to AddActionAndControllerToMenyItems (20100225201451)
-Migrating to CreateProductCategories (20100226194900)
-Migrating to CreateFunerals (20100226201518)
-Migrating to CreateMonuments (20100226201542)
-Migrating to AddAttachmentsPhotoToFuneral (20100304083311)
-Migrating to RemovePolimorphism (20100304171026)
-Migrating to AddAttachmentsPhotoToProductCategory (20100305192101)
-Migrating to CreateProducts (20100306121753)
-Migrating to CreateCompanyInformations (20100306153452)
-Migrating to CreateContacts (20100306153832)
-Migrating to CreateSessions (20100311111856)
-Migrating to CreateOrders (20100322113351)
-Migrating to CreateLineItems (20100322113531)
-Migrating to ChangeOrderColumnTypeAddNewColumn (20100323045634)
-Migrating to AddTotalToOrders (20100323085956)
-Migrating to AddStatusToOrder (20100323093807)
-Migrating to CreateGalleries (20100323150135)
-Migrating to CreateSectionDescriptions (20100331132341)
-Migrating to AddCategoryToSectionDescription (20100402073655)
-Migrating to DeleteTableSectionDescriptions (20100402100945)
-Migrating to AddDescriptionToProductCategories (20100402101245)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mMysql::Error: Can't DROP 'description'; check that column/key exists: ALTER TABLE `product_categories` DROP `description`[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateUsers (20100225100057)
-Migrating to CreateArticles (20100225130704)
-Migrating to CreateMenyItems (20100225183950)
-Migrating to AddActionAndControllerToMenyItems (20100225201451)
-Migrating to CreateProductCategories (20100226194900)
-Migrating to CreateFunerals (20100226201518)
-Migrating to CreateMonuments (20100226201542)
-Migrating to AddAttachmentsPhotoToFuneral (20100304083311)
-Migrating to RemovePolimorphism (20100304171026)
-Migrating to AddAttachmentsPhotoToProductCategory (20100305192101)
-Migrating to CreateProducts (20100306121753)
-Migrating to CreateCompanyInformations (20100306153452)
-Migrating to CreateContacts (20100306153832)
-Migrating to CreateSessions (20100311111856)
-Migrating to CreateOrders (20100322113351)
-Migrating to CreateLineItems (20100322113531)
-Migrating to ChangeOrderColumnTypeAddNewColumn (20100323045634)
-Migrating to AddTotalToOrders (20100323085956)
-Migrating to AddStatusToOrder (20100323093807)
-Migrating to CreateGalleries (20100323150135)
-Migrating to CreateSectionDescriptions (20100331132341)
-Migrating to AddCategoryToSectionDescription (20100402073655)
-Migrating to DeleteTableSectionDescriptions (20100402100945)
-Migrating to AddDescriptionToProductCategories (20100402101245)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mMysql::Error: Can't DROP 'description'; check that column/key exists: ALTER TABLE `product_categories` DROP `description`[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateUsers (20100225100057)
-Migrating to CreateArticles (20100225130704)
-Migrating to CreateMenyItems (20100225183950)
-Migrating to AddActionAndControllerToMenyItems (20100225201451)
-Migrating to CreateProductCategories (20100226194900)
-Migrating to CreateFunerals (20100226201518)
-Migrating to CreateMonuments (20100226201542)
-Migrating to AddAttachmentsPhotoToFuneral (20100304083311)
-Migrating to RemovePolimorphism (20100304171026)
-Migrating to AddAttachmentsPhotoToProductCategory (20100305192101)
-Migrating to CreateProducts (20100306121753)
-Migrating to CreateCompanyInformations (20100306153452)
-Migrating to CreateContacts (20100306153832)
-Migrating to CreateSessions (20100311111856)
-Migrating to CreateOrders (20100322113351)
-Migrating to CreateLineItems (20100322113531)
-Migrating to ChangeOrderColumnTypeAddNewColumn (20100323045634)
-Migrating to AddTotalToOrders (20100323085956)
-Migrating to AddStatusToOrder (20100323093807)
-Migrating to CreateGalleries (20100323150135)
-Migrating to CreateSectionDescriptions (20100331132341)
-Migrating to AddCategoryToSectionDescription (20100402073655)
-Migrating to DeleteTableSectionDescriptions (20100402100945)
-Migrating to AddDescriptionToProductCategories (20100402101245)
-  [4;36;1mSQL (51.9ms)[0m   [0;1mALTER TABLE `product_categories` ADD `description` text[0m
-  [4;35;1mSQL (9.3ms)[0m   [0mALTER TABLE `product_categories` ADD `show_slide` tinyint DEFAULT 1 NOT NULL[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100402101245')[0m
-Migrating to AddCategoryToActicles (20100402144238)
-  [4;35;1mSQL (12.7ms)[0m   [0mALTER TABLE `articles` ADD `directory` varchar(255) DEFAULT 'Новости' NOT NULL[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100402144238')[0m
-Migrating to AddDescriptionToOrder (20100402153728)
-  [4;35;1mSQL (17.3ms)[0m   [0mALTER TABLE `orders` DROP `first_name_for_receive`[0m
-  [4;36;1mSQL (18.5ms)[0m   [0;1mALTER TABLE `orders` DROP `last_name_for_receive`[0m
-  [4;35;1mSQL (27.3ms)[0m   [0mALTER TABLE `orders` DROP `total_price`[0m
-  [4;36;1mSQL (11.4ms)[0m   [0;1mALTER TABLE `orders` ADD `message` text[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100402153728')[0m
-Migrating to AddDecriptionToGallery (20100403083143)
-  [4;36;1mSQL (26.8ms)[0m   [0;1mALTER TABLE `galleries` ADD `description` text[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100403083143')[0m
-  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
-  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `articles`[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `articles`[0m
-  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `company_informations`[0m
-  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `company_informations`[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `company_informations`[0m
-  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `contacts`[0m
-  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `contacts`[0m
-  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `contacts`[0m
-  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `funerals`[0m
-  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `funerals`[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `funerals`[0m
-  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `galleries`[0m
-  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `galleries`[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `galleries`[0m
-  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
-  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `line_items`[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `line_items`[0m
-  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
-  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `meny_items`[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `meny_items`[0m
-  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `monuments`[0m
-  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `monuments`[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `monuments`[0m
-  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
-  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `orders`[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `orders`[0m
-  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
-  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `product_categories`[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `product_categories`[0m
-  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `products`[0m
-  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `products`[0m
-  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `products`[0m
-  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
-  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `sessions`[0m
-  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
-  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
-  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `users`[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing HomeController#index (for 127.0.0.1 at 2010-04-03 23:06:14) [GET]
-  [4;36;1mMenyItem Load (0.3ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mCompanyInformation Load (0.3ms)[0m   [0mSELECT * FROM `company_informations` [0m
-  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 1[0m
-Rendering template within layouts/application
-Rendering home/index
-Rendered shared/_tree_for_users (76.5ms)
-Rendered shared/_main_many (1.8ms)
-  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
-Completed in 141ms (View: 120, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_funeral (for 127.0.0.1 at 2010-04-03 23:06:15) [GET]
-  Parameters: {"id"=>"0"}
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
-Completed in 25ms (View: 8, DB: 1) | 200 OK [http://localhost/admin/cataloge/tree_funeral?id=0]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_monument (for 127.0.0.1 at 2010-04-03 23:06:15) [GET]
-  Parameters: {"id"=>"0"}
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
-Completed in 14ms (View: 1, DB: 1) | 200 OK [http://localhost/admin/cataloge/tree_monument?id=0]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing HomeController#index (for 127.0.0.1 at 2010-04-03 23:06:27) [GET]
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mCompanyInformation Load (0.1ms)[0m   [0mSELECT * FROM `company_informations` [0m
-  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 1[0m
-Rendering template within layouts/application
-Rendering home/index
-Rendered shared/_tree_for_users (0.6ms)
-Rendered shared/_main_many (0.3ms)
-  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
-Completed in 28ms (View: 7, DB: 1) | 200 OK [http://localhost/home]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_funeral (for 127.0.0.1 at 2010-04-03 23:06:27) [GET]
-  Parameters: {"id"=>"0"}
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
-Completed in 14ms (View: 1, DB: 0) | 200 OK [http://localhost/admin/cataloge/tree_funeral?id=0]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_monument (for 127.0.0.1 at 2010-04-03 23:06:27) [GET]
-  Parameters: {"id"=>"0"}
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
-Completed in 18ms (View: 1, DB: 0) | 200 OK [http://localhost/admin/cataloge/tree_monument?id=0]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing HomeController#checkout (for 127.0.0.1 at 2010-04-03 23:06:28) [GET]
-  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mOrder Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+Processing HomeController#checkout (for 127.0.0.1 at 2010-04-07 15:49:58) [GET]
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
 Rendering template within layouts/application
 Rendering home/checkout
-Rendered shared/_tree_for_users (0.7ms)
-Rendered shared/_main_many (0.3ms)
-  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
-Completed in 67ms (View: 31, DB: 1) | 200 OK [http://localhost/home/checkout]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_funeral (for 127.0.0.1 at 2010-04-03 23:06:29) [GET]
-  Parameters: {"id"=>"0"}
-  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
-  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
-Completed in 15ms (View: 1, DB: 0) | 200 OK [http://localhost/admin/cataloge/tree_funeral?id=0]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing Admin::CatalogeController#tree_monument (for 127.0.0.1 at 2010-04-03 23:06:29) [GET]
-  Parameters: {"id"=>"0"}
-  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
-  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
-Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/admin/cataloge/tree_monument?id=0]
-  [4;36;1mSQL (30.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing HomeController#index (for 127.0.0.1 at 2010-04-07 14:50:44) [GET]
-  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
-  [4;35;1mCompanyInformation Load (0.1ms)[0m   [0mSELECT * FROM `company_informations` [0m
-  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
-Rendering template within layouts/application
-Rendering home/index
-  [4;35;1mArticle Columns (21.9ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
-Rendered shared/_tree_for_users (4.0ms)
+Rendered shared/_tree_for_users (37.8ms)
   [4;36;1mMenyItem Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
-Rendered shared/_main_many (15.0ms)
+Rendered shared/_main_many (16.3ms)
   [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
-  [4;36;1mProductCategory Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
-Completed in 546ms (View: 490, DB: 56) | 200 OK [http://localhost/]
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 538ms (View: 475, DB: 40) | 200 OK [http://localhost/home/checkout]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 14:50:45) [GET]
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 15:49:59) [GET]
   Parameters: {"id"=>"0"}
-  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
-  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
-  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
-  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
   [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
   [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
-Completed in 47ms (View: 9, DB: 2) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+Completed in 47ms (View: 16, DB: 2) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 14:50:45) [GET]
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 15:49:59) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 32ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 15:50:20) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"rdcgcm", "order"=>{"address"=>"выва", "region"=>"Ровенская", "city"=>"выав", "last_name"=>"выа", "telephone"=>"324", "message"=>"ыав", "post_index"=>"45", "email"=>"saxa888@mail.ru", "first_name"=>"ыва"}}
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mOrder Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrder Create (244.7ms)[0m   [0;1mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('выва', 'выав', 'Ровенская', '2010-04-07 12:50:20', '2010-04-07 12:50:20', 'выа', '324', 'Новый заказ', 'ыав', 'saxa888@mail.ru', 'ыва', '45')[0m
+  [4;35;1mSQL (39.7ms)[0m   [0mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 15:50:20 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  выва
+  saxa888@mail.ru
+  324
+  выав
+  Ровенская
+  45
+  ыав
+
+Redirected to http://localhost:3000/
+Completed in 1334ms (DB: 286) | 302 Found [http://localhost/home/save_order]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 15:50:21) [GET]
+  [4;36;1mMenyItem Load (0.3ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mCompanyInformation Load (0.1ms)[0m   [0mSELECT * FROM `company_informations` [0m
+  [4;36;1mArticle Load (0.8ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mArticle Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (0.9ms)
+  [4;36;1mMenyItem Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.2ms)
+  [4;35;1mProductCategory Load (1.8ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;36;1mProductCategory Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 143ms (View: 106, DB: 6) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 15:50:22) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.4ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (3.5ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.5ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (1.6ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 56ms (View: 1, DB: 7) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 15:50:22) [GET]
   Parameters: {"id"=>"0"}
   [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
   [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 41ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#checkout (for 127.0.0.1 at 2010-04-07 15:54:05) [GET]
+  [4;35;1mMenyItem Load (1.7ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mOrder Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/application
+Rendering home/checkout
+Rendered shared/_tree_for_users (0.9ms)
+  [4;35;1mMenyItem Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.1ms)
+  [4;36;1mProductCategory Load (0.7ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 140ms (View: 109, DB: 6) | 200 OK [http://localhost/home/checkout]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 15:54:05) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 41ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 15:54:05) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 30ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#checkout (for 127.0.0.1 at 2010-04-07 15:54:10) [GET]
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/application
+Rendering home/checkout
+Rendered shared/_tree_for_users (0.9ms)
+  [4;36;1mMenyItem Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.4ms)
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;36;1mProductCategory Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 141ms (View: 41, DB: 3) | 200 OK [http://localhost/home/checkout]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 15:54:11) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.7ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.4ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 100ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 15:54:11) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.4ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.6ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 34ms (View: 1, DB: 4) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 15:54:28) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"krngyx", "order"=>{"address"=>"sfds", "region"=>"АР Крым", "city"=>"dsf", "last_name"=>"sdf", "telephone"=>"324", "message"=>"dsf", "post_index"=>"3243", "email"=>"saxa888@mail.ru", "first_name"=>"sdf"}}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mOrder Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrder Create (0.4ms)[0m   [0;1mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('sfds', 'dsf', 'АР Крым', '2010-04-07 12:54:28', '2010-04-07 12:54:28', 'sdf', '324', 'Новый заказ', 'dsf', 'saxa888@mail.ru', 'sdf', '3243')[0m
+  [4;35;1mSQL (18.1ms)[0m   [0mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 15:54:28 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  sfds
+  saxa888@mail.ru
+  324
+  dsf
+  АР Крым
+  3243
+  dsf
+
+Redirected to http://localhost:3000/
+Completed in 885ms (DB: 20) | 302 Found [http://localhost/home/save_order]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (7.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 15:54:29) [GET]
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mCompanyInformation Load (0.1ms)[0m   [0mSELECT * FROM `company_informations` [0m
+  [4;36;1mArticle Load (0.2ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mArticle Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (0.9ms)
+  [4;36;1mMenyItem Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (6.4ms)
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 103ms (View: 47, DB: 14) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 15:54:29) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (1.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.6ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 43ms (View: 1, DB: 4) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 15:54:29) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
   [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
-Completed in 28ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 16:01:22) [GET]
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mCompanyInformation Load (0.1ms)[0m   [0mSELECT * FROM `company_informations` [0m
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mArticle Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (17.8ms)
+  [4;36;1mMenyItem Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (16.0ms)
+  [4;35;1mProductCategory Load (1.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 455ms (View: 418, DB: 7) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 16:01:23) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (2.4ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (1.8ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 53ms (View: 12, DB: 7) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 16:01:23) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (1.5ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#checkout (for 127.0.0.1 at 2010-04-07 16:01:37) [GET]
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mOrder Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/application
+Rendering home/checkout
+Rendered shared/_tree_for_users (1.5ms)
+  [4;35;1mMenyItem Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.2ms)
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 110ms (View: 80, DB: 3) | 200 OK [http://localhost/home/checkout]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 16:01:37) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.6ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 45ms (View: 2, DB: 3) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 16:01:37) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.9ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 109ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:02:00) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;36;1mMenyItem Load (0.5ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (14.3ms)[0m   [0mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:02:00', '2010-04-07 13:02:00', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;36;1mSQL (28.3ms)[0m   [0;1mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:02:00 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+
+Net::SMTPAuthenticationError (530 5.7.0 Must issue a STARTTLS command first. s11sm6757985mue.41
+):
+  /usr/lib/ruby/1.8/net/smtp.rb:942:in `check_auth_response'
+  /usr/lib/ruby/1.8/net/smtp.rb:733:in `auth_plain'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `send'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `authenticate'
+  /usr/lib/ruby/1.8/net/smtp.rb:566:in `do_start'
+  /usr/lib/ruby/1.8/net/smtp.rb:525:in `start'
+  app/controllers/home_controller.rb:82:in `save_order'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (21.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:03:21) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;35;1mMenyItem Load (21.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mOrder Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mOrder Create (0.3ms)[0m   [0;1mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:03:21', '2010-04-07 13:03:21', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:03:21 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+
+Net::SMTPAuthenticationError (530 5.7.0 Must issue a STARTTLS command first. 15sm1230613gxk.2
+):
+  /usr/lib/ruby/1.8/net/smtp.rb:942:in `check_auth_response'
+  /usr/lib/ruby/1.8/net/smtp.rb:733:in `auth_plain'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `send'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `authenticate'
+  /usr/lib/ruby/1.8/net/smtp.rb:566:in `do_start'
+  /usr/lib/ruby/1.8/net/smtp.rb:525:in `start'
+  app/controllers/home_controller.rb:82:in `save_order'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:03:42) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (2.3ms)[0m   [0mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:03:42', '2010-04-07 13:03:42', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:03:42 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+
+Net::SMTPAuthenticationError (530 5.7.0 Must issue a STARTTLS command first. 15sm10037894gxk.10
+):
+  /usr/lib/ruby/1.8/net/smtp.rb:942:in `check_auth_response'
+  /usr/lib/ruby/1.8/net/smtp.rb:733:in `auth_plain'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `send'
+  /usr/lib/ruby/1.8/net/smtp.rb:725:in `authenticate'
+  /usr/lib/ruby/1.8/net/smtp.rb:566:in `do_start'
+  /usr/lib/ruby/1.8/net/smtp.rb:525:in `start'
+  app/controllers/home_controller.rb:82:in `save_order'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (137.6ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:04:11) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (24.6ms)[0m   [0mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:04:11', '2010-04-07 13:04:11', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;36;1mSQL (11.7ms)[0m   [0;1mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:04:11 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+Redirected to http://localhost:3000/
+Completed in 1152ms (DB: 39) | 302 Found [http://localhost/home/save_order]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 16:04:12) [GET]
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mCompanyInformation Load (0.1ms)[0m   [0;1mSELECT * FROM `company_informations` [0m
+  [4;35;1mArticle Load (0.2ms)[0m   [0mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (2.7ms)
+  [4;35;1mMenyItem Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (13.6ms)
+  [4;36;1mProductCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 196ms (View: 163, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 16:04:13) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (1.6ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.4ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 41ms (View: 7, DB: 4) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 16:04:13) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (6.6ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 40ms (View: 1, DB: 9) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:06:40) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;36;1mMenyItem Load (0.3ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (24.1ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (0.4ms)[0m   [0mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:06:40', '2010-04-07 13:06:40', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:06:40 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+Redirected to http://localhost:3000/
+Completed in 1003ms (DB: 28) | 302 Found [http://localhost/home/save_order]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 16:06:41) [GET]
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mCompanyInformation Load (0.2ms)[0m   [0;1mSELECT * FROM `company_informations` [0m
+  [4;35;1mArticle Load (0.1ms)[0m   [0mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mArticle Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (0.9ms)
+  [4;35;1mMenyItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (9.2ms)
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 129ms (View: 96, DB: 5) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 16:06:42) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 43ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 16:06:42) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 30ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (3.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#save_order (for 127.0.0.1 at 2010-04-07 16:07:35) [POST]
+  Parameters: {"commit"=>"Отправить", "authenticity_token"=>"Spy3POMNhQwCL3PMTOcI9vEBJX8MffIVCbaKWv9c0QI=", "captcha"=>"pwgwyy", "order"=>{"address"=>"dsfsdf", "region"=>"Полтавская", "city"=>"sfsd", "last_name"=>"sdf", "telephone"=>"324", "message"=>"sdfsf", "post_index"=>"324", "email"=>"saxa888@mail.ru", "first_name"=>"dsf"}}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mOrder Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (0.3ms)[0m   [0mINSERT INTO `orders` (`address`, `city`, `region`, `created_at`, `updated_at`, `last_name`, `telephone`, `status`, `message`, `email`, `first_name`, `post_index`) VALUES('dsfsdf', 'sfsd', 'Полтавская', '2010-04-07 13:07:35', '2010-04-07 13:07:35', 'sdf', '324', 'Новый заказ', 'sdfsf', 'saxa888@mail.ru', 'dsf', '324')[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mCOMMIT[0m
+Sent mail to haronua@rambler.ru
+
+Date: Wed, 7 Apr 2010 16:07:35 +0300
+To: haronua@rambler.ru
+Subject: =?utf-8?Q?=D0=97=D0=B0=D0=BA=D0=B0=D0=B7?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+  dsfsdf
+  saxa888@mail.ru
+  324
+  sfsd
+  Полтавская
+  324
+  sdfsf
+
+Redirected to http://localhost:3000/
+Completed in 13451ms (DB: 18) | 302 Found [http://localhost/home/save_order]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-07 16:07:49) [GET]
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mCompanyInformation Load (0.1ms)[0m   [0;1mSELECT * FROM `company_informations` [0m
+  [4;35;1mArticle Load (0.3ms)[0m   [0mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mArticle Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (13.5ms)
+  [4;35;1mMenyItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (19.8ms)
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 286ms (View: 252, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-07 16:07:50) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (2.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (89.8ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.8ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 191ms (View: 11, DB: 95) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-07 16:07:50) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (4.4ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 41ms (View: 4, DB: 6) | 200 OK [http://localhost/admin/products/tree_monument?id=0]

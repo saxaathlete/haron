@@ -42,6 +42,11 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+CONF = YAML.load_file(File.join(File.dirname(__FILE__), 'app_config.yml'))
+
+def property(key)
+  CONF[RAILS_ENV][key.to_s]
+end
 
 I18n.default_locale = 'ru'
 #require "will_paginate"

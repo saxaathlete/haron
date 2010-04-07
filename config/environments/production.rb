@@ -36,3 +36,4 @@ config.action_mailer.smtp_settings = {
   :password => "cherry.d",
   :enable_starttls_auto => true
 }
+config.action_mailer.perform_deliveries = true
