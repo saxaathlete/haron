@@ -7,7 +7,7 @@
 
     </div>
     <div class="meta">
-      <p class="byline"><%= @article.created_at.strftime("%d %B %Y") %></p>
+      <p class="byline"><%= l(@article.created_at, :format => :my) %></p>
 
     </div>
   </div>

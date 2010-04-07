@@ -81,6 +81,7 @@ class HomeController < ApplicationController
     if @order.save
       Notifier.deliver_order_information(@order)
       flash[:notice] = "Спасибо за сообщение"
+      reset_captcha
       redirect_to root_url
     else
       reset_captcha

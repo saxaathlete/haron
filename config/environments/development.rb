@@ -14,16 +14,16 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  :address => "smtp.gmail.com",
+  :address => "mail.rambler.ru",
   :port => 587,
-  :domain => "cherry.dkp.com",
+  :domain => "rambler.ru",
   :authentication => :plain,
-  :user_name => "cherry.dkp",
-  :password => "cherry.d",
+  :user_name => "haronua@rambler.ru",
+  :password => "haroncomua",
   :enable_starttls_auto => true
 }
 config.action_mailer.perform_deliveries = true

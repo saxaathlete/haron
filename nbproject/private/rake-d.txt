@@ -43,6 +43,7 @@ doc\:clobber_plugins=Remove plugin documentation
 doc\:clobber_rails=Remove rdoc products
 doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
+doc\:plugins\:action_mailer_tls=Generate documentation for the action_mailer_tls plugin
 doc\:plugins\:acts_as_category=Generate documentation for the acts_as_category plugin
 doc\:plugins\:captcha=Generate documentation for the captcha plugin
 doc\:plugins\:imagemagick_tag=Generate documentation for the imagemagick_tag plugin
