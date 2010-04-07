@@ -1,3 +1,4 @@
+admin\:add_admin=add admin
 captcha\:generate=Generate a batch of captchas
 db\:abort_if_pending_migrations=Raises an error if there are pending migrations
 db\:charset=Retrieves the charset for the current environment's database
