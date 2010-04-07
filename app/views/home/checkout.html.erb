@@ -39,7 +39,7 @@
       <%= f.text_field :city %>
     </p>
     <p>
-      <%= f.label :Регион %><br/>
+      <%= f.label :Область %><br/>
       <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true})%>
     </p>
     <p>
@@ -62,6 +62,6 @@
 
 
 
-    <p><%= f.submit "Submit" %></p>
+    <p><%= f.submit "Отправить" %></p>
   <% end %>
 <% end %>

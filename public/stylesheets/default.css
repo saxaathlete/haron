@@ -247,6 +247,8 @@ input, textarea, select {
     width: 960px;
     margin: 0 auto;
     padding-top: 20px;
+    min-height: 550px;/* FF, Opera, IE7 */
+    height:expression(this.scrollHeight < 550? "550px" : "auto" ); /* IE 5 - IE 6 */
 }
 
 #slider { 

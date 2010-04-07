@@ -1,10 +1,10 @@
 class Notifier < ActionMailer::Base
-  default_url_options[:host] = "localhost:3000"
+  default_url_options[:host] = "haron.com.ua"
 
   def order_information(order)
     subject       "Заказ"
     from          "Binary Logic Notifier #{order}"
-    recipients    "saxa888@mail.ru"
+    recipients    "haronua@rambler.ru"
     sent_on       Time.now
     body[:order] = order
   end
