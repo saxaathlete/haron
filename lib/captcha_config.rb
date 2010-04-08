@@ -7,7 +7,7 @@ Captcha::Config.new(
     :font => '#080288'
   },
   # Number of captcha images to generate
-  :count => RAILS_ENV == 'production' ? 500 : 10,
+  :count => 500,
   # Where to write captchas
   :destination => "#{RAILS_ROOT}/public/images/captchas",
   # Generate new batch every day

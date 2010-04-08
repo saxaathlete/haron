@@ -3535,3 +3535,249 @@ Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-08 
   [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
   [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
 Completed in 35ms (View: 1, DB: 5) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (42.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-04-08 09:41:26) [GET]
+  [4;36;1mMenyItem Load (68.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mCompanyInformation Load (0.9ms)[0m   [0mSELECT * FROM `company_informations` [0m
+  [4;36;1mArticle Load (0.1ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Новости') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mArticle Columns (4.1ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+Rendered shared/_tree_for_users (0.9ms)
+  [4;36;1mMenyItem Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.2ms)
+  [4;35;1mProductCategory Load (5.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;36;1mProductCategory Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+Completed in 426ms (View: 310, DB: 128) | 200 OK [http://localhost/home]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-08 09:41:27) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (1.5ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 82ms (View: 21, DB: 4) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-08 09:41:27) [GET]
+  Parameters: {"id"=>"0"}
+  [4;35;1mMenyItem Load (0.1ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;35;1mProductCategory Columns (17.6ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 49ms (View: 1, DB: 19) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#funerals (for 127.0.0.1 at 2010-04-08 09:41:28) [GET]
+  [4;35;1mMenyItem Load (0.2ms)[0m   [0mSELECT * FROM `meny_items` [0m
+  [4;36;1mProductCategory Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.`id` = 0) LIMIT 1[0m
+  [4;36;1mArticle Load (0.4ms)[0m   [0;1mSELECT * FROM `articles` WHERE (directory = 'Ритуальные услуги') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/funerals
+Rendered shared/_funerals_tree (0.9ms)
+  [4;35;1mArticle Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mMenyItem Columns (18.0ms)[0m   [0;1mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (22.7ms)
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+Completed in 82ms (View: 35, DB: 21) | 200 OK [http://localhost/home/funerals]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-08 09:41:28) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 109ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-08 09:41:28) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 34ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#monuments (for 127.0.0.1 at 2010-04-08 09:41:29) [GET]
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mArticle Load (0.1ms)[0m   [0mSELECT * FROM `articles` WHERE (directory = 'Памятники') ORDER BY created_at DESC LIMIT 0, 6[0m
+Rendering template within layouts/application
+Rendering home/monuments
+Rendered shared/_monuments_tree (0.8ms)
+  [4;36;1mArticle Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mMenyItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.4ms)
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 62ms (View: 35, DB: 4) | 200 OK [http://localhost/home/monuments]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-08 09:41:29) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.7ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.5ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.6ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 40ms (View: 1, DB: 4) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-08 09:41:30) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 34ms (View: 1, DB: 4) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#gallery (for 127.0.0.1 at 2010-04-08 09:41:32) [GET]
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mGallery Load (0.1ms)[0m   [0mSELECT * FROM `galleries` [0m
+Rendering template within layouts/application
+Rendering home/gallery
+  [4;36;1mGallery Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `galleries`[0m
+  [4;35;1mMenyItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.5ms)
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 72ms (View: 46, DB: 4) | 200 OK [http://localhost/home/gallery]
+  [4;36;1mSQL (20.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-08 09:41:33) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/caption.png" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#contacts (for 127.0.0.1 at 2010-04-08 09:41:37) [GET]
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mContact Load (0.3ms)[0m   [0mSELECT * FROM `contacts` [0m
+Rendering template within layouts/application
+Rendering home/contacts
+Rendered shared/_tree_for_users (0.9ms)
+  [4;36;1mContact Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `contacts`[0m
+  [4;35;1mMenyItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.9ms)
+  [4;36;1mProductCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 56ms (View: 28, DB: 4) | 200 OK [http://localhost/home/contacts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_funeral (for 127.0.0.1 at 2010-04-08 09:41:38) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.2ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.3ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Funerals') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 9) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 51) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 52) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.3ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 53) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.2ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 44) ORDER BY category_name ASC[0m
+Completed in 41ms (View: 1, DB: 3) | 200 OK [http://localhost/admin/products/tree_funeral?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProductsController#tree_monument (for 127.0.0.1 at 2010-04-08 09:41:38) [GET]
+  Parameters: {"id"=>"0"}
+  [4;36;1mMenyItem Load (0.3ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE ((category_type = 'Monuments') AND (parent_id = 0)) [0m
+  [4;36;1mProductCategory Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `product_categories`[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 10) ORDER BY category_name ASC[0m
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 54) ORDER BY category_name ASC[0m
+  [4;35;1mProductCategory Load (0.1ms)[0m   [0mSELECT * FROM `product_categories` WHERE (`product_categories`.parent_id = 55) ORDER BY category_name ASC[0m
+Completed in 30ms (View: 1, DB: 2) | 200 OK [http://localhost/admin/products/tree_monument?id=0]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#gallery (for 127.0.0.1 at 2010-04-08 09:41:40) [GET]
+  [4;36;1mMenyItem Load (0.1ms)[0m   [0;1mSELECT * FROM `meny_items` [0m
+  [4;35;1mGallery Load (0.2ms)[0m   [0mSELECT * FROM `galleries` [0m
+Rendering template within layouts/application
+Rendering home/gallery
+  [4;36;1mGallery Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `galleries`[0m
+  [4;35;1mMenyItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+Rendered shared/_main_many (5.7ms)
+  [4;36;1mProductCategory Load (0.1ms)[0m   [0;1mSELECT * FROM `product_categories` WHERE (show_slide = 1) [0m
+  [4;35;1mProductCategory Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+Completed in 79ms (View: 51, DB: 4) | 200 OK [http://localhost/home/gallery]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-08 09:41:41) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/caption.png" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
