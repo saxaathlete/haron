@@ -1,5 +1,5 @@
 development: &defaults
-  app_site: http: //haron.com.ua
+  app_site: http://haron.com.ua
   max_num_site: 10
 
 test:
