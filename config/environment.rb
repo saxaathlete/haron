@@ -50,3 +50,4 @@ end
 
 I18n.default_locale = 'ru'
 #require "will_paginate"
+require 'smtp_tls'
