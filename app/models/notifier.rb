@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default_url_options[:host] = property(:app_site)
+  default_url_options[:host] = "http://haron.com.ua"
 
   def order_information(order)
     subject       "Заказ"
