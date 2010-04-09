@@ -18,22 +18,11 @@
         dots: false
 
       },
-      types : {
-        // all node types inherit the "default" node type
-        "default" : {
-          deletable : false,
-          renameable : false,
-          icon : {
-            image : false,
-            position : false
-          }
-        }
-      },
       callback: {
         onselect: function(NODE){
           if ($j(NODE).attr('rel') == "root")
           {
-            $j.getScript("/home/funerals?funerals_article=" + 1)
+            $j.getScript("/home/funerals?funerals_article=1")
           }
           else
           {
@@ -63,7 +52,7 @@
         onselect: function(NODE){
           if ($j(NODE).attr('rel') == "root")
           {
-            $j.getScript("/home/monuments?monuments_article=" + 1)
+            $j.getScript("/home/monuments?monuments_article=1")
           }
           else
           {
