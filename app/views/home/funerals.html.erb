@@ -9,20 +9,22 @@
     <% unless @category.blank? %>
       <%= render :partial => 'shared/products' %>
     <%else%>
-      <% @funerals_news.each do |funerals_news| %>
-        <div class="post">
-          <h1 class="title"><%= funerals_news.title %></h1>
-          <div class="entry">
-            <%= funerals_news.description %>
+      <% unless @funerals_news.blank? %>
+        <% @funerals_news.each do |funerals_news| %>
+          <div class="post">
+            <h1 class="title"><%= funerals_news.title %></h1>
+            <div class="entry">
+              <%= funerals_news.description %>
 
+            </div>
+            <div class="meta">
+              <p class="byline"><%= l(funerals_news.created_at, :format => :my) %></p>
+              <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => funerals_news)%></p>
+            </div>
           </div>
-          <div class="meta">
-            <p class="byline"><%= l(funerals_news.created_at, :format => :my) %></p>
-            <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => funerals_news)%></p>
-          </div>
-        </div>
+        <%end%>
+        <div align="center"><%= will_paginate @funerals_news %></div>
       <%end%>
-      <div align="center"><%= will_paginate @funerals_news %></div>
     <%end%>
   </div>
 <% end %>
