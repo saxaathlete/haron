@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'jquery.tree.js' %>
 <%= stylesheet_link_tag '/javascripts/themes/apple/style.css' %>
 
-  <div id="cataloge" style="float:left;width:20%">
+<div id="cataloge" style="float:left;width:20%">
   <div id="funerals_tree" class="demo source tree tree-apple" style="direction: ltr;">
   </div>
   <div style="clear:both;"></div>
@@ -19,14 +19,9 @@
       },
       callback: {
         onselect: function(NODE){
-          if ($j(NODE).attr('rel') == "root")
-          {
-            $j.getScript("/home/funerals?funerals_article=1")
-          }
-          else
-          {
+
             $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
-          }
+         
         }
       },
       data :{
@@ -46,14 +41,9 @@
     callback: {
       onselect: function(NODE){
         if ($j(NODE).attr('rel') == "root")
-        {
-          $j.getScript("/home/monuments?monuments_article=1")
-        }
-        else
-        {
-         $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
-        }
-        
+     
+          $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
+      
       }
     },
     data :{
