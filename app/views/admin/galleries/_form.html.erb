@@ -1,19 +1,17 @@
 <% form_for([:admin, @gallery], :html => { :multipart => true}) do |f| %>
-  <%= f.error_messages %>
+  <%= f.error_messages %><br/>
 
-  <p>
+  
     <%= f.label :Название %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
+    <%= f.text_field :title %><br/>
+  
     <%= f.label :Описание %><br/>
-    <%= f.text_area :description, :rows => 3, :cols => 40 %>
-  </p>
-  <p>
+    <%= f.text_area :description, :rows => 3, :cols => 40 %><br/>
+  
     <%= f.label :Изображение%><br />
-    <%= f.file_field :gallery_photo %>
-  </p>
+    <%= f.file_field :gallery_photo %><br/>
+ 
 
-  <p><%= f.submit "Создать" %></p>
+  <%= f.submit "Создать" %><br/>
 <% end %>
 <%= link_to "Назад", admin_galleries_path %>

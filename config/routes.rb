@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :home, :collection => {:funerals => :get, :show_product_table => :get,
       :show_funerals => :get, :monuments => :get, :show_monuments => :get, :company_informations => :get,
-      :contacts => :get, :add_to_cart => :get, :empty_cart => :get, :gallery => :get, :show_cart => :get,
-      :checkout => :get, :save_order => :get, :show_article => :get}
+      :contacts => :get, :gallery => :get, :checkout => :get,
+      :save_order => :post, :show_article => :get}
 
 
   map.resources :users

@@ -28,14 +28,15 @@
       var isOff = link.hasClass('off');
       var removeClass = isOff ? 'off' : 'on';
       var addClass = isOff ? 'on' : 'off';
-      var linkText = isOff ? 'Скрыть кнопки управления' : 'Показать кнопки управления';
+
       captionOpacity = isOff ? 0.7 : 0.0;
 
-      link.removeClass(removeClass).addClass(addClass).text(linkText).attr('title', linkText);
+      link.removeClass(removeClass).addClass(addClass).attr('title');
       $j('#caption span.image-caption').fadeTo(1000, captionOpacity);
       e.preventDefault();
     });
-    
+
+
     // Initialize Advanced Galleriffic Gallery
     var gallery = $j('#thumbs').galleriffic({
       delay:                     2500,
@@ -50,7 +51,7 @@
       renderSSControls:          true,
       renderNavControls:         true,
       playLinkText:              'Слайдшоу',
-      pauseLinkText:             'Остановить слайдшоу',
+      pauseLinkText:             'Остановить Слайдшоу',
       prevLinkText:              '&lsaquo; Предыдущая фотография',
       nextLinkText:              'Следующая фотография &rsaquo;',
       nextPageLinkText:          'Вперед &rsaquo;',
@@ -78,8 +79,8 @@
         var slideImage = slide.find('img');
         caption.width(slideImage.width())
         .css({
-          'bottom' : Math.floor((slide.height() - slideImage.outerHeight()) / 2),
-          'left' : Math.floor((slide.width() - slideImage.width()) / 2) + slideImage.outerWidth() - slideImage.width()
+          'bottom' : Math.floor((slide.height() - slideImage.outerHeight()) / 2 + 6),
+          'left' : Math.floor((slide.width() - slideImage.width()) / 2) + slideImage.outerWidth() - slideImage.width() + 2
         })
 
         .fadeTo(duration, captionOpacity);
@@ -165,45 +166,52 @@
 <% content_for :title do %>
   Галлерея
 <% end %>
-  <div style="clear:both;"></div>
-  <p style="float: right;"><%= link_to "Добавить  новое изображение", new_admin_gallery_path %></p>
-<div id="thumbs" class="navigation">
-  <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-  <ul class="thumbs noscript">
-    <%  @galleries.each do |photo| %>
-      <li>
-        <%= link_to(image_tag(photo.gallery_photo.url(:thumb)), photo.gallery_photo.url(:small), :class => "thumb") %>
-        <div class="caption">
-          <div class="image-title"><%= photo.title %></div>
-          <div class="image-desc">
-            <%= photo.description %>
-            <span style="float: right;">
-              <%= link_to "Редактировать", edit_admin_gallery_path(photo) %>
-              <%= link_to "Удалить", admin_gallery_path(photo), :confirm => 'Вы уверены?', :method => :delete %>
-            </span>
+  <div id="gallery_wrapper" style="width: 900px;">
+  <div id="thumbs" class="navigation">
+    <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
+    <ul class="thumbs noscript">
+      <%  @galleries.each do |photo| %>
+        <li>
+          <%= link_to(image_tag(photo.gallery_photo.url(:thumb)), photo.gallery_photo.url(:small), :class => "thumb") %>
+          <div class="caption">
+            <div class="image-title"><%= photo.title %></div>
+            <div class="image-desc">
+              <%= photo.description %>
+              <span style="float: right;">
+                <%= link_to "Редактировать", edit_admin_gallery_path(photo) %>
+                <%= link_to "Удалить", admin_gallery_path(photo), :confirm => 'Вы уверены?', :method => :delete %>
+              </span>
+            </div>
           </div>
-        </div>
-      </li>
-    <%end%>
-  </ul>
+        </li>
+      <%end%>
+    </ul>
 
-  <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
+    <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
 
-</div>
-
-<div  class="content">
-  <div class="slideshow-container">
-    <div id="controls" class="controls" style="margin-right: 15px"></div>
-    <div id="loading" class="loader"></div>
-    <div id="slideshow" class="slideshow"></div>
-
-    <div id="caption" class="caption-container"></div>
   </div>
+
+  <div  class="content">
+    <div class="slideshow-container">
+
+      <div id="loading" class="loader"></div>
+      <div id="slideshow" class="slideshow"></div>
+
+      <div id="caption" class="caption-container"></div>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+
 
   <div id="captionToggle">
-    <a href="#toggleCaption" class="off" title="Показать кнопки управления">Показать кнопки управления</a>
+    <a href="#toggleCaption" class="off" title="Показать описание"><%= image_tag("discription.gif", :alt => "Описание") %></a>
+
+    <div id="controls" class="controls">
+
+    </div>
+
   </div>
 
 </div>
 
-<div style="clear: both;"></div>

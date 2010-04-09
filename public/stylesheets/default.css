@@ -296,14 +296,22 @@ This only matters if JS is OFF, otherwise JS sets this. */
     top:15px;
 }
 
-#slider-stopper					{ position: absolute; top: 1px; right: 20px; background: #48ACDE; color: white;
-                      padding: 3px 8px; font-size: 10px; text-transform: uppercase; z-index: 1000; }
 
 /* Content */
 
 #content {
     float: right;
     width: 690px;
+    border-left: 1px dashed #333333;
+}
+
+#content p, h1, h2, form{
+    padding: 0 20px;
+}
+
+#content h1, h2, h3, h4, label, input, textarea, select{
+    margin-bottom: 10px;
+
 }
 
 /* Post */
@@ -373,7 +381,7 @@ This only matters if JS is OFF, otherwise JS sets this. */
     float: left;
     width: 210px;
     padding-left: 30px;
-    border-right: 1px dashed #333333;
+    
 }
 
 #sidebar ul {
@@ -543,6 +551,7 @@ html>body #footer {
 #flash_notice {
     background-color: #CFC;
     border: solid 1px #6C6;
+    
 }
 
 #flash_error {
@@ -683,7 +692,14 @@ html>body #footer {
 }
 
 #admin_content {
-    margin: 0 20px 0 20px;
+    margin: 0 20px;
+}
+#admin_content p, h1, h2, form{
+    padding: 0 20px;
+}
+
+#admin_content h1, h2, h3, h4, label, input, textarea, select{
+    margin-bottom: 10px;
 }
 #small_admin_content {
     margin: 0 -20px 0 -20px;
@@ -703,4 +719,13 @@ html>body #footer {
     margin-left: -20px;
     margin-bottom: 20px;
     border-right: 1px dashed #333333;
+}
+
+#gallery_wrapper{
+    padding: 0 35px;
+}
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
 }

@@ -387,7 +387,7 @@
 						.find('div.ss-controls a').removeClass().addClass('play')
 						.attr('title', this.playLinkText)
 						.attr('href', '#play')
-						.html(this.playLinkText);
+						.html('<img src="/images/play.gif" alt="Проиграть"/>');
 				}
 				
 				return this;
@@ -402,7 +402,7 @@
 						.find('div.ss-controls a').removeClass().addClass('pause')
 						.attr('title', this.pauseLinkText)
 						.attr('href', '#pause')
-						.html(this.pauseLinkText);
+						.html('<img src="/images/pause.gif" alt="Пауза"/>');
 				}
 
 				if (!this.slideshowTimeout) {
@@ -894,10 +894,10 @@
 			if (this.renderSSControls) {
 				if (this.autoStart) {
 					this.$controlsContainer
-						.append('<div class="ss-controls"><a href="#pause" class="pause" title="'+this.pauseLinkText+'">'+this.pauseLinkText+'</a></div>');
+						.append('<div class="ss-controls"><a href="#pause" class="pause" title="'+this.pauseLinkText+'">' + '<img src="/images/pause.gif" alt="Пауза"/>' + '</a></div>');
 				} else {
 					this.$controlsContainer
-						.append('<div class="ss-controls"><a href="#play" class="play" title="'+this.playLinkText+'">'+this.playLinkText+'</a></div>');
+						.append('<div class="ss-controls"><a href="#play" class="play" title="'+this.playLinkText+'">' + '<img src="/images/play.gif" alt="Проиграть"/>' + '</a></div>');
 				}
 
 				this.$controlsContainer.find('div.ss-controls a')
@@ -910,7 +910,7 @@
 		
 			if (this.renderNavControls) {
 				this.$controlsContainer
-					.append('<div class="nav-controls"><a class="prev" rel="history" title="'+this.prevLinkText+'">'+this.prevLinkText+'</a><a class="next" rel="history" title="'+this.nextLinkText+'">'+this.nextLinkText+'</a></div>')
+					.append('<div class="nav-controls"><a class="prev" rel="history" title="'+this.prevLinkText+'">' + '<img src="/images/prevPageArrow.gif" alt="Назад"/>' + '</a><a class="next" rel="history" title="'+this.nextLinkText+'">'+ '<img src="/images/nextPageArrow.gif" alt="Вперед"/>' +'</a></div>')
 					.find('div.nav-controls a')
 					.click(function(e) {
 						gallery.clickHandler(e, this);

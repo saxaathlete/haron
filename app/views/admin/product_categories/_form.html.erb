@@ -1,28 +1,24 @@
 <% form_for([:admin, @product_category], :html => { :multipart => true}) do |f| %>
   <%= f.error_messages %>
-  <%= hidden_field_tag :parent_id, @category.id %>
+  <%= hidden_field_tag :parent_id, @category.id %><br/>
 
-  <p>
-    <%= f.label "Родительская категория:"%>&nbsp;&nbsp;
-    <%= h @category.category_name%>
-  </p>
-  <p>
+  
+    <%= f.label "Родительская категория:"%>
+    <%= h @category.category_name%><br/>
+
     <%= f.label "Название категории" %><br />
-    <%= f.text_field :category_name%>
-  </p>
-  <p>
+    <%= f.text_field :category_name%><br/>
+ 
     <%= f.label :Описание %><br />
-    <%= f.text_area :description, :cols => '120', :class => "mceEditor" %>
-  </p>
-  <p>
+    <%= f.text_area :description, :cols => '120', :class => "mceEditor" %><br/>
+
     <%= f.label :Изображение%><br />
-    <%= f.file_field :category_photo %>
-  </p>
-  <p>
+    <%= f.file_field :category_photo %><br/>
+ 
     <%= f.check_box :show_slide %>
     <%= f.label "Показывать в слайдах" %><br />
-  </p>
 
-  <p><%= f.submit "Создать" %></p>
+
+  <%= f.submit "Создать" %><br/>
 <% end %>
-<p><%= link_to "Назад", admin_products_path %></p>
+<%= link_to "Назад", admin_products_path %>

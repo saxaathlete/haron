@@ -74,7 +74,6 @@ class HomeController < ApplicationController
   end
 
   def save_order
-
     @order = Order.new(params[:order])
     @order.known_captcha = session[:captcha]
     @order.captcha = params[:captcha]

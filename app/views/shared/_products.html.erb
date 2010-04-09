@@ -36,8 +36,8 @@
             </tr>
           </table>
           <% if logged_in? %>
-            <%= link_to "Edit", edit_admin_product_path(product) %>
-            <%= link_to "Destroy", admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %>
+            <%= link_to "Редактировать", edit_admin_product_path(product) %>
+            <%= link_to "Удалить", admin_product_path(product), :confirm => 'Вы уверены?', :method => :delete %>
           <%end%>
 
         </td>

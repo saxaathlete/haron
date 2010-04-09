@@ -1,18 +1,15 @@
 <% form_for ([:admin, @article])do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :Название %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
+  <%= f.error_messages %><br/>
+  
+    <%= f.label :Название %><br/>
+    <%= f.text_field :title %><br/>
+ 
     <%= f.label :Статья %><br />
-    <%= f.text_area :article, :cols => '120', :class => "mceEditor" %>
-  </p>
-  <p>
+    <%= f.text_area :article, :cols => '120', :class => "mceEditor" %><br/>
+  
     <%= f.label :Рездел %><br />
-    <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}) %>
-  </p>
+    <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}) %><br/>
 
-  <p><%= f.submit "Создать" %></p>
+   <%= f.submit "Создать" %>
 <% end %>
-<p><%= link_to "Назад", admin_articles_path %></p>
+    <div style="float: right;"><%=link_to "Назад", admin_articles_path %></div>
