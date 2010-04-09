@@ -1,9 +1,7 @@
 <% content_for :title do %>
   Харон.Памятники.
 <% end %>
-<% content_for :sidebar do %>
-  <%= render :partial => "shared/monuments_tree" %>
-<% end %>
+
 <% content_for :content do %>
   <div id="product_data" style="float:left;width:100%">
     <%  unless @category.blank? %>
@@ -30,3 +28,7 @@
   </div>
 <% end %>
 
+<% content_for :sidebar do %>
+  <%= render :partial => "shared/monuments_tree" %>
+  
+<% end %>
