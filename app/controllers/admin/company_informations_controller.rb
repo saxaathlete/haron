@@ -14,8 +14,7 @@ class Admin::CompanyInformationsController < ApplicationController
     :theme_advanced_toolbar_location => "top",
     :theme_advanced_toolbar_align => "left",
     :theme_advanced_statusbar_location => "bottom",
-    :plugins => %w{safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,imagemanager,filemanager},
-
+    :plugins => %w{safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,imagemanager,filemanager}
   }
 
   def index
