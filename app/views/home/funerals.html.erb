@@ -1,9 +1,9 @@
 <% content_for :title do %>
-  Харон.Ритуальные услуги
+  Харон.Ритуальные услуги.
 <% end %>
-<div id="sidebar">
+<% content_for :sidebar do %>
   <%= render :partial => "shared/funerals_tree" %>
-</div>
+<% end %>
 <% content_for :content do %>
   <div id="product_data" style="float:left;width:100%">
     <% unless @category.blank? %>

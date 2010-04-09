@@ -2,7 +2,7 @@
   Харон.Памятники.
 <% end %>
 <% content_for :sidebar do %>
-  <%= render :partial => "shared/monuments_tree" %>
+  <%= render :partial => "shared/funerals_tree" %>
 <% end %>
 <% content_for :content do %>
   <div id="product_data" style="float:left;width:100%">
@@ -22,9 +22,8 @@
           </div>
         </div>
       <%end%>
-    <div align="center"><%= will_paginate @monuments_news %></div>
+      <div align="center"><%= will_paginate @monuments_news %></div>
     <%end%>
-    
   </div>
 <% end %>
 
