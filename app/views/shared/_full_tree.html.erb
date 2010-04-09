@@ -19,11 +19,7 @@
       callback: {
         onselect: function(NODE){
           $j.getScript("/admin/products/show_product_table?parent_id=" + NODE.id)
-        },
-        onload: function(){
-        
         }
-
       },
       data :{
         type: "json",
@@ -32,8 +28,6 @@
           async: true
         }
       }
-
-
     });
     $j("#monuments_tree").tree({
       ui : {
@@ -42,11 +36,7 @@
       callback: {
         onselect: function(NODE){
           $j.getScript("/admin/products/show_product_table?parent_id=" + NODE.id)
-        },
-        onload: function(){
-
         }
-
       },
       data :{
         type: "json",
@@ -55,8 +45,6 @@
           async: true
         }
       }
-
-
     });
   });
 
