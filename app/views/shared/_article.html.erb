@@ -1,0 +1,12 @@
+<div class="post">
+  <h1 class="title"><%= @article.title %></h1>
+  <div class="entry">
+    <%= @article.article %>
+
+  </div>
+  <div class="meta">
+    <p class="byline"><%= l(@article.created_at, :format => :my) %></p>
+
+  </div>
+</div>
+<p class="links"><%= link_to_remote "Назад", :url => {:action => 'index'}, :method => :get %></p>

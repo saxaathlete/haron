@@ -67,24 +67,27 @@
     <div id="wrapper">
       <div id="wrapper-btm">
         <div id="page">
+          <%= yield :gallery %>
           <div id="sidebar">
             <%= yield(:sidebar) %>
           </div>
           <div id="content">
-            <%- flash.each do |name, msg| -%>
-              <%= content_tag :div, msg, :id => "flash_#{name}" %>
-            <%- end -%>
 
-            <%- if show_title? -%>
-              <h1><%=h yield(:title) %></h1>
-            <%- end -%>
+            <div class="post">
+              <%= yield :header %>
+              <div class="entry">
+                <%- flash.each do |name, msg| -%>
+                  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                <%- end -%>
+                <%= yield(:content) %>
 
-            <%= yield(:content) %>
-
+              </div>
+            </div>
           </div>
 
           <%= yield  %>
           <div style="clear:both;"></div>
+
         </div>
       </div>
     </div>

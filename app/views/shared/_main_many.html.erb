@@ -3,9 +3,9 @@
     <ul>
       <% app_menu.each do |item|%>
         <%if item[:controller].to_s == controller.controller_path.to_s%>
-          <li class="current_page_item"><%= link_to  item[:name], eval(item[:path]) %></li>
+          <li class="a_current_page_item"><%= link_to item[:name], eval(item[:path]) %></li>
         <%else%>
-          <li><%= link_to  item[:name], eval(item[:path]) %></li>
+          <li><%= link_to item[:name], eval(item[:path]) %></li>
         <%end%>
 
       <%end%>

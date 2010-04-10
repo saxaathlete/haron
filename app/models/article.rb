@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   cattr_reader :per_page
-  @@per_page = 6
+  @@per_page = 15
 
   validates_presence_of :title, :article
 

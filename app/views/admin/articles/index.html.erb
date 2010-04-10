@@ -1,25 +1,37 @@
-<% title "Статьи" %>
-<div style="clear:both;"></div>
-<div style="float: right;"><%= link_to "Новая статья", new_admin_article_path %></div>
-<div style="clear:both;"></div>
-<% @articles.each do |article| %>
-  <div class="post">
-    <h1 class="title"><%= article.title %></h1>
-    <div class="entry">
-      <%= article.description %>
+<% title "Редактировать статьи" %>
+<% content_for :sidebar do %>
+  <%= link_to "Новая статья", new_admin_article_path %>
+<% end %>
+<% content_for :content do %>
 
+    <div class="a_entry">
+      <table width="100%">
+
+        <tr class="t_title">
+          <td>Статья</td>
+          <td>Раздел</td>
+          <td>Дата</td>
+        </tr>
+
+        <% @articles.each do |article| %>
+          <tr class="t_rspan">
+            <td><%= article.title %></td>
+            <td rowspan="2" align="center" class="t_text"><%= article.directory %></td>
+            <td rowspan="2" align="center" class="t_text"><%= l(article.created_at, :format => :my)%></td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "Редактировать", edit_admin_article_path(article), :class => "b_controls" %>
+              <%= link_to "Удалить", admin_article_path(article), :confirm => 'Вы уверены?', :class => "b_controls", :method => :delete %>
+              <%= link_to "Посмотреть", admin_article_path(article), :class => "b_controls" %>
+            </td>
+          </tr>
+
+
+        <%end%>
+      </table>
     </div>
-    <div class="meta">
-      <p class="byline"><%= l(article.created_at, :format => :my) %>
-        (<%= article.directory %>)
-      </p>
-      <p class="links">
-        <%= link_to "Редактировать", edit_admin_article_path(article) %>
-        <%= link_to "Удалить", admin_article_path(article), :confirm => 'Вы уверены?', :method => :delete %>
-      </p>
-    </div>
-  </div>
-<%end%>
 
-<div align="center"> <%= will_paginate @articles %></div>
+    <div align="center"> <%= will_paginate @articles %></div>
 
+<% end %>

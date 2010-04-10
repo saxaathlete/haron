@@ -1,16 +1,20 @@
 <% title "Контакты" %>
-<div style="clear:both;"></div>
-<span style="float: right;"><%= link_to "Новый контакт", new_admin_contact_path %></span>
 
-<% for contact in @contacts %>
+<% content_for :sidebar do %>
+  <span><%= link_to "Новый контакт", new_admin_contact_path %></span>
+<% end %>
+<% content_for :content do %>
 
-  <%= contact.contact %>
-  <div style="clear:both;"></div>
-  <div style="float: right; margin-bottom: 20px;">
-    <%= link_to "Редактировать", edit_admin_contact_path(contact) %>
-    <%= link_to "Удалить", admin_contact_path(contact), :confirm => 'Вы уверены?', :method => :delete %>
-  </div>
-  <div style="clear:both;"></div>
+  <% for contact in @contacts %>
+
+    <%= contact.contact %>
+    <div style="clear:both;"></div>
+    <div style="float: right; margin-bottom: 20px;">
+      <%= link_to "Редактировать", edit_admin_contact_path(contact) %>
+      <%= link_to "Удалить", admin_contact_path(contact), :confirm => 'Вы уверены?', :method => :delete %>
+    </div>
+    <div style="clear:both;"></div>
+  <% end %>
 <% end %>
 
 

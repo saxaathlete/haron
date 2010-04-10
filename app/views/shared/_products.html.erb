@@ -1,51 +1,46 @@
 <% if logged_in? %>
-  <div style="padding-bottom: 10px">
-    <div style="float: left;">
-      <%= link_to 'Добавить категорию', new_admin_product_category_path(:parent_id => @category.id) %>
-      <%= link_to 'Редактировать категорию', edit_admin_product_category_path(@category.id) %>
-      <%= link_to 'Удалить категорию', admin_product_category_path(@category.id), :confirm => 'Вы уверены?', :method => :delete %>
-    </div>
-    <span style="float: right">
-      <%= link_to 'Добавить товар', new_admin_product_path(:parent_id => @category.id) %>
-    </span>
-  </div>
+  <div class="path1"><%=@category.category_name%>&nbsp;<%= link_to 'Добавить категорию', new_admin_product_category_path(:parent_id => @category.id) %>&nbsp;<%= link_to 'Добавить товар', new_admin_product_path(:parent_id => @category.id) %></div>
+
+  <div class="path2"><%= link_to 'Изменить', edit_admin_product_category_path(@category.id) %>&nbsp;<%= link_to 'Удалить', admin_product_category_path(@category.id), :confirm => 'Вы уверены?', :method => :delete %></div>
+  <div style="clear: both;">&nbsp;</div>
+
 <%end%>
+
 <% unless @products.blank? %>
-  <table >
+  <table width="100%" class="none">
     <% @products.each_with_index do |product, index| %>
       <% if index % 3 == 0 or index == 0 %>
-        <tr>
+        <tr class="none">
         <%  end -%>
-        <td valign="top" style="width: 220px">
-          <table width="220px" >
-            <tr>
-              <td valign="top">
+        <td  class="none" valign="top">
+          <table width="100%" class="none">
+            <tr class="c_title">
+              <td class="none">
                 <%=h product.title %>
               </td>
             </tr>
-            <tr>
-              <td colspan="2"><% if product.product_photo_file_name.blank? %>
-                  <%= image_tag "/images/no_photo.jpg",  :size => "100x100", :style => 'border: 1px solid grey;'    %>
-                <% else %>
-                  <%= image_tag product.product_photo.url(:thumb) %>
-                <%end%>
-              </td>
-              <td  >
-                <div><%= product.description %></div>
-              </td>
+            <tr class="none">
+              <td class="none" align ="center"><%= image_tag product.product_photo.url(:thumb) %></td>
+            </tr>
+            <tr class="none">
+              <td valign="top" class="c_discription"><%= product.description %></td>
+            </tr>
+            <tr class="none">
+              <% if logged_in? %>
+                <td align="center" class="none">
+                  <%= link_to "Редактировать", edit_admin_product_path(product), :class => "b_controls" %>&nbsp;
+                  <%= link_to "Удалить", admin_product_path(product), :confirm => 'Вы уверены?', :class => "b_controls", :method => :delete %>
+                </td>
+              <%end%>
             </tr>
           </table>
-          <% if logged_in? %>
-            <%= link_to "Редактировать", edit_admin_product_path(product) %>
-            <%= link_to "Удалить", admin_product_path(product), :confirm => 'Вы уверены?', :method => :delete %>
-          <%end%>
-
         </td>
         <% if index+1 % 2 == 0 and index != 0 %>
         </tr>
       <% end %>
     <% end %>
   </table>
+
   <div style="clear:both;"></div>
   <div align="center"><%= will_paginate @products %></div>
 <%else%>

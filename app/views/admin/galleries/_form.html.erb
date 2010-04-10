@@ -1,17 +1,28 @@
-<% form_for([:admin, @gallery], :html => { :multipart => true}) do |f| %>
-  <%= f.error_messages %><br/>
 
-  
-    <%= f.label :Название %><br />
-    <%= f.text_field :title %><br/>
-  
-    <%= f.label :Описание %><br/>
-    <%= f.text_area :description, :rows => 3, :cols => 40 %><br/>
-  
-    <%= f.label :Изображение%><br />
-    <%= f.file_field :gallery_photo %><br/>
- 
+<% content_for :content do %>
+  <div class="a_entry">
+    <% form_for([:admin, @gallery], :html => { :multipart => true}) do |f| %>
+      <%= f.error_messages %>
 
-  <%= f.submit "Создать" %><br/>
+      <div class="field">
+        <%= f.label :Название %>
+        <%= f.text_field :title, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Описание %>
+        <%= f.text_area :description, :rows => 3, :cols => 40, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Изображение%>
+        <%= f.file_field :gallery_photo, :class => "input" %>
+      </div>
+
+      <%= f.submit "Создать", :class => "button" %>
+
+    <% end %>
+  </div>
 <% end %>
-<%= link_to "Назад", admin_galleries_path %>
+<% content_for :sidebar do %>
+  <%= link_to "Назад", admin_galleries_path %>
+<%end%>
+

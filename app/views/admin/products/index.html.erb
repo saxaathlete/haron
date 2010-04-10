@@ -1,13 +1,22 @@
+<% title "Каталог товаров" %>
+<% content_for :content do %>
+  <div class="a_entry">
+    <div id="product_data">
+    </div>
+    <div style="clear:both;"></div>
 
+    <div id="edit_product">
+    </div>
+  </div>
+<% end %>
 <div id="content" style="width: 670px; border: none;">
   <div id="product_data" style="float:left;width:100%">
   </div>
   <div style="clear:both;"></div>
 
   <div id="edit_product">
-
   </div>
 </div>
-<div id="admin_sidebar">
+<% content_for :sidebar do %>
   <%= render :partial => "shared/full_tree" %>
-</div>
+<% end %>

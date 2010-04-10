@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   @@per_page = 6
 
   belongs_to :product_category
-  has_attached_file :product_photo, :styles => {:small => '250x350>', :thumb => "100x100"}
+  has_attached_file :product_photo, :styles => {:small => '250x350>', :thumb => "200x200"}
 
 
   validates_presence_of :title, :description

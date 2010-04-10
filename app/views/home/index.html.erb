@@ -1,6 +1,9 @@
 <% content_for :title do %>
   Харон - изготовление памятников, венков и ритуальных товаров.
 <% end %>
+<% content_for :header do %>
+  <h1 class="title">Новости</h1>
+<% end %>
 <% content_for :content do %>
   <% @articles.each do |article| %>
     <div class="post">
@@ -11,7 +14,7 @@
       </div>
       <div class="meta">
         <p class="byline"><%= l(article.created_at, :format => :my) %></p>
-        <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => article)%></p>
+        <p class="links"><%= link_to_remote "Читать дальше→",  :url => { :action => "show_article", :id => article}%></p>
       </div>
     </div>
   <%end%>

@@ -1,24 +1,34 @@
-<% form_for([:admin, @product_category], :html => { :multipart => true}) do |f| %>
-  <%= f.error_messages %>
-  <%= hidden_field_tag :parent_id, @category.id %><br/>
-
-  
-    <%= f.label "Родительская категория:"%>
-    <%= h @category.category_name%><br/>
-
-    <%= f.label "Название категории" %><br />
-    <%= f.text_field :category_name%><br/>
- 
-    <%= f.label :Описание %><br />
-    <%= f.text_area :description, :cols => '120', :class => "mceEditor" %><br/>
-
-    <%= f.label :Изображение%><br />
-    <%= f.file_field :category_photo %><br/>
- 
-    <%= f.check_box :show_slide %>
-    <%= f.label "Показывать в слайдах" %><br />
+<% content_for :content do %>
+  <div class="a_entry">
+    <% form_for([:admin, @product_category], :html => { :multipart => true}) do |f| %>
+      <%= f.error_messages %>
+      <%= hidden_field_tag :parent_id, @category.id %>
 
 
-  <%= f.submit "Создать" %><br/>
+      <%= f.label "Родительская категория:"%>
+      <%= h @category.category_name%>
+      <div class="field">
+        <%= f.label "Название категории" %>
+        <%= f.text_field :category_name, :class => "input"%>
+      </div>
+      <div class="field">
+        <%= f.label :Описание %>
+        <%= f.text_area :description, :cols => '120', :class => "mceEditor" %>
+      </div>
+      <div class="field">
+        <%= f.label :Изображение%>
+        <%= f.file_field :category_photo, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.check_box :show_slide %>
+        <%= f.label "Показывать в слайдах" %>
+      </div>
+
+      <%= f.submit "Создать", :class => "button" %>
+    </div>
+  <% end %>
 <% end %>
-<%= link_to "Назад", admin_products_path %>
+<% content_for :sidebar do %>
+  <%= link_to "Назад", admin_products_path %>
+<%end%>
+

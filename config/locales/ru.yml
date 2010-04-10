@@ -109,6 +109,12 @@ ru:
     models:
       order: "Заявка"
       gallery: "Галлерея"
+      product: "Товар"
+      contact: "Контакт"
+      article: "Статья"
+      meny item: "Меню"
+      company information: "О нас"
+      product category: "Категория"
 
     attributes:
       order:
@@ -124,6 +130,23 @@ ru:
         title: "Название"
         description: "Описание"
         gallery_photo_file_name: "Поле фотографии"
+      product_category:
+        category_name: "Название категории"
+        description: "Описание"
+      article:
+        title: "Название"
+        article: "Статья"
+      company_information:
+        information: "Информация о компании"
+      contact:
+        contact: "Контакт"
+      meny_item:
+        name: "Название"
+      product:
+        title: "Название"
+        description: "Описание"
+    
+
 
     # Перевод названий моделей. Используется в Model.human_name().
     #

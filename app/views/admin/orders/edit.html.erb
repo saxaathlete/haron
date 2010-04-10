@@ -1,42 +1,50 @@
-<% form_for ([:admin, @order]) do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :Имя %><br/>
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :Фамилия %><br/>
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :Email %><br/>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :Телефон %><br/>
-    <%= f.text_field :telephone %>
-  </p>
+<% title "Редактирование заказа " + @order.title%>
+<% content_for :content do %>
+  <div class="a_entry">
+    <% form_for ([:admin, @order]) do |f| %>
+      <%= f.error_messages %>
+      <div class="field">
+        <%= f.label :Имя %>
+        <%= f.text_field :first_name, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Фамилия %>
+        <%= f.text_field :last_name, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Email %>
+        <%= f.text_field :email, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Телефон %>
+        <%= f.text_field :telephone, :class => "input" %>
+      </div>
 
-  <p>
-    <%= f.label :Город %><br/>
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :Область %><br/>
-    <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true})%>
-  </p>
-  <p>
-    <%= f.label "Почтовый индес" %><br/>
-    <%= f.text_field :post_index %>
-  </p>
-  <p>
-    <%= f.label :Адрес %><br/>
-    <%= f.text_area :address, :rows => 3, :cols => 40 %>
-  </p>
-  <p>
-    <%= f.label :Сообщение %><br/>
-    <%= f.text_area :message, :rows => 3, :cols => 40 %>
-  </p>
+      <div class="field">
+        <%= f.label :Город %>
+        <%= f.text_field :city, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Область %>
+        <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true}, :class => "select")%>
+      </div>
+      <div class="field">
+        <%= f.label "Почтовый индес" %>
+        <%= f.text_field :post_index, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Адрес %>
+        <%= f.text_area :address, :rows => 3, :cols => 40, :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Сообщение %>
+        <%= f.text_area :message, :rows => 3, :cols => 40, :class => "input" %>
+      </div>
 
-  <p><%= f.submit "Создать" %></p>
+      <%= f.submit "Создать", :class => "button" %>
+    <% end %>
+  </div>
 <% end %>
+<% content_for :sidebar do %>
+  <%= link_to "Назад", admin_orders_path %>
+<%end%>

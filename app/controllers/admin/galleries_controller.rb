@@ -1,5 +1,5 @@
 class Admin::GalleriesController < ApplicationController
-  layout "admin"
+  layout "gallery"
   before_filter :login_required
   def index
     @galleries = Gallery.all

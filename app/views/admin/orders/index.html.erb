@@ -1,28 +1,42 @@
 <% title "Заказы" %>
-<% unless @orders.blank? %>
-  <table id="order_table">
-    <tr>
-      <th>Дата заказа</th>
-      <th>Клиент</th>
-      <th>Сообщение</th>
-    </tr>
-    <% for order in @orders %>
-      <tr>
-        <td><%= l(order.created_at, :format => :my) %></td>
-        <td><%=h order.first_name %> <%=h order.last_name %></td>
-        <td><%=h order.message %></td>
 
+<% content_for :sidebar do %>
 
-        <% if logged_in? %>
-          <td><%= link_to "Подробней", admin_order_path(order) %></td>
-          <td><%= link_to "Редактировать", edit_admin_order_path(order) %></td>
-          <td><%= link_to "Удалить", admin_order_path(order), :confirm => 'Вы уверены?', :method => :delete %></td>
+<% end %>
 
-        <%end%>
-      </tr>
-    <% end %>
-  </table>
-  <div align="center"> <%= will_paginate @orders %></div>
-<%else%>
-  <div id="flash_notice" style="float: right; text-align: center; width: 900px"> Заказов пока нет </div>
-<%end%>
+<% content_for :content do %>
+  <div class="a_entry">
+
+    <% unless @orders.blank? %>
+      <table width="100%">
+        <tr class="t_title">
+          <td >№</td>
+          <td>Клиент</td>
+          <td>Дата</td>
+          <td>Сообщение</td>
+          <td>Управление</td>
+        </tr>
+
+        <%  @orders.each do |order| %>
+          <tr>
+            <td><%=h order.id  %></td>
+            <td><%=h order.first_name %> <%=h order.last_name %></td>
+            <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
+            <td><%=h order.message %></td>
+
+            <td>
+              <%= link_to "Изменить", edit_admin_order_path(order), :class => "b_controls" %>
+              <%= link_to "Удалить", admin_order_path(order), :confirm => 'Вы уверены?', :class => "b_controls", :method => :delete %>
+              <%= link_to "Посмотреть", admin_order_path(order), :class => "b_controls" %>
+            </td>
+
+          </tr>
+        <% end %>
+      </table>
+      <div align="center"> <%= will_paginate @orders %></div>
+    </div>
+
+  <%else%>
+    <div id="flash_notice" style="float: right; text-align: center; width: 900px"> Заказов пока нет </div>
+  <%end%>
+<% end %>

@@ -1,5 +1,58 @@
+
 <% content_for :title do %>
-  Харон.Обратная связь
+  Харон.Оформить заказ
+<% end %>
+<% content_for :header do %>
+  <h1 class="title">Оформить заказ</h1>
+<% end %>
+<% content_for :content do %>
+
+  <% form_for @order, :url => {:action => 'save_order'}  do |f| %>
+    <%= f.error_messages %>
+
+    <div class="field">
+      <%= f.label :Имя %>
+      <%= f.text_field :first_name, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Фамилия %>
+      <%= f.text_field :last_name, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Email %>
+      <%= f.text_field :email, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Телефон %>
+      <%= f.text_field :telephone, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Город %>
+      <%= f.text_field :city, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Область %>
+      <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true}, :class => "select")%>
+    </div>
+    <div class="field">
+      <%= f.label "Почтовый индес" %>
+      <%= f.text_field :post_index, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Адрес %>
+      <%= f.text_area :address, :rows => 3, :cols => 40, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label :Сообщение %>
+      <%= f.text_area :message, :rows => 3, :cols => 40, :class => "input" %>
+    </div>
+    <div class="field">
+      <%= f.label "Введи символы на картинке" %><br/>
+      <img src="/images/captchas/<%= session[:captcha] %>.jpg" />
+      <%= text_field_tag :captcha, nil, :class => "input" %>
+    </div>
+    <%= f.submit "Отправить", :class => "button" %>
+  <% end %>
 <% end %>
 <% content_for :sidebar do %>
   <%= render :partial => "shared/tree_for_users" %>
@@ -11,49 +64,4 @@
   <div id="edit_product">
 
   </div>
-<% end %>
-<% content_for :content do %>
-  <h2>Введите контактную информацию и сообщение</h2>
-  <% form_for @order, :url => {:action => 'save_order'}  do |f| %>
-    <%= f.error_messages %>
-
-
-      <%= f.label :Имя %><br/>
-      <%= f.text_field :first_name %><br/>
-
-  
-      <%= f.label :Фамилия %><br/>
-      <%= f.text_field :last_name %><br/>
-
-    
-      <%= f.label :Email %><br/>
-      <%= f.text_field :email %><br/>
-    
-      <%= f.label :Телефон %><br/>
-      <%= f.text_field :telephone %><br/>
-    
-      <%= f.label :Город %><br/>
-      <%= f.text_field :city %><br/>
-    
-      <%= f.label :Область %><br/>
-      <%= f.select(:region, Order::REGIONS.map{|item| [item, item]}, {:include_blank => true})%><br/>
-    
-      <%= f.label "Почтовый индес" %><br/>
-      <%= f.text_field :post_index %><br/>
-    
-      <%= f.label :Адрес %><br/>
-      <%= f.text_area :address, :rows => 3, :cols => 40 %><br/>
-   
-      <%= f.label :Сообщение %><br/>
-      <%= f.text_area :message, :rows => 3, :cols => 40 %><br/>
-    
-      <%= f.label "Введи символы на картинке" %><br/>
-      <img src="/images/captchas/<%= session[:captcha] %>.jpg" />
-      <%= text_field_tag(:captcha) %><br/>
- 
-
-
-
-   <%= f.submit "Отправить" %>
-  <% end %>
 <% end %>

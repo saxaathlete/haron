@@ -1,15 +1,25 @@
-<% form_for ([:admin, @article])do |f| %>
-  <%= f.error_messages %><br/>
-  
-    <%= f.label :Название %><br/>
-    <%= f.text_field :title %><br/>
- 
-    <%= f.label :Статья %><br />
-    <%= f.text_area :article, :cols => '120', :class => "mceEditor", :name => "content" %><br/>
-  
-    <%= f.label :Рездел %><br />
-    <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}) %><br/>
+<% content_for :content do %>
+  <div class="a_entry">
+    <% form_for ([:admin, @article])do |f| %>
+      <%= f.error_messages %>
+      <div class="field">
+        <%= f.label :Название %>
+        <%= f.text_field :title, :size => "30", :class => "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :Рездел %>
+        <%= f.select(:directory, Article::CATEGORIES.map{|item| [item, item]}, :class => "select") %>
+      </div>
+      <div class="field">
+        <%= f.label :Статья %>
+        <%= f.text_area :article, :cols => '70', :rows => "15", :class => "mceEditor" %>
+      </div>
 
-   <%= f.submit "Создать" %>
+      <%= f.submit "Создать", :class => "button" %>
+
+    <% end %>
+  </div>
 <% end %>
-    <div style="float: right;"><%=link_to "Назад", admin_articles_path %></div>
+<% content_for :sidebar do %>
+  <div><%=link_to "Назад", admin_articles_path %></div>
+<%end%>

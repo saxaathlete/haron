@@ -1,13 +1,44 @@
-<% title "Заказ от " + @order.first_name + " " + @order.last_name   %>
-<% unless @order.blank? %>
-  <%=  @order.address %>
-  <%=  @order.email %>
-  <%=  @order.telephone %>
-  <%=  @order.first_name %>
-  <%=  @order.last_name %>
-  <%=  @order.city %>
-  <%=  @order.region %>
-  <%=  @order.post_index %>
-  <%=  @order.message %>
+<% title "Заказ (подробно) " %>
+<% content_for :content do %>
+  <div class="a_entry">
+    <table width="100%">
+      <tr class="t_title2">
+        <td colspan="2">Информация о заказчике:</td>
+      </tr>
+      <tr>
+        <td class="td_title">ФИО:</td>
+        <td class="td_text">
+          <%=  @order.first_name %><%=  @order.last_name %>
+        </td>
+      </tr>
+      <tr>
+
+        <td class="td_title">E-mail:</td>
+        <td class="td_text"> <%= @order.email %></td>
+      </tr>
+      <tr>
+        <td class="td_title">Тел.:</td>
+        <td class="td_text"> <%= @order.telephone %></td>
+      </tr>
+
+      <tr class="t_title2">
+        <td colspan="2">Доставка:</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="td_text"><%= @order.city %>, обл. <%=  @order.region %>, <%=  @order.post_index %></td>
+      </tr>
+      <tr class="t_title2">
+
+        <td colspan="2">Сообщение:</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td class="td_text"><%= @order.message %></td>
+      </tr>
+    </table>
+  </div>
+<% end %>
+<% content_for :sidebar do %>
+  <div><%= link_to "Назад", admin_orders_path %></div>
 <%end%>
-<div style="float: right;"><%= link_to "Назад", admin_orders_path %></div>

@@ -1,8 +1,13 @@
-<% form_for @meny_item, :url => { :action => 'update'} do |f|%>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :Название %><br />
-    <%= f.text_field :name %>
-  </p>
-  <%= f.submit "Создать" %>
+<% title "Редактирование меню" %>
+<% content_for :content do %>
+  <div class="a_entry">
+    <% form_for @meny_item, :url => { :action => 'update'} do |f|%>
+      <%= f.error_messages %>
+      <div class="field">
+        <%= f.label :Название %>
+        <%= f.text_field :name, :class => "input" %>
+      </div>
+      <%= f.submit "Создать", :class => "button" %>
+    <%end%>
+  </div>
 <%end%>

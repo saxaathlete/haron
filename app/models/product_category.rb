@@ -12,6 +12,8 @@ class ProductCategory < ActiveRecord::Base
   has_many :sub_categories, :class_name => "ProductCategory", :foreign_key => "parent_id", :order => "category_name ASC", :dependent => :delete_all
   belongs_to :parent_category, :class_name => "ProductCategory", :foreign_key => "parent_id"
 
+  validates_presence_of :category_name, :description
+
   named_scope :by_monuments, lambda {
     {:conditions => ["category_type = ?", Type::MONUMENTS ]}
   }

@@ -166,45 +166,47 @@
 <% content_for :title do %>
   Харон.Галлерея
 <% end %>
-<div id="gallery_wrapper">
-  <div id="thumbs" class="navigation">
-    <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-    <ul class="thumbs noscript">
-      <%  @galleries.each do |photo| %>
-        <li>
-          <%= link_to(image_tag(photo.gallery_photo.url(:thumb)), photo.gallery_photo.url(:small), :class => "thumb") %>
-          <div class="caption">
-            <div class="image-title"><%= photo.title %></div>
-            <div class="image-desc"><%= photo.description %></div>
-          </div>
-        </li>
-      <%end%>
-    </ul>
+<% content_for :gallery do %>
+  <div id="gallery_wrapper">
+    <div id="thumbs" class="navigation">
+      <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
+      <ul class="thumbs noscript">
+        <%  @galleries.each do |photo| %>
+          <li>
+            <%= link_to(image_tag(photo.gallery_photo.url(:thumb)), photo.gallery_photo.url(:small), :class => "thumb") %>
+            <div class="caption">
+              <div class="image-title"><%= photo.title %></div>
+              <div class="image-desc"><%= photo.description %></div>
+            </div>
+          </li>
+        <%end%>
+      </ul>
 
-    <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
-
-  </div>
-
-  <div  class="content">
-    <div class="slideshow-container">
-
-      <div id="loading" class="loader"></div>
-      <div id="slideshow" class="slideshow"></div>
-
-      <div id="caption" class="caption-container"></div>
-    </div>
-
-  </div>
-  <div class="clear"></div>
-
-
-  <div id="captionToggle">
-    <a href="#toggleCaption" class="off" title="Показать описание"><%= image_tag("discription.gif", :alt => "Описание") %></a>
-
-    <div id="controls" class="controls">
+      <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
 
     </div>
 
-  </div>
+    <div  class="content">
+      <div class="slideshow-container">
 
-</div>
+        <div id="loading" class="loader"></div>
+        <div id="slideshow" class="slideshow"></div>
+
+        <div id="caption" class="caption-container"></div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+
+
+    <div id="captionToggle">
+      <a href="#toggleCaption" class="off" title="Показать описание"><%= image_tag("discription.gif", :alt => "Описание") %></a>
+
+      <div id="controls" class="controls">
+
+      </div>
+
+    </div>
+
+  </div>
+<% end %>

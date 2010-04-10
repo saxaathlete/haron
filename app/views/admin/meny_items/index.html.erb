@@ -1,8 +1,14 @@
-<% title "Главное меню" %>
+<% title "Меню" %>
 
-<div style="padding-bottom: 20px;">
-  <% for meny_item in @meny_items %>
-    <span ><%= meny_item.name %> <%= link_to "Edit", edit_admin_meny_item_path(meny_item) %></span><br/>
-  <% end %>
+<% content_for :sidebar do %>
 
-</div>
+<% end %>
+<% content_for :content do %>
+
+  <div style="padding-bottom: 20px;">
+    <% for meny_item in @meny_items %>
+      <span ><%= meny_item.name %> <%= link_to "Edit", edit_admin_meny_item_path(meny_item) %></span><br/>
+    <% end %>
+
+  </div>
+<% end %>

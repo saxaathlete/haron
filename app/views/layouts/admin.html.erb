@@ -4,7 +4,8 @@
   <head>
     <title><%= h(yield(:title) || "Харон") %></title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon_new.ico" />
-    <%= stylesheet_link_tag 'default.css' %>
+
+    <%= stylesheet_link_tag 'admin.css' %>
 
     <%= javascript_include_tag 'jquery.js' %>
 
@@ -17,59 +18,45 @@
     <%= javascript_include_tag "startstop-slider.js" %>
 
     <%= javascript_include_tag 'jquery.galleriffic.js' %>
+    <%= javascript_include_tag 'jquery.galleriffic.js' %>
 
 
     <%= include_tiny_mce_if_needed %>
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="logo-wrap">
-
-      <%= render :partial => 'shared/main_many' %>
+    <div id="a_menu_wrap">
+      <div id="a_menu">
+        <%= render :partial => 'shared/main_many' %>
+      </div>
     </div>
 
-    <div id="admin_header"> </div>
+    <div id="a_header">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+    </div>
 
-    <div id="wrapper">
-      <div id="wrapper-btm">
-        <div id="page">
-          <div id="admin_content">
-            <div id="small_admin_content">
-              <%- flash.each do |name, msg| -%>
-                <%= content_tag :div, msg, :id => "flash_#{name}" %>
-              <%- end -%>
-            </div>
+    <div id="a_wrapper">
+      <div id="a_page">
+        <div id="a_content">
+          <div class="a_post">
             <%- if show_title? -%>
-              <h1><%=h yield(:title) %></h1>
+              <h1 class="a_title"><%=h yield(:title) %></h1>
             <%- end -%>
 
-            <%= yield %>
+            <%= yield(:content) %>
 
           </div>
-          <div style="clear:both;"></div>
-
         </div>
-      </div>
-    </div>
-    <!-- start footer -->
-    <div id="footer">
-      <div id="footer-wrap" style="width: 680px;">
-        <div id="admin_menu-f">
-
-          <ul>
-            <% app_menu.each do |item|%>
-              <%if item[:controller].to_s == controller.controller_path.to_s%>
-                <li class="current_page_item"><%= link_to  item[:name], eval(item[:path]) %></li>
-              <%else%>
-                <li><%= link_to  item[:name], eval(item[:path]) %></li>
-              <%end%>
-            <%end%>
-          </ul>
-
+        <div id="a_sidebar">
+          <%= yield(:sidebar) %>
         </div>
-        <p id="legal">(c) 2010 Харон.</p>
+
+        <div style="clear: both;">&nbsp;</div>
+ 
       </div>
+
     </div>
-    <!-- end footer -->
   </body>
 </html>

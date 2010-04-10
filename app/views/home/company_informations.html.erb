@@ -1,6 +1,14 @@
 <% content_for :title do %>
   Харон.О нас
 <% end %>
+<% content_for :header do %>
+  <h1 class="title">Информация о компании</h1>
+<% end %>
+<% content_for :content do %>
+  <% @company_informations.each do |company_information| %>
+    <%= company_information.information %>
+  <%end%>
+<% end %>
 <% content_for :sidebar do %>
   <%= render :partial => "shared/tree_for_users" %>
 
@@ -11,9 +19,4 @@
   <div id="edit_product">
 
   </div>
-<% end %>
-<% content_for :content do %>
-  <% @company_informations.each do |company_information| %>
-    <%= company_information.information %>
-  <%end%>
 <% end %>

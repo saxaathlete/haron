@@ -19,15 +19,7 @@
 .tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { text-decoration: underline; }
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 
-.tree-apple li a.clicked, .tree-apple li a.clicked:hover, .tree-apple li span.clicked {
-    -moz-background-inline-policy:continuous;
-    -moz-background-origin:padding;
-    background:#FFFFFF  none repeat scroll 0 0;
-    border:1px solid #FFFFFF ;
-    padding:0 3px;
-    border-right-width: 0px;
-    padding-right: 0px;
-}
+
 /* ICONS */
 
 .tree-apple ul li a.loading ins { background-image:url("throbber.gif") !important; background-position:0 0 !important; } /* UL is added to make selector stronger */
@@ -48,6 +40,7 @@
     text-transform:lowercase;
     margin-left: -17px;
     margin-bottom: 20px !important;
+    z-index: 3;
 
 }
 .bottom_node {

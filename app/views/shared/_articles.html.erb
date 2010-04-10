@@ -1,0 +1,15 @@
+<% @articles.each do |article| %>
+  <div class="post">
+    <h1 class="title"><%= article.title %></h1>
+    <div class="entry">
+      <%= article.description %>
+
+    </div>
+    <div class="meta">
+      <p class="byline"><%= l(article.created_at, :format => :my) %></p>
+      <p class="links"><%= link_to_remote "Читать дальше→",  :url => { :action => "show_article", :id => article}%></p>
+    </div>
+  </div>
+<%end%>
+<div style="clear:both;"></div>
+<div align="center"> <%= will_paginate @articles %></div>

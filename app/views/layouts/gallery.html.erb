@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "Харон") %></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon_new.ico" />
+
+    <%= stylesheet_link_tag 'admin.css' %>
+
+    <%= javascript_include_tag 'jquery.js' %>
+
+    <script language="JavaScript">
+      var $j = jQuery.noConflict();
+    </script>
+    <%= javascript_include_tag 'prototype.js' %>
+
+
+    <%= javascript_include_tag "startstop-slider.js" %>
+
+    <%= javascript_include_tag 'jquery.galleriffic.js' %>
+    <%= javascript_include_tag 'jquery.galleriffic.js' %>
+
+
+    <%= include_tiny_mce_if_needed %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="a_menu_wrap">
+      <div id="a_menu">
+        <%= render :partial => 'shared/main_many' %>
+      </div>
+    </div>
+
+    <div id="a_header">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+    </div>
+
+    <div id="a_wrapper">
+      <div id="a_page">
+        <div id="g_content">
+          <%= yield %>
+          <div style="clear: both;">&nbsp;</div>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

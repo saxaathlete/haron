@@ -4,8 +4,12 @@ class HomeController < ApplicationController
 
 
   def index
-    @company_informations = CompanyInformation.all
     @articles = Article.by_news.paginate :page => params[:page], :order => 'created_at DESC'
+    if request.xhr?
+      render :update do |page|
+        page['content'].replace_html :partial => 'shared/articles'
+      end
+    end
   end
 
   def funerals
@@ -90,6 +94,9 @@ class HomeController < ApplicationController
 
   def show_article
     @article = Article.find(params[:id])
+    render :update do |page|
+      page['content'].replace_html :partial => 'shared/article'
+    end
   end
   
   protected
