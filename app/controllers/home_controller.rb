@@ -55,6 +55,7 @@ class HomeController < ApplicationController
 
   def gallery
     @galleries = Gallery.all
+    render :layout => "layouts/user_gallery"
   end
 
   def contacts

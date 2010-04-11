@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-15727809-1");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+    <title><%= h(yield(:title) || "Харон") %></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon_new.ico" />
+    <%= stylesheet_link_tag 'default.css' %>
+
+    <%= javascript_include_tag 'jquery.js' %>
+    <script language="JavaScript">
+      var $j = jQuery.noConflict();
+    </script>
+    <%= javascript_include_tag 'prototype.js' %>
+
+
+    <%= javascript_include_tag "startstop-slider.js" %>
+
+    <%= javascript_include_tag 'jquery.galleriffic.js' %>
+
+
+    <%= include_tiny_mce_if_needed %>
+    <%= yield(:head) %>
+
+  </head>
+  <body>
+    <div id="logo-wrap">
+      <div id="logo">
+        <%= link_to((image_tag "/images/logo_haron.jpg", :alt => "Харон - специализированная похоронная служба"), home_index_path) %>
+      </div>
+      <%= render :partial => 'shared/main_many' %>
+    </div>
+
+    <div id="header">
+      <div id="slider">
+        <div id="mover">
+          <% @categories.each do |category| %>
+            <div id="slide-1" class="slide">
+              <% if category.category_type == "Funerals" %>
+                <h1><%= link_to(category.category_name, funerals_home_path(:parent_id => category.id), :class => "slide_title") %></h1>
+              <% else %>
+                <h1><%= link_to(category.category_name, monuments_home_path(:parent_id => category.id), :class => "slide_title") %></h1>
+              <% end %>
+              <% if category.category_type == "Funerals" %>
+                <%= link_to(image_tag(category.category_photo.url(:small), :alt => category.category_name), funerals_home_path(:parent_id => category.id)) %>
+              <% else %>
+                <%= link_to(image_tag(category.category_photo.url(:small), :alt => category.category_name), monuments_home_path(:parent_id => category.id)) %>
+              <% end %>
+
+              <%= category.description %>
+            </div>
+          <%  end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="wrapper-btm">
+        <div id="page">
+
+  
+
+
+            <%= yield :header %>
+
+            <%- flash.each do |name, msg| -%>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <%- end -%>
+            <%= yield  %>
+
+
+        </div>
+
+
+        <div style="clear:both;"></div>
+
+      </div>
+    </div>
+    </div>
+    <!-- start footer -->
+    <div id="footer">
+      <div id="footer-wrap">
+        <div id="menu-f">
+          <ul>
+            <% @meny_items.each do |meny_item| %>
+              <% if controller.action_name == meny_item.action.to_s  %>
+                <li class="current_page_item"><%= link_to  meny_item.name, :controller => meny_item.controller, :action => meny_item.action %> </li>
+              <%else%>
+                <li><%= link_to  meny_item.name, :controller => meny_item.controller, :action => meny_item.action %> </li>
+              <%end%>
+            <%end%>
+          </ul>
+        </div>
+        <p id="legal">(c) 2010 Харон.</p>
+      </div>
+    </div>
+    <!-- end footer -->
+  </body>
+</html>

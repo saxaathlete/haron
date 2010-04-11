@@ -1,4 +1,4 @@
-<% title "Редактирование заказа " + @order.title%>
+<% title "Редактирование заказа " + @order.id.to_s%>
 <% content_for :content do %>
   <div class="a_entry">
     <% form_for ([:admin, @order]) do |f| %>

@@ -11,8 +11,8 @@
 .tree-apple .no_dots, .tree-apple .no_dots ul { background:transparent; }
 .tree-apple .no_dots li.leaf { background-image:none; background-color:transparent; }
 /* OPEN or CLOSED */
-.tree-apple li.open { background:url("icons.png") -32px -48px no-repeat; }
-.tree-apple li.closed, #jstree-dragged.tree-apple li li.open { background:url("icons.png") -48px -32px no-repeat; }
+.tree-apple li.open { background:url("icons.png") -32px -48px no-repeat; z-index: -10; }
+.tree-apple li.closed, #jstree-dragged.tree-apple li li.open { background:url("icons.png") -48px -32px no-repeat; z-index: -10;}
 #jstree-marker { background-image:url("icons.png"); }
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 .tree-apple li a, .tree-apple li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
@@ -40,7 +40,7 @@
     text-transform:lowercase;
     margin-left: -17px;
     margin-bottom: 20px !important;
-    z-index: 3;
+    z-index: 30;
 
 }
 .bottom_node {
@@ -50,4 +50,8 @@
     text-transform:lowercase;
 
 
+}
+.inner-box, b {
+    background-color:#000000;
+    z-index: 20;
 }

@@ -13,13 +13,13 @@
       </div>
       <div class="field">
         <%= f.label :Описание %>
-        <%= f.text_area :description, :cols => '120', :class => "mceEditor" %>
+        <%= f.text_area :description, :cols => '70', :rows => "15", :class => "mceEditor" %>
       </div>
       <div class="field">
         <%= f.label :Изображение%>
         <%= f.file_field :category_photo, :class => "input" %>
       </div>
-      <div class="field">
+      <div style="margin-bottom: 1.5em">
         <%= f.check_box :show_slide %>
         <%= f.label "Показывать в слайдах" %>
       </div>
