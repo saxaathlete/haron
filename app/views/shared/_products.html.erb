@@ -5,6 +5,9 @@
   <div style="clear: both;">&nbsp;</div>
 
 <%end%>
+<% unless logged_in? %>
+  <%=@category.category_name%>&nbsp;
+<% end %>
 
 <% unless @products.blank? %>
   <table width="100%" class="none">

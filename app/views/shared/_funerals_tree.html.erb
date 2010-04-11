@@ -18,6 +18,11 @@
           {
             $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
           }
+        },
+        onload: function(NODE){
+          $j.each($j(".open[rel='root']"), function(){
+            $j(this).css("background", "transparent");
+          });
         }
       },
       data :{
@@ -44,6 +49,11 @@
           {
             $j.getScript("/home/show_product_table?parent_id=" + NODE.id)
           }
+        },
+        onload: function(NODE){
+          $j.each($j(".open[rel='root']"), function(){
+            $j(this).css("background", "transparent");
+          });
         }
       },
       data :{

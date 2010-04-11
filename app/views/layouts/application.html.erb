@@ -73,7 +73,7 @@
           </div>
           <div id="content">
 
-            <div class="post">
+            <div class="post" id="post">
               <%= yield :header %>
               <div class="entry">
                 <%- flash.each do |name, msg| -%>
@@ -83,6 +83,7 @@
 
               </div>
             </div>
+            <div id="article"></div>
           </div>
 
           <%= yield  %>

@@ -7,7 +7,9 @@ class HomeController < ApplicationController
     @articles = Article.by_news.paginate :page => params[:page], :order => 'created_at DESC'
     if request.xhr?
       render :update do |page|
-        page['content'].replace_html :partial => 'shared/articles'
+        page['post'].show
+        page['article'].hide
+
       end
     end
   end
@@ -22,6 +24,13 @@ class HomeController < ApplicationController
       @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
     else
       @funerals_news = Article.by_funerals.paginate :page => params[:page], :order => 'created_at DESC'
+      if request.xhr?
+        render :update do |page|
+          page['post'].show
+          page['article'].hide
+
+        end
+      end
     end
   end
 
@@ -43,6 +52,13 @@ class HomeController < ApplicationController
       @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
     else
       @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'
+      if request.xhr?
+        render :update do |page|
+          page['post'].show
+          page['article'].hide
+
+        end
+      end
     end
   end
 
@@ -96,7 +112,9 @@ class HomeController < ApplicationController
   def show_article
     @article = Article.find(params[:id])
     render :update do |page|
-      page['content'].replace_html :partial => 'shared/article'
+      page['post'].hide
+      page['article'].show
+      page['article'].replace_html :partial => 'shared/article'
     end
   end
   

@@ -19,7 +19,7 @@
             </div>
             <div class="meta">
               <p class="byline"><%= l(funerals_news.created_at, :format => :my) %></p>
-              <p class="links"><%= link_to "Читать дальше→",  show_article_home_path( :id => funerals_news)%></p>
+              <p class="links"><%= link_to_remote "Читать дальше→",  :url => { :action => "show_article", :id => funerals_news}%></p>
             </div>
           </div>
         <%end%>
