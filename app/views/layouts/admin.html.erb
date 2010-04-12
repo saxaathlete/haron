@@ -3,25 +3,22 @@
 <html>
   <head>
     <title><%= h(yield(:title) || "Харон") %></title>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon_new.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
-    <%= stylesheet_link_tag 'admin.css' %>
 
-    <%= javascript_include_tag 'jquery.js' %>
-
-    <script language="JavaScript">
-      var $j = jQuery.noConflict();
-    </script>
     <%= javascript_include_tag 'prototype.js' %>
-
+    <%= include_tiny_mce_if_needed %>
 
     <%= javascript_include_tag "startstop-slider.js" %>
-
+    <%= javascript_include_tag 'jquery.js' %>
     <%= javascript_include_tag 'jquery.galleriffic.js' %>
     <%= javascript_include_tag 'jquery.galleriffic.js' %>
+    <%= stylesheet_link_tag 'admin.css' %>
 
+        <script language="JavaScript">
+      var $j = jQuery.noConflict();
+    </script>
 
-    <%= include_tiny_mce_if_needed %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -54,7 +51,7 @@
         </div>
 
         <div style="clear: both;">&nbsp;</div>
- 
+
       </div>
 
     </div>

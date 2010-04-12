@@ -6,10 +6,19 @@ require 'tiny_mce/spell_checker'
 require 'tiny_mce/helpers'
 
 module TinyMCE
+  def self.initialize
+    return if @intialized
+    raise "ActionController is not available yet." unless defined?(ActionController)
+    ActionController::Base.send(:include, TinyMCE::Base)
+    ActionController::Base.send(:helper, TinyMCE::Helpers)
+    TinyMCE.install_or_update_tinymce
+    @intialized = true
+  end
+
   def self.install_or_update_tinymce
     require 'fileutils'
     orig = File.join(File.dirname(__FILE__), 'tiny_mce', 'assets', 'tiny_mce')
-    dest = File.join(RAILS_ROOT, 'public', 'javascripts', 'tiny_mce')
+    dest = File.join(Rails.root.to_s, 'public', 'javascripts', 'tiny_mce')
     tiny_mce_js = File.join(dest, 'tiny_mce.js')
 
     unless File.exists?(tiny_mce_js) && FileUtils.identical?(File.join(orig, 'tiny_mce.js'), tiny_mce_js)
@@ -46,7 +55,7 @@ module TinyMCE
       end
     end
 
-    tiny_mce_yaml_filepath = File.join(RAILS_ROOT, 'config', 'tiny_mce.yml')
+    tiny_mce_yaml_filepath = File.join(Rails.root.to_s, 'config', 'tiny_mce.yml')
     unless File.exists?(tiny_mce_yaml_filepath)
       File.open(tiny_mce_yaml_filepath, 'w') do |f|
         f.puts '# Here you can specify default options for TinyMCE across all controllers'
@@ -65,14 +74,10 @@ module TinyMCE
   end
 end
 
-# Load up the available configuration options (we do it here because
-# the result doesn't, so we don't want to load it per request)
-TinyMCE::Configuration.load_valid_options
-
-# Include the TinyMCE methods and TinyMCE Helpers into ActionController::Base
-
-if defined?(Rails) && defined?(ActionController)
-  ActionController::Base.send(:include, TinyMCE::Base)
-  ActionController::Base.send(:helper, TinyMCE::Helpers)
-  TinyMCE.install_or_update_tinymce
+# Finally, lets include the TinyMCE base and helpers where
+# they need to go (support for Rails 2 and Rails 3)
+if defined?(Rails::Railtie)
+  require 'tiny_mce/railtie'
+else
+  TinyMCE.initialize
 end

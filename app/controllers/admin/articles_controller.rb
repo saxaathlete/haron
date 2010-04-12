@@ -18,7 +18,6 @@ class Admin::ArticlesController < ApplicationController
     :theme_advanced_toolbar_location => "top"
   }
 
-
   def index
     @articles = Article.paginate :page => params[:page], :order => 'created_at DESC'
   end

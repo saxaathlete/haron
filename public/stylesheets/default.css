@@ -502,7 +502,7 @@ html>body #footer {
 }
 
 .inner-box,b {
-    background-color: #000;
+    background: none;
 }
 
 #rounded-box-3, #rounded-box-5, #rounded-box-10 { margin:1em; }

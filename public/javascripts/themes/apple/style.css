@@ -11,7 +11,7 @@
 .tree-apple .no_dots, .tree-apple .no_dots ul { background:transparent; }
 .tree-apple .no_dots li.leaf { background-image:none; background-color:transparent; }
 /* OPEN or CLOSED */
-.tree-apple li.open { background:url("icons.png") -32px -48px no-repeat; z-index: -10; }
+.tree-apple li.open { background:url("icons.png") -32px -48px no-repeat;}
 .tree-apple li.closed, #jstree-dragged.tree-apple li li.open { background:url("icons.png") -48px -32px no-repeat; z-index: -10;}
 #jstree-marker { background-image:url("icons.png"); }
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
@@ -38,7 +38,7 @@
     height:32px;
     margin-bottom:10px;
     text-transform:lowercase;
-    margin-left: -17px;
+
     margin-bottom: 20px !important;
 
 
@@ -51,7 +51,6 @@
 
 
 }
-.inner-box, b {
+.inner-box {
     background-color:#000000;
-    z-index: 20;
 }
