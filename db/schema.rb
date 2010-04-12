@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100403172513) do
+ActiveRecord::Schema.define(:version => 20100412134357) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20100403172513) do
     t.string   "city"
     t.string   "region"
     t.string   "post_index"
-    t.string   "status",     :default => "Новый заказ"
+    t.string   "status",      :default => "Новый заказ"
     t.text     "message"
+    t.string   "middle_name"
   end
 
   create_table "product_categories", :force => true do |t|

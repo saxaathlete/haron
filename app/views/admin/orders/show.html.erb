@@ -8,7 +8,7 @@
       <tr>
         <td class="td_title">ФИО:</td>
         <td class="td_text">
-          <%=  @order.first_name %><%=  @order.last_name %>
+          <%=  @order.first_name %> <%=  @order.middle_name %> <%=  @order.last_name %>
         </td>
       </tr>
       <tr>
@@ -26,7 +26,7 @@
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="td_text"><%= @order.city %>, обл. <%=  @order.region %>, <%=  @order.post_index %></td>
+        <td class="td_text"><%= @order.city %>, обл. <%=  @order.region %>, <%=  @order.post_index %>, <%= @order.address %></td>
       </tr>
       <tr class="t_title2">
 

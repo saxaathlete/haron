@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :find_category, :only => [:funerals, :momuments, :show_product_table, :show_funerals,
+  before_filter :find_category, :only => [:funerals, :monuments, :show_product_table, :show_funerals,
     :show_monuments]
 
 
@@ -19,16 +19,17 @@ class HomeController < ApplicationController
       render :update do |page|
         page.redirect_to funerals_home_path
       end
-    end
-    unless @category.blank?
-      @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
     else
-      @funerals_news = Article.by_funerals.paginate :page => params[:page], :order => 'created_at DESC'
-      if request.xhr?
-        render :update do |page|
-          page['post'].show
-          page['article'].hide
+      unless @category.blank?
+        @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
+      else
+        @funerals_news = Article.by_funerals.paginate :page => params[:page], :order => 'created_at DESC'
+        if request.xhr?
+          render :update do |page|
+            page['post'].show
+            page['article'].hide
 
+          end
         end
       end
     end
@@ -47,16 +48,16 @@ class HomeController < ApplicationController
       render :update do |page|
         page.redirect_to monuments_home_path
       end
-    end
-    unless @category.blank?
-      @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
     else
-      @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'
-      if request.xhr?
-        render :update do |page|
-          page['post'].show
-          page['article'].hide
-
+           unless @category.blank?
+        @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
+      else
+        @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'
+        if request.xhr?
+          render :update do |page|
+            page['post'].show
+            page['article'].hide
+          end
         end
       end
     end

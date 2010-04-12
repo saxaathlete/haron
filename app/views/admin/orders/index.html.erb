@@ -20,7 +20,7 @@
         <%  @orders.each do |order| %>
           <tr>
             <td><%=h order.id  %></td>
-            <td><%=h order.first_name %> <%=h order.last_name %></td>
+            <td><%=h order.first_name %> <%=h order.middle_name %> <%=h order.last_name %></td>
             <td><%= order.created_at.strftime("%d.%m.%Y") %></td>
             <td><%=h order.message %></td>
 

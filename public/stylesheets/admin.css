@@ -170,8 +170,7 @@ img.right {
 #a_sidebar {
     float: left;
     width: 210px;
-    padding: 15px 0 0 30px;
-    padding-right: 10px;
+    padding: 15px 15px 0 15px;
     border-right: 1px dashed #333333;
     min-height: 550px;/* FF, Opera, IE7 */
     height:expression(this.scrollHeight < 550? "550px" : "auto" ); /* IE 5 - IE 6 */

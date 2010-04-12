@@ -1,9 +1,15 @@
 <% unless @order.blank? %>
-  <%=  @order.address %>
-  <%=  @order.email %>
-  <%=  @order.telephone %>
-  <%=  @order.city %>
-  <%=  @order.region %>
-  <%=  @order.post_index %>
-  <%=  @order.message %>
+  Анатолий Затынацкий, Вам пришлел заказ:
+  <p>
+    Заказчик: <%=h @order.first_name %> <%=h @order.middle_name %> <%=h @order.last_name %>
+    E-mail: <%=  @order.email %>
+    Тел.: <%=  @order.telephone %>
+    Адрес: <%= @order.city %>, обл. <%=  @order.region %>, <%=  @order.post_index %>, <%= @order.address %>
+    Сообщение: <%= @order.message %>
+    Дата поступления: <%= @order.created_at.strftime("%d.%m.%Y") %>
+  </p>
+
+  <b> Ждем ответа от Вас</b>
+  <p> Сайт haron.com.ua</p>
+
 <%end%>

@@ -6,10 +6,10 @@
 <% end %>
 <% content_for :content do %>
   <div id="product_data" style="float:left;width:100%">
-    <%  unless @category.blank? %>
+    <% unless @category.blank? %>
       <%= render :partial => 'shared/products' %>
-    <% else %>
-      <%unless @monuments_news.blank?%>
+    <%else%>
+      <%  unless @monuments_news.blank? %>
         <% @monuments_news.each do |monuments_news| %>
           <div class="post">
             <h1 class="title"><%= monuments_news.title %></h1>
@@ -26,7 +26,6 @@
         <div align="center"><%= will_paginate @monuments_news %></div>
       <%end%>
     <%end%>
-
   </div>
 <% end %>
 

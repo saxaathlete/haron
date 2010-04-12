@@ -1,0 +1,70 @@
+  [4;36;1mSQL (31.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (18.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (268.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (129.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100225100057)
+Migrating to CreateArticles (20100225130704)
+Migrating to CreateMenyItems (20100225183950)
+Migrating to AddActionAndControllerToMenyItems (20100225201451)
+Migrating to CreateProductCategories (20100226194900)
+Migrating to CreateFunerals (20100226201518)
+Migrating to CreateMonuments (20100226201542)
+Migrating to AddAttachmentsPhotoToFuneral (20100304083311)
+Migrating to RemovePolimorphism (20100304171026)
+Migrating to AddAttachmentsPhotoToProductCategory (20100305192101)
+Migrating to CreateProducts (20100306121753)
+Migrating to CreateCompanyInformations (20100306153452)
+Migrating to CreateContacts (20100306153832)
+Migrating to CreateSessions (20100311111856)
+Migrating to CreateOrders (20100322113351)
+Migrating to CreateLineItems (20100322113531)
+Migrating to ChangeOrderColumnTypeAddNewColumn (20100323045634)
+Migrating to AddTotalToOrders (20100323085956)
+Migrating to AddStatusToOrder (20100323093807)
+Migrating to CreateGalleries (20100323150135)
+Migrating to CreateSectionDescriptions (20100331132341)
+Migrating to AddCategoryToSectionDescription (20100402073655)
+Migrating to DeleteTableSectionDescriptions (20100402100945)
+Migrating to AddDescriptionToProductCategories (20100402101245)
+Migrating to AddCategoryToActicles (20100402144238)
+Migrating to AddDescriptionToOrder (20100402153728)
+Migrating to AddDecriptionToGallery (20100403083143)
+Migrating to DeleteFuneralsAndMonuments (20100403165008)
+Migrating to DeleteLineItems (20100403165906)
+Migrating to RemovePriceAndArtnoFrom (20100403172513)
+Migrating to AddMiddleNameToOrders (20100412134357)
+  [4;36;1mSQL (392.4ms)[0m   [0;1mALTER TABLE `orders` ADD `middle_name` varchar(255)[0m
+  [4;35;1mSQL (62.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100412134357')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `articles`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `articles`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `company_informations`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `company_informations`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW KEYS FROM `company_informations`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `contacts`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `contacts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `contacts`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `galleries`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `galleries`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `galleries`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `meny_items`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `meny_items`[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mSHOW KEYS FROM `meny_items`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `orders`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `orders`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `product_categories`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `product_categories`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `product_categories`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `products`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `products`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW FIELDS FROM `sessions`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `sessions`[0m
+  [4;35;1mSQL (12.6ms)[0m   [0mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `users`[0m

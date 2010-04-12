@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   domain_tld_regex  = '(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)'.freeze
   email_regex       = /\A#{email_name_regex}@#{domain_head_regex}#{domain_tld_regex}\z/i
 
-  validates_presence_of     :first_name, :last_name, :address, :email, :telephone, :city, :region, :post_index, :message
+  validates_presence_of     :first_name, :last_name, :address, :email, :telephone, :city, :region, :post_index, :message, :middle_name
   validates_numericality_of :telephone, :post_index
   validates_length_of       :email,  :within => 6..100 #r@a.wk
   validates_format_of       :email,  :with => email_regex, :message => bad_email_message
