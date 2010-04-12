@@ -6,7 +6,6 @@
   </div>
   <div class="meta">
     <p class="byline"><%= l(@article.created_at, :format => :my) %></p>
-
+    <p class="links"><%= link_to_remote "Назад", :url => {:action => 'index'}, :method => :get %></p>
   </div>
 </div>
-<p class="links"><%= link_to_remote "Назад", :url => {:action => 'index'}, :method => :get %></p>
