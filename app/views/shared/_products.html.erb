@@ -1,12 +1,12 @@
 <% if logged_in? %>
-  <div class="path1"><%=@category.category_name%>&nbsp;<%= link_to 'Добавить категорию', new_admin_product_category_path(:parent_id => @category.id) %>&nbsp;<%= link_to 'Добавить товар', new_admin_product_path(:parent_id => @category.id) %></div>
+<div class="path1"><font class="c_path"><%=@category.category_name%>:&nbsp;</font><%= link_to 'Добавить категорию', new_admin_product_category_path(:parent_id => @category.id) %>&nbsp;<%= link_to 'Добавить товар', new_admin_product_path(:parent_id => @category.id) %></div>
 
   <div class="path2"><%= link_to 'Изменить', edit_admin_product_category_path(@category.id) %>&nbsp;<%= link_to 'Удалить', admin_product_category_path(@category.id), :confirm => 'Вы уверены?', :method => :delete %></div>
   <div style="clear: both;">&nbsp;</div>
 
 <%end%>
 <% unless logged_in? %>
-  <%=@category.category_name%>&nbsp;
+  <font class="c_path"><%=@category.category_name%>&nbsp;</font>
 <% end %>
 
 <% unless @products.blank? %>
@@ -17,16 +17,16 @@
         <%  end -%>
         <td  class="none" valign="top">
           <table width="100%" class="none">
-            <tr class="c_title">
-              <td class="none">
-                <%=h product.title %>
+            <tr class="none">
+              <td class="none" align="center">
+                <font class="c_title"><%=h product.title %></font>
               </td>
             </tr>
             <tr class="none">
               <td class="none" align ="center"><%= image_tag product.product_photo.url(:thumb) %></td>
             </tr>
             <tr class="none">
-              <td valign="top" class="c_discription"><%= product.description %></td>
+              <td align="center" class="none" ><font class="c_discription"><%= product.description %></font></td>
             </tr>
             <tr class="none">
               <% if logged_in? %>

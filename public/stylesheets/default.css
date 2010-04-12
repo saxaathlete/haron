@@ -9,14 +9,14 @@ body {
 
 h1, h2, h3 {
     margin: 0;
-    text-transform: lowercase;
+    text-transform: none;
     font-weight: normal;
     color: #48ACDE;
 }
 
 h1 {
     letter-spacing: -1px;
-    font-size: 32px;
+    font-size: 28px;
 }
 
 h2 {
@@ -597,6 +597,12 @@ html>body #footer {
     font-size: 12px;
     list-style: disc;
 }
+.entry .title{
+   
+    text-transform: lowercase;
+    font-size: 24px;
+    color: #ffffff;
+}
 .entry p {
     margin: 0 0 2em 0;
     text-align: justify;
@@ -674,6 +680,13 @@ td.none {
     padding: 1px;
     -moz-border-radius: 0px;
 }
+td.none p{
+    margin: 0 0 10px 0;
+    padding: 0 5px;
+    text-align: center;
+    line-height: 12px;
+
+}
  tr.none {
     border-width: 0px;
     padding: 0px;
@@ -710,19 +723,17 @@ td.none {
 
 }
 .c_title {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    letter-spacing: -1px;
+
     color: #48ACDE;
     text-align: center;
 
 }
 .c_discription{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    letter-spacing: -1px;
-    font-style: oblique;
-    text-align: center !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-align: center;
 }
 
 .t_title2 {
@@ -746,4 +757,9 @@ td.none {
 .t_text {
     line-height: normal;
     color: #999999;
+}
+.c_path{
+    color: #DADADA;
+    font-size:18px;
+    padding-left: 20px;
 }

@@ -5,19 +5,22 @@
     <title><%= h(yield(:title) || "Харон") %></title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
+    <%= javascript_include_tag 'jquery.js' %>
+    <script language="JavaScript">
+      var $j = jQuery.noConflict();
+    </script>
 
-    <%= javascript_include_tag 'prototype.js' %>
-    <%= include_tiny_mce_if_needed %>
+
 
     <%= javascript_include_tag "startstop-slider.js" %>
-    <%= javascript_include_tag 'jquery.js' %>
+
     <%= javascript_include_tag 'jquery.galleriffic.js' %>
     <%= javascript_include_tag 'jquery.galleriffic.js' %>
     <%= stylesheet_link_tag 'admin.css' %>
+    <%= javascript_include_tag 'prototype.js' %>
+    <%= include_tiny_mce_if_needed %>
 
-        <script language="JavaScript">
-      var $j = jQuery.noConflict();
-    </script>
+
 
     <%= yield(:head) %>
   </head>

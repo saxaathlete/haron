@@ -241,18 +241,16 @@ img.right {
 
 }
 .c_title {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    letter-spacing: -1px;
+
     color: #48ACDE;
     text-align: center;
 
 }
 .c_discription{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    letter-spacing: -1px;
-    font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     text-align: center;
 }
 
@@ -394,4 +392,8 @@ input.text, input.password, textarea {border: 1px solid #444; padding: 2px;}
 
 #g_content{
     padding: 0px 35px;
+}
+.c_path{
+    color: #DADADA;
+    font-size:18px;
 }
