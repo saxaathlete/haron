@@ -16,7 +16,7 @@
 #jstree-marker { background-image:url("icons.jpg"); }
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 .tree-apple li a, .tree-apple li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
-.tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { text-decoration: underline; }
+.tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { color: #ffffff; }
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 
 
