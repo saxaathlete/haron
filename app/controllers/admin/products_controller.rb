@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
   layout "admin"
   before_filter :login_required, :only => [:index, :show, :new, :create, :edit, :update, :destroy, :show_product_table]
-  before_filter :find_category, :only => [:new, :create, :edit, :update, :show_product_table]
+  before_filter :find_category, :only => [:index, :new, :create, :edit, :update, :show_product_table, :destroy]
   uses_tiny_mce :only => [:new, :create, :edit, :update],
     :options => {
     :theme => 'advanced',
@@ -19,7 +19,9 @@ class Admin::ProductsController < ApplicationController
   }
 
   def index
-    
+    unless @category.blank?
+      @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
+    end
   end
 
   def show
@@ -36,7 +38,7 @@ class Admin::ProductsController < ApplicationController
     @product.category_type = @category.category_type
     if @product.save
       flash[:notice] = "Товар успешно добавлен"
-      redirect_to admin_products_url
+      redirect_to admin_products_url(:parent_id => @category.id)
     else
       render :action => 'new'
     end
@@ -51,7 +53,7 @@ class Admin::ProductsController < ApplicationController
 
     if @product.update_attributes(params[:product])
       flash[:notice] = "Товар #{@product.title}, успешно обновлен"
-      redirect_to admin_products_url
+      redirect_to admin_products_url(:parent_id => @category.id)
     else
       render :action => 'edit'
     end
@@ -61,7 +63,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.destroy
       flash[:notice] = "Товар удален"
-      redirect_to admin_products_url
+      redirect_to admin_products_url(:parent_id => @category.id)
     else
       flash[:error] = "При удалении товара возникли ошибки"
       redirect_to admin_products_url
@@ -86,6 +88,7 @@ class Admin::ProductsController < ApplicationController
   protected
   def find_category
     @category = ProductCategory.find_by_id params[:parent_id].to_i
+    p @category
   end
 
 

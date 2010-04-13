@@ -13,6 +13,7 @@ class ProductCategory < ActiveRecord::Base
   belongs_to :parent_category, :class_name => "ProductCategory", :foreign_key => "parent_id"
 
   validates_presence_of :category_name, :description
+  validates_uniqueness_of :category_name
 
   named_scope :by_monuments, lambda {
     {:conditions => ["category_type = ?", Type::MONUMENTS ]}

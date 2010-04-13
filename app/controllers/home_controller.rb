@@ -49,7 +49,7 @@ class HomeController < ApplicationController
         page.redirect_to monuments_home_path
       end
     else
-           unless @category.blank?
+      unless @category.blank?
         @products = Product.paginate :conditions => ["product_category_id IN(?)", @category.all_sub_categories_ids], :page => params[:page], :order => "created_at DESC"
       else
         @monuments_news = Article.by_monuments.paginate :page => params[:page], :order => 'created_at DESC'

@@ -31,8 +31,8 @@
             <tr class="none">
               <% if logged_in? %>
                 <td align="center" class="none">
-                  <%= link_to "Редактировать", edit_admin_product_path(product), :class => "b_controls" %>&nbsp;
-                  <%= link_to "Удалить", admin_product_path(product), :confirm => 'Вы уверены?', :class => "b_controls", :method => :delete %>
+                  <%= link_to "Редактировать", edit_admin_product_path(product, :parent_id => @category.id), :class => "b_controls" %>&nbsp;
+                  <%= link_to "Удалить", admin_product_path(product, :parent_id => @category.id), :confirm => 'Вы уверены?', :class => "b_controls", :method => :delete %>
                 </td>
               <%end%>
             </tr>
