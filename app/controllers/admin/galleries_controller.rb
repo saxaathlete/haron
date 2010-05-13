@@ -7,6 +7,7 @@ class Admin::GalleriesController < ApplicationController
 
   def new
     @gallery = Gallery.new
+    render :layout => "layouts/admin"
   end
 
   def create
@@ -21,6 +22,7 @@ class Admin::GalleriesController < ApplicationController
 
   def edit
     @gallery = Gallery.find(params[:id])
+    render :layout => "layouts/admin"
   end
 
   def update
