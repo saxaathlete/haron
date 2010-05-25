@@ -2007,7 +2007,7 @@
 						var attr = {};
 						attr["href"] = "";
 						attr["style"] = "";
-						attr["class"] = "";
+						attr["class"] = "tree_h";
 						if((typeof data.data.attributes).toLowerCase() != "undefined") {
 							for(var i in data.data.attributes) {
 								if(!data.data.attributes.hasOwnProperty(i)) continue;
