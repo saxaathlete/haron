@@ -287,10 +287,10 @@ This only matters if JS is OFF, otherwise JS sets this. */
 
 .slide p {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    color: #999;
+    color: #fff;
     font-size: 16px;
     line-height: 22px;
-    width: 500px;
+    width: 600px;
     padding-left: 250px;
     font-style:oblique;
 }
