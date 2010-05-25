@@ -416,9 +416,7 @@ This only matters if JS is OFF, otherwise JS sets this. */
 
 	color: #fff;
 }
-#sidebar a:hover {
-	background: url(/images/s_b.jpg) no-repeat top;
-}
+
 
 
 /* Search */

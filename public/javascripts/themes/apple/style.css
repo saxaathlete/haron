@@ -1,6 +1,9 @@
 /* BACKGROUND */
 
 .tree-apple .ltr > li.leaf, .tree-apple .rtl > li.leaf { background-image:none; }
+li.leaf a:hover { background: url(/images/s_b.jpg) no-repeat top;}
+li.leaf a:active { background: url(/images/s_b.jpg) no-repeat bottom;}
+
 
 /* LOCKED */
 .tree-apple .locked li a { color:gray; }
@@ -17,7 +20,7 @@
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 .tree-apple li a, .tree-apple li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
 .tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { color: #ffffff; }
-.tree-apple li a.clicked { background: url(/images/s_b.jpg) no-repeat bottom;}
+.tree-apple li a.clicked {}
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 
 
@@ -44,16 +47,13 @@
 
 
 }
+.top_node .tree_h a:hover{
+    background:none;
+}
 .tree_h a:hover{
     background:none;
 }
-.tree_h a:active{
-    background:none;
-}
 a.tree_h hover{
-    background:none;
-}
-a.tree_h active{
     background:none;
 }
 .top_node a {
