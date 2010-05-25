@@ -150,7 +150,7 @@ input, textarea, select {
 }
 #gall{ 
 	
-	width: 82px; height: 27px; background: url(images/buttons_09.jpg) no-repeat top;
+	width: 82px; height: 27px; background: url(/images/buttons_09.jpg) no-repeat top;
 }
 #gall:active {
 	background: url(/images/buttons_09.jpg) no-repeat bottom;
