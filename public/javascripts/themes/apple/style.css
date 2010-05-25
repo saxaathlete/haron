@@ -44,7 +44,16 @@
 
 
 }
-.tree_h {
+.tree_h a:hover{
+    background:none;
+}
+.tree_h a:active{
+    background:none;
+}
+a.tree_h hover{
+    background:none;
+}
+a.tree_h active{
     background:none;
 }
 .top_node a {
