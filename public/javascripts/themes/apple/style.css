@@ -17,6 +17,7 @@
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 .tree-apple li a, .tree-apple li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
 .tree-apple li a:hover, .tree-apple li a.hover, .tree-apple li span { color: #ffffff; }
+.tree-apple li a.clicked { background: url(/images/s_b.jpg) no-repeat bottom;}
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
 
 
@@ -42,6 +43,15 @@
     margin-bottom: 20px !important;
 
 
+}
+.top_node a {
+    background:none;
+}
+.top_node a:hover {
+    background:none;
+}
+.top_node a:active {
+    background:none;
 }
 .bottom_node {
     font-size:16px;

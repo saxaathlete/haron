@@ -419,9 +419,7 @@ This only matters if JS is OFF, otherwise JS sets this. */
 #sidebar a:hover {
 	background: url(/images/s_b.jpg) no-repeat top;
 }
-#sidebar a:active {
-	background: url(/images/s_b.jpg) no-repeat bottom;
-}
+
 
 /* Search */
 

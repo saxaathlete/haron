@@ -63,7 +63,7 @@ class ProductCategory < ActiveRecord::Base
     unless categories.blank?
       categories.each do |c|
         tree << { :attributes => { :id => c.id, :rel => 'root' },
-          :data => { :title => %Q!<b class='top_node'>#{c.category_name}</b>! },
+          :data => { :title => %Q!<font class='top_node'>#{c.category_name}</font>! },
           :state => c.sub_categories.blank? ? "" : "open",
           :children => c.subcategories
         }
