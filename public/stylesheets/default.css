@@ -107,37 +107,68 @@ input, textarea, select {
 	background: url(/images/menu_img.png) no-repeat left top;
 }
 
-#menu  ul {
-    margin: 0;
-    padding: 0px 0 0 0px;
-    list-style: none;
-    line-height: normal;
+#menu ul {
+	margin: 0;
+	padding: 0px 0 0 0px;
+	list-style: none;
+	line-height: normal;
 }
 
 #menu li {
-    display: block;
-    float: left;
+	
+	float: left;
 }
 
 #menu a {
-    display: block;
-    float: left;
-    margin-right: 3px;
-    padding: 10px 20px;
-    text-decoration: none;
-    font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
-    color: #FFFFFF;
+	float: left;
+	margin-right: 3px;
+	margin: 11px 15px 10px 0px;
+	text-decoration: none;
+	font: 13px Tahoma, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
 }
-
-#menu a:hover { 
-    text-decoration: none;
-    color: #48ACDE;
+#news{ 
+	
+	width: 82px; height: 27px; background: url(/images/buttons_03.jpg) no-repeat top;
 }
-
-#menu .current_page_item a {
-    color: #48ACDE;
+#news:active {
+	background: url(/images/buttons_03.jpg) no-repeat bottom;
 }
-
+#ritual{ 
+	
+	width: 144px; height: 27px; background: url(/images/buttons_05.jpg) no-repeat top;
+}
+#ritual:active {
+	background: url(/images/buttons_05.jpg) no-repeat bottom;
+}
+#pam{ 
+	
+	width: 97px; height: 27px; background: url(/images/buttons_07.jpg) no-repeat top;
+}
+#pam:active {
+	background: url(/images/buttons_07.jpg) no-repeat bottom;
+}
+#gall{ 
+	
+	width: 82px; height: 27px; background: url(images/buttons_09.jpg) no-repeat top;
+}
+#gall:active {
+	background: url(images/buttons_09.jpg) no-repeat bottom;
+}
+#cont{ 
+	
+	width: 89px; height: 27px; background: url(/images/buttons_11.jpg) no-repeat top;
+}
+#cont:active {
+	background: url(/images/buttons_11.jpg) no-repeat bottom;
+}
+#abou{ 
+	
+	width: 64px; height: 27px; background: url(/images/buttons_13.jpg) no-repeat top;
+}
+#abou:active {
+	background: url(/images/buttons_13.jpg) no-repeat bottom;
+}
 #menu-f {
     margin: 0 auto;
     width: 650px;
