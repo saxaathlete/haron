@@ -1,7 +1,7 @@
 
 body {
     padding: 0;
-    background: url("images/background.gif") repeat scroll 0 0 #242424;
+    background: url("/images/background.gif") repeat scroll 0 0 #242424;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #BBBBBB;
@@ -104,7 +104,7 @@ input, textarea, select {
 	height: 54px;
 	padding-left: 10px;
 	margin-top: 45px;
-	background: url(images/menu_img.png) no-repeat left top;
+	background: url(/images/menu_img.png) no-repeat left top;
 }
 
 #menu  ul {
@@ -236,11 +236,11 @@ input, textarea, select {
 	width: 980px;
 	margin: 0 auto;
 	padding-top: 12px;
-	background: url(images/img02.png) no-repeat left top;
+	background: url(/images/img02.png) no-repeat left top;
 }
 
 #wrapper-btm {
-	background: url(images/img03.png) no-repeat left bottom;
+	background: url(/images/img03.png) no-repeat left bottom;
 	padding-bottom: 20px;
 }
 
@@ -248,7 +248,7 @@ input, textarea, select {
 /* Page */
 
 #page {
-	background: url(images/img04.png) repeat;
+	background: url(/images/img04.png) repeat;
 	width: 980px;
 	margin: 0 auto;
 	min-height: 550px;/* FF, Opera, IE7 */
@@ -417,10 +417,10 @@ This only matters if JS is OFF, otherwise JS sets this. */
 	color: #fff;
 }
 #sidebar a:hover {
-	background: url(images/s_b.jpg) no-repeat top;
+	background: url(/images/s_b.jpg) no-repeat top;
 }
 #sidebar a:active {
-	background: url(images/s_b.jpg) no-repeat bottom;
+	background: url(/images/s_b.jpg) no-repeat bottom;
 }
 
 /* Search */
