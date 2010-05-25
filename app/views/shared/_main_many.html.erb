@@ -15,13 +15,13 @@
 <%else%>
   <div id="menu">
     <ul>
- <%= link_to("",:controller => @meny_items[0].controller, :action => @meny_items[0].action, html => {:id => "news"}) %>
-<%= link_to("",:controller => @meny_items[1].controller, :action => @meny_items[1].action, html => {:id => "ritual"}) %>
-<%= link_to("", :controller => @meny_items[2].controller, :action => @meny_items[2].action, html => {:id => "pam"}) %>
+ <%= link_to("",:controller => @meny_items[0].controller, :action => @meny_items[0].action, :html => {:id => "news"}) %>
+<%= link_to("",:controller => @meny_items[1].controller, :action => @meny_items[1].action, :html => {:id => "ritual"}) %>
+<%= link_to("", :controller => @meny_items[2].controller, :action => @meny_items[2].action, :html => {:id => "pam"}) %>
 
-<%= link_to("", :controller => @meny_items[3].controller, :action => @meny_items[3].action, html => {:id => "gall"}) %>
-<%= link_to( "",:controller => @meny_items[4].controller, :action => @meny_items[4].action, html => {:id => "cont"}) %>
-<%= link_to( "",:controller => @meny_items[5].controller, :action => @meny_items[5].action, html => {:id => "abou"}) %>
+<%= link_to("", :controller => @meny_items[3].controller, :action => @meny_items[3].action, :html => {:id => "gall"}) %>
+<%= link_to( "",:controller => @meny_items[4].controller, :action => @meny_items[4].action, :html => {:id => "cont"}) %>
+<%= link_to( "",:controller => @meny_items[5].controller, :action => @meny_items[5].action, :html => {:id => "abou"}) %>
       
       <li style="float: right;"> <%= link_to  "Обратная связь", checkout_home_path %> </li>
 
