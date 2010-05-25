@@ -15,13 +15,14 @@
 <%else%>
   <div id="menu">
     <ul>
-      <% @meny_items.each do |meny_item| %>
-        <% if controller.action_name == meny_item.action.to_s  %>
-          <li class="current_page_item"><%= link_to  meny_item.name, :controller => meny_item.controller, :action => meny_item.action %> </li>
-        <%else%>
-          <li><%= link_to  meny_item.name, :controller => meny_item.controller, :action => meny_item.action %> </li>
-        <%end%>
-      <%end%>
+ <%= link_to("",:controller => @meny_item[0].controller, :action => @meny_item[0].action, :id => "news") %>
+<%= link_to("",:controller => @meny_item[1].controller, :action => @meny_item[1].action, :id => "ritual") %>
+<%= link_to("", :controller => @meny_item[2].controller, :action => @meny_item[2].action, :id => "pam") %>
+
+<%= link_to("", :controller => @meny_item[3].controller, :action => @meny_item[3].action, :id => "gall") %>
+<%= link_to( "",:controller => @meny_item[4].controller, :action => @meny_item[4].action, :id => "cont") %>
+<%= link_to( "",:controller => @meny_item[5].controller, :action => @meny_item[5].action, :id => "abou") %>
+      
       <li style="float: right;"> <%= link_to  "Обратная связь", checkout_home_path %> </li>
 
     </ul>

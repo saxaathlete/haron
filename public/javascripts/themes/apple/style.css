@@ -2,7 +2,7 @@
 
 .tree-apple .ltr > li.leaf, .tree-apple .rtl > li.leaf { background-image:none; }
 li.leaf a:hover { background: url(/images/s_b.jpg) no-repeat top;}
-li.leaf a:active { background: url(/images/s_b.jpg) no-repeat bottom;}
+li.leaf a:clicked { background: url(/images/s_b.jpg) no-repeat bottom;}
 
 
 /* LOCKED */
