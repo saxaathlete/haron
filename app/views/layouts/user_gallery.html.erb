@@ -35,7 +35,7 @@
   <body>
     <div id="logo-wrap">
       <div id="logo">
-        <%= link_to((image_tag "/images/logo_haron.jpg", :alt => "Харон - специализированная похоронная служба"), home_index_path) %>
+        <%= link_to((image_tag "/images/logo_haron.png", :alt => "Харон - специализированная похоронная служба"), home_index_path) %>
       </div>
       <%= render :partial => 'shared/main_many' %>
     </div>
@@ -68,25 +68,21 @@
       <div id="wrapper-btm">
         <div id="page">
 
-  
 
 
-            <%= yield :header %>
 
-            <%- flash.each do |name, msg| -%>
-              <%= content_tag :div, msg, :id => "flash_#{name}" %>
-            <%- end -%>
-            <%= yield  %>
+          <%= yield :header %>
 
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <%- end -%>
+          <%= yield  %>
 
+          <div style="clear:both;"></div>
         </div>
-
-
-        <div style="clear:both;"></div>
-
       </div>
     </div>
-    </div>
+
     <!-- start footer -->
     <div id="footer">
       <div id="footer-wrap">
