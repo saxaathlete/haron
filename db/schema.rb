@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20100412134357) do
     t.text     "article"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "directory",  :default => "Новости", :null => false
+    t.string   "directory",  :default => "Новост\320\270", :null => false
   end
 
   create_table "company_informations", :force => true do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20100412134357) do
     t.string   "city"
     t.string   "region"
     t.string   "post_index"
-    t.string   "status",      :default => "Новый заказ"
+    t.string   "status",      :default => "Новый зака\320\267"
     t.text     "message"
     t.string   "middle_name"
   end
@@ -91,6 +91,18 @@ ActiveRecord::Schema.define(:version => 20100412134357) do
     t.integer  "product_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "section_descriptions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "section_photo_file_name"
+    t.string   "section_photo_content_type"
+    t.integer  "section_photo_file_size"
+    t.datetime "section_photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "category",                   :null => false
   end
 
   create_table "sessions", :force => true do |t|
