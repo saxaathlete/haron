@@ -105,6 +105,8 @@ input, textarea, select {
     padding-left: 10px;
     margin-top: 55px;
     background: url(/images/menu_img.png) no-repeat left top;
+    position:absolute;
+    left:300px;
 }
 
 #menu ul {
@@ -220,13 +222,18 @@ input, textarea, select {
 
 #logo-wrap {
     width:960px;
+    height:150px;
     margin: 0 auto;
+    position:relative;
 }
+
 #logo {
     width: 226px;
     height: 90px;
-    margin-top: 9px;
+    margin-top:9px;
     float:left;
+    position:absolute;
+
 
 }
 
@@ -804,4 +811,17 @@ tr {
     color: #DADADA;
     font-size:18px;
     padding-left: 20px;
+}
+#feedback {
+    position:absolute;
+    top: 100px;
+    right: 25px;
+}
+#feedback  a{
+
+    height:55px;
+    width: 150px;
+    float:right;
+    background: url(images/feedback.png) no-repeat left top;
+
 }
