@@ -822,6 +822,6 @@ tr {
     height:55px;
     width: 150px;
     float:right;
-    background: url(images/feedback.png) no-repeat left top;
+    background: url(/images/feedback.png) no-repeat left top;
 
 }
