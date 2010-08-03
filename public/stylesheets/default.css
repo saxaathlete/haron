@@ -99,75 +99,75 @@ input, textarea, select {
 
 
 #menu {
-	float: right;
-	width: 655px;
-	height: 54px;
-	padding-left: 10px;
-	margin-top: 45px;
-	background: url(/images/menu_img.png) no-repeat left top;
+    float: right;
+    width: 655px;
+    height: 54px;
+    padding-left: 10px;
+    margin-top: 55px;
+    background: url(/images/menu_img.png) no-repeat left top;
 }
 
 #menu ul {
-	margin: 0;
-	padding: 0px 0 0 0px;
-	list-style: none;
-	line-height: normal;
+    margin: 0;
+    padding: 0px 0 0 0px;
+    list-style: none;
+    line-height: normal;
 }
 
 #menu li {
-	
-	float: left;
+
+    float: left;
 }
 
 #menu a {
-	float: left;
-	margin-right: 3px;
-	margin: 11px 15px 10px 0px;
-	text-decoration: none;
-	font: 13px Tahoma, Arial, Helvetica, sans-serif;
-	color: #FFFFFF;
+    float: left;
+    margin-right: 3px;
+    margin: 11px 15px 10px 0px;
+    text-decoration: none;
+    font: 13px Tahoma, Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
 }
 #news{ 
-	
-	width: 82px; height: 27px; background: url(/images/buttons_03.jpg) no-repeat top;
+
+    width: 82px; height: 27px; background: url(/images/buttons_03.jpg) no-repeat top;
 }
 #news:active {
-	background: url(/images/buttons_03.jpg) no-repeat bottom;
+    background: url(/images/buttons_03.jpg) no-repeat bottom;
 }
 #ritual{ 
-	
-	width: 144px; height: 27px; background: url(/images/buttons_05.jpg) no-repeat top;
+
+    width: 144px; height: 27px; background: url(/images/buttons_05.jpg) no-repeat top;
 }
 #ritual:active {
-	background: url(/images/buttons_05.jpg) no-repeat bottom;
+    background: url(/images/buttons_05.jpg) no-repeat bottom;
 }
 #pam{ 
-	
-	width: 97px; height: 27px; background: url(/images/buttons_07.jpg) no-repeat top;
+
+    width: 97px; height: 27px; background: url(/images/buttons_07.jpg) no-repeat top;
 }
 #pam:active {
-	background: url(/images/buttons_07.jpg) no-repeat bottom;
+    background: url(/images/buttons_07.jpg) no-repeat bottom;
 }
 #gall{ 
-	
-	width: 82px; height: 27px; background: url(/images/buttons_09.jpg) no-repeat top;
+
+    width: 82px; height: 27px; background: url(/images/buttons_09.jpg) no-repeat top;
 }
 #gall:active {
-	background: url(/images/buttons_09.jpg) no-repeat bottom;
+    background: url(/images/buttons_09.jpg) no-repeat bottom;
 }
 #cont{ 
-	
-	width: 89px; height: 27px; background: url(/images/buttons_11.jpg) no-repeat top;
+
+    width: 89px; height: 27px; background: url(/images/buttons_11.jpg) no-repeat top;
 }
 #cont:active {
-	background: url(/images/buttons_11.jpg) no-repeat bottom;
+    background: url(/images/buttons_11.jpg) no-repeat bottom;
 }
 #abou{ 
-	
-	width: 64px; height: 27px; background: url(/images/buttons_13.jpg) no-repeat top;
+
+    width: 64px; height: 27px; background: url(/images/buttons_13.jpg) no-repeat top;
 }
 #abou:active {
-	background: url(/images/buttons_13.jpg) no-repeat bottom;
+    background: url(/images/buttons_13.jpg) no-repeat bottom;
 }
 #menu-f {
     margin: 0 auto;
@@ -225,7 +225,7 @@ input, textarea, select {
 #logo {
     width: 226px;
     height: 90px;
-    margin: 20px;
+    margin-top: 9px;
     float:left;
 
 }
@@ -264,27 +264,27 @@ input, textarea, select {
 #logo p a:hover { text-decoration: underline; }
 
 #wrapper {
-	width: 980px;
-	margin: 0 auto;
-	padding-top: 12px;
-	background: url(/images/img02.png) no-repeat left top;
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 12px;
+    background: url(/images/img02.png) no-repeat left top;
 }
 
 #wrapper-btm {
-	background: url(/images/img03.png) no-repeat left bottom;
-	padding-bottom: 20px;
+    background: url(/images/img03.png) no-repeat left bottom;
+    padding-bottom: 20px;
 }
 
 
 /* Page */
 
 #page {
-	background: url(/images/img04.png) repeat;
-	width: 980px;
-	margin: 0 auto;
-	min-height: 550px;/* FF, Opera, IE7 */
-	height:expression(this.scrollHeight < 550? "550px" : "auto" ); /* IE 5 - IE 6 */
-	
+    background: url(/images/img04.png) repeat;
+    width: 980px;
+    margin: 0 auto;
+    min-height: 550px;/* FF, Opera, IE7 */
+    height:expression(this.scrollHeight < 550? "550px" : "auto" ); /* IE 5 - IE 6 */
+
 }
 
 #slider { 
@@ -417,7 +417,7 @@ This only matters if JS is OFF, otherwise JS sets this. */
     float: left;
     width: 210px;
     padding-left: 30px;
-    
+
 }
 
 #sidebar ul {
@@ -445,7 +445,7 @@ This only matters if JS is OFF, otherwise JS sets this. */
 }
 #sidebar a {
 
-	color: #fff;
+    color: #fff;
 }
 
 
@@ -594,7 +594,7 @@ html>body #footer {
 #flash_notice {
     background-color: #CFC;
     border: solid 1px #6C6;
-    
+
 }
 
 #flash_error {
@@ -640,7 +640,7 @@ html>body #footer {
     list-style: disc;
 }
 .entry .title{
-   
+
     text-transform: lowercase;
     font-size: 24px;
     color: #ffffff;
@@ -670,9 +670,9 @@ html>body #footer {
     padding: 0 35px;
 }
 .clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
+    clear: both;
+    height: 0;
+    overflow: hidden;
 }
 
 /* First, some basic resets, body styles, etc. */
@@ -711,7 +711,7 @@ input.text, input.password, textarea {border: 1px solid #444; padding: 2px;}
 }
 form .field, form .buttons {clear: both; margin: 0 0 1.5em;}
 form .field label {display: block;}
- table.none{
+table.none{
     border-width: 0px;
     border-spacing: 0px;
     border-collapse: collapse;
@@ -729,19 +729,19 @@ td.none p{
     line-height: 12px;
 
 }
- tr.none {
+tr.none {
     border-width: 0px;
     padding: 0px;
     -moz-border-radius: 0px;
 }
- table{
+table{
     border-width: 1px;
     border-spacing: 0px;
     border-style: dashed ;
     border-color: #333333;
     border-collapse: collapse;
 }
- td {
+td {
     margin: 0 auto;
     border-width: 1px;
     padding: 1px;
@@ -749,7 +749,7 @@ td.none p{
     border-color: #333333;
     -moz-border-radius: 0px;
 }
- tr {
+tr {
     border-width: 1px;
     padding: 0px;
     border-style: dashed;
